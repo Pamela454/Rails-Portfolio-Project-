@@ -1,0 +1,2 @@
+class Physician < User
+end
