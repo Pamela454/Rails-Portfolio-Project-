@@ -15,4 +15,8 @@ class UsersController < ApplicationController
       'patient'
     end
   end
+
+  def user_params
+    params.require(set_type.to_sym).permit(:first_name, :last_name, :password_digest, :user_type, :email)
+  end
 end
