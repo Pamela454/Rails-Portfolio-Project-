@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def home
-    binding.pry
+  
   end
 
   private
@@ -22,4 +22,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:first_name, :last_name, :password_digest, :user_type, :email).permit(:npi, :specialty)
   end
-end      permit and require
+end
