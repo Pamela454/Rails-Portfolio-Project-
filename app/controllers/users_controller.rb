@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
 
+  def home
+    binding.pry
+  end
 
   private
 
@@ -17,6 +20,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(set_type.to_sym).permit(:first_name, :last_name, :password_digest, :user_type, :email)
+    params.require(:first_name, :last_name, :password_digest, :user_type, :email).permit(:npi, :specialty)
   end
-end
+end      permit and require

@@ -3,7 +3,7 @@ class Physician < User
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true
-  validates :npi, presence: true
+  validates :npi, presence: true length: { minimum: 10 }
   validates :specialty, presence: true
 
 #validations specific to this model
