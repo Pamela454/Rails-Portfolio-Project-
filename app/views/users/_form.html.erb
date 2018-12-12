@@ -1,0 +1,24 @@
+<%= form_with model: @user do |f| %>
+<% binding.pry %>
+<div class="form-group">
+    <%= f.label :npi %>
+    <br>
+    <%= f.number_field :npi, class: "form-control" %>
+  </div><br>
+
+  <div class="form-group">
+    <%= f.label :specialty %>
+    <br>
+    <%= f.text_field :specialty, class: "form-control" %>
+  </div><br>
+
+  <div class="form-group">
+    <%= f.label :user_type, "Physician or Patient User" %>
+    <br>
+    <%= f.text_field :user_type, class: "form-control" %>
+  </div><br>
+
+  <div class="actions"> <!-- uses update post -->
+    <%= f.submit class: "btn btn-primary" %>
+  </div><br>
+<% end %>

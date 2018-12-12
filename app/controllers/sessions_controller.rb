@@ -10,9 +10,8 @@ class SessionsController < ApplicationController
       @user = User.find_or_create_by(uid: auth['uid']) do |u|
       u.name = auth['info']['name'] #facebook exposes users name and password in API
       u.email = auth['info']['email']    #password?
-      u.user_type = params[:user_type]
       u.password_digest = SecureRandom.urlsafe_base64.to_s    #password?
-    end #needs to raise an error for the user if unable to validate user 
+    end #needs to raise an error for the user if unable to validate user
 
     @user.save
 
