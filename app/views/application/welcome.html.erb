@@ -1,9 +1,8 @@
-<% if session[:user_id] %>
-  <h2>Email: <%= @user.email %></h2>
-  <h2>Facebook UID: <%= @user.uid %></h2>
-  <img src="<%= @user.image %>">
-<% else %>
-<%= link_to('Log in with Facebook!', '/auth/facebook') %>
-<%= link_to('Set Up a New Account as a User', 'users/home') %>
-<%= link_to('Set Up a New Account as a Physician', 'physicians/home') %>
+<%= form_with url: '/sessions/:id', method: :delete do |f| %>
+  <%= f.submit "Logout" %><br>
 <% end %>
+
+
+<%= link_to('Log in with Facebook!', '/auth/facebook') %><br><br>
+<%= link_to('Set Up a New Account as a User', 'users/home') %><br><br>
+<%= link_to('Set Up a New Account as a Physician', 'physicians/home') %>

@@ -1,11 +1,13 @@
 class UsersController < ApplicationController  #
+#need helper method?
 
   def home  #displays option to log in
 
   end
 
   def show  #directs to users show page. Can view messages sent and respond
-    @user = User.find(params[:user_id])
+    @user = User.find(params[:id])
+    
   end
 
   def new  #directs to page to create new user
@@ -20,7 +22,6 @@ class UsersController < ApplicationController  #
       else
         render :new
       end
-    end
   end
 
   def edit   #directs to page to edit user information
@@ -28,7 +29,7 @@ class UsersController < ApplicationController  #
 
   def update  #edit user info
     @user.update(user_params)
-    redirect_to @user 
+    redirect_to @user
   end
 
   private

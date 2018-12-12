@@ -6,12 +6,16 @@ class SessionsController < ApplicationController
   end
 
   def create #creates a new session, authenticates user
-    if auth
-      binding.pry
+    if auth #any edge cases created with two different user types?, will only be able to login through facebook
       @user = User.find_or_create_by(uid: auth['uid']) do |u|
-      u.name = auth['info']['name']
+      u.name = auth['info']['name'] #facebook exposes users name and password in API
       u.email = auth['info']['email']    #password?
-    end
+      u.user_type = params[:user_type]
+      u.password_digest = SecureRandom.urlsafe_base64.to_s    #password?
+    end #needs to raise an error for the user if unable to validate user 
+
+    @user.save
+
   	session[:user_id] = @user.id
 
   	redirect_to @user
