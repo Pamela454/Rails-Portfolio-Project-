@@ -3,6 +3,14 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.3.3'
 
+gem 'thin'
+
+gem 'dotenv-rails'
+
+gem 'omniauth'
+
+gem 'omniauth-facebook' #provider allowed to authenticate user 
+
 gem 'activerecord'
 
 gem 'standalone_migrations'

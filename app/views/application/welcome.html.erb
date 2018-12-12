@@ -1,10 +1,9 @@
 <% if session[:user_id] %>
-  <h1><%= @user.name %></h1>
   <h2>Email: <%= @user.email %></h2>
   <h2>Facebook UID: <%= @user.uid %></h2>
   <img src="<%= @user.image %>">
 <% else %>
-
 <%= link_to('Log in with Facebook!', '/auth/facebook') %>
-
+<%= link_to('Set Up a New Account as a User', 'users/home') %>
+<%= link_to('Set Up a New Account as a Physician', 'physicians/home') %>
 <% end %>

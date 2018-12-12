@@ -5,3 +5,4 @@ class User < ApplicationRecord
   has_many :physicians
   has_many :patients
 end
+#need to add uid

@@ -4,7 +4,7 @@ class UsersController < ApplicationController  #
 
   end
 
-  def show  #directs to users show page. Can view messages sent and responded to
+  def show  #directs to users show page. Can view messages sent and respond
   end
 
   def new  #directs to page to create new user
@@ -12,12 +12,21 @@ class UsersController < ApplicationController  #
   end
 
   def create  #creates a new user
+    @user = User.new(user_params)
+    respond_to do |format|
+      if @user.save
+        session[:user_id] = @user.id
+        redirect_to user_path(@user), notice: "Welcome to the theme park!"
+      else
+        render :new 
+      end
+    end
   end
 
   def edit   #directs to page to edit user information
   end
 
-  def update  #edit user info 
+  def update  #edit user info
   end
 
   private
@@ -36,6 +45,6 @@ class UsersController < ApplicationController  #
   end
 
   def user_params
-    params.require(:first_name, :last_name, :password_digest, :user_type, :email).permit(:npi, :specialty)
+    params.require(:email).permit(:npi, :specialty, :user_type, :first_name, :last_name, :password_digest)
   end
 end
