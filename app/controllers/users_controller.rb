@@ -5,6 +5,7 @@ class UsersController < ApplicationController  #
   end
 
   def show  #directs to users show page. Can view messages sent and respond
+    @user = User.find(params[:user_id])
   end
 
   def new  #directs to page to create new user
@@ -13,12 +14,11 @@ class UsersController < ApplicationController  #
 
   def create  #creates a new user
     @user = User.new(user_params)
-    respond_to do |format|
       if @user.save
         session[:user_id] = @user.id
-        redirect_to user_path(@user), notice: "Welcome to the theme park!"
+        redirect_to user_path(@user)
       else
-        render :new 
+        render :new
       end
     end
   end
@@ -27,6 +27,8 @@ class UsersController < ApplicationController  #
   end
 
   def update  #edit user info
+    @user.update(user_params)
+    redirect_to @user 
   end
 
   private
