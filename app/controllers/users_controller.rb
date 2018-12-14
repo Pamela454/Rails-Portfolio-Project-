@@ -1,5 +1,5 @@
-class UsersController < ApplicationController  #
-#need helper method?
+class UsersController < ApplicationController
+#need helper method?  #need skinny controllers
 
   def home  #displays option to log in
 
@@ -15,6 +15,7 @@ class UsersController < ApplicationController  #
   end
 
   def create  #creates a new user
+    binding.pry 
     @user = User.new(user_params)
       if @user.save
         session[:user_id] = @user.id
@@ -28,7 +29,9 @@ class UsersController < ApplicationController  #
   end
 
   def update  #edit user info
-    @user.update(params)
+    binding.pry
+    @user = User.find(params[:id])
+    @user.update(params[:user])
     redirect_to @user
   end
 
@@ -48,6 +51,6 @@ class UsersController < ApplicationController  #
   end
 
   def user_params
-    params.require(:email).permit(:npi, :specialty, :user_type, :first_name, :last_name, :password_digest)
+    params.permit(:email, :npi, :specialty, :user_type, :first_name, :last_name, :password_digest)
   end
 end
