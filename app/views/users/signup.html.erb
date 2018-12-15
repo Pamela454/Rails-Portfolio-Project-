@@ -1,5 +1,5 @@
 <%= form_for @user, :url => {:action => 'create'} do |f| %>  <!--form for authorization -->
-<div class="form-group">
+<div class="form-group"> need to pass through a password?
   <%= f.hidden_field :email, value: @user.email, class: "form-control" %>
 </div><br>
 <div class="form-group">
