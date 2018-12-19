@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: [:create]
 
   def new #creates a new session, login
     @user = User.new
@@ -11,7 +12,7 @@ class SessionsController < ApplicationController
       @user = User.where(uid: auth['uid']).first_or_initialize do |u|
       u.name = auth['info']['name'] #facebook exposes users name and password in API
       u.email = auth['info']['email']    #password?
-      u.password_digest = SecureRandom.urlsafe_base64.to_s    #password?
+      u.password = SecureRandom.urlsafe_base64.to_s    #password?
     end #needs to raise an error for the user if unable to validate user
 
   	session[:user_id] = @user.id
@@ -20,9 +21,9 @@ class SessionsController < ApplicationController
 
     else
       @user = User.find_by(email: params[:session][:email])
-      if @user && @student.authenticate(params[:session][:password_digest])
+      if @user && @user.authenticate(params[:session][:password])
         session[:user_id] = @user.id   #need flash message?
-        redirect '@user'
+        redirect_to user_path(@user)
       end
     end
   end

@@ -5,8 +5,8 @@
   <%= f.text_field :email, class: "form-control" %>
 </div><br>
 
-<div class="field"><%= label :name, "Enter your password" %><br><br>
-  <%= f.text_field :password_digest, class: "form-control" %>
+<div class="field"><%= label :password, "Enter your password" %><br><br>
+  <%= f.password_field :password, class: "form-control" %>
 </div><br><br>
 
 <div class="actions">
@@ -15,7 +15,7 @@
 <% end %><br><br>
 
 <%= link_to('Log in with Facebook!', '/auth/facebook') %><br><br>
-<%= link_to('Set Up a New Account as a User', 'users/new_patient') %><br><br>
+<%= link_to('Set Up a New Account as a Patient', 'users/new_patient') %><br><br>
 <%= link_to('Set Up a New Account as a Physician', 'users/new_physician') %><br><br>
 
 <%= form_with url: '/sessions/:id', method: :delete do |f| %>

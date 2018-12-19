@@ -1,4 +1,5 @@
 class Patient < User
+  has_secure_password
   belongs_to :user
   has_many :physicians, :through => :messages
   validates :name, presence: true

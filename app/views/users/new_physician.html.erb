@@ -7,7 +7,7 @@
 <div class="form-group">
   <%= f.label :password %>
   <br>
-  <%= f.text_field :password_digest, value: @user.password_digest, class: "form-control" %>
+  <%= f.password_field :password, value: @user.password_digest, class: "form-control" %>
 </div><br>
 <div class="form-group">
   <%= f.label :name %>

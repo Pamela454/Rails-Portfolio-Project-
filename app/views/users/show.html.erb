@@ -1,7 +1,7 @@
 <% if session[:user_id] %>
   <h1>Name: <%= @user.name %></h1>
   <h2>Email: <%= @user.email %></h2>
-  <h2>UID: <%= @user.id %></h2>
+  <h2>ID: <%= @user.id %></h2>
   <h3>Questions Asked: </h3>
     <% if @user.user_type == "Physician" %>
     <h2>Specialty: <%= @user.specialty %></h2>

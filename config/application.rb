@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module Patientquestionwebsite
   class Application < Rails::Application
+    Rails.configuration.action_controller.per_form_csrf_tokens = true
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
