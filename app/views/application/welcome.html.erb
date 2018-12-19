@@ -1,12 +1,12 @@
 
-<%= form_with scope: @user, class: 'login-form', url:"sessions/create"  do |f| %>
+<%= form_for(:session, url: "sessions/create")  do |f| %>
 <h3>Sign in if you are a Member</h3>
-<div class="field"><%= label :name, "Enter your email" %><br>
+<div class="field"><%= label :name, "Enter your email" %><br><br>
   <%= f.text_field :email, class: "form-control" %>
 </div><br>
 
-<div class="field"><%= label :name, "Enter your password" %><br>
-  <%= f.text_field :email, class: "form-control" %>
+<div class="field"><%= label :name, "Enter your password" %><br><br>
+  <%= f.text_field :password_digest, class: "form-control" %>
 </div><br><br>
 
 <div class="actions">
@@ -15,8 +15,8 @@
 <% end %><br><br>
 
 <%= link_to('Log in with Facebook!', '/auth/facebook') %><br><br>
-<%= link_to('Set Up a New Account as a User', 'users/new') %><br><br>
-<%= link_to('Set Up a New Account as a Physician', 'physicians/new') %><br><br>
+<%= link_to('Set Up a New Account as a User', 'users/new_patient') %><br><br>
+<%= link_to('Set Up a New Account as a Physician', 'users/new_physician') %><br><br>
 
 <%= form_with url: '/sessions/:id', method: :delete do |f| %>
   <%= f.submit "Logout" %><br>

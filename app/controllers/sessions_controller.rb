@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
 
     else
       @user = User.find_by(email: params[:session][:email])
-      if @user && @student.authenticate(params[:session][:password])
+      if @user && @student.authenticate(params[:session][:password_digest])
         session[:user_id] = @user.id   #need flash message?
         redirect '@user'
       end

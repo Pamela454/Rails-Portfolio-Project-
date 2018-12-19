@@ -7,11 +7,11 @@ class UsersController < ApplicationController
 
   def show  #directs to users show page. Can view messages sent and respond
     @user = User.find(params[:id])
-
   end
 
   def new  #directs to page to create new user
     @user = User.new
+    render "new_patient"
   end
 
   def create  #creates a new user

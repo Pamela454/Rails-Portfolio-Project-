@@ -1,0 +1,26 @@
+<%= form_for @user, :url => {:controller => 'users', :action => 'new'} do |f| %>  <!--form for authorization -->
+<div class="form-group">
+  <%= f.label :email %>
+  <br>
+  <%= f.text_field :email, value: @user.email, class: "form-control" %>
+</div><br>
+<div class="form-group">
+  <%= f.label :password %>
+  <br>
+  <%= f.text_field :password_digest, value: @user.password_digest, class: "form-control" %>
+</div><br>
+<div class="form-group">
+  <%= f.label :name %>
+  <br>
+  <%= f.text_field :name, value: @user.name, class: "form-control" %>
+</div><br>
+
+  <div class="form-group">
+    <br>
+    <%= f.hidden_field :user_type, value: "Patient", class: "form-control" %>
+  </div><br>
+
+  <div class="actions"> <!-- uses update post -->
+    <%= f.submit class: "btn btn-primary" %>
+  </div><br>
+<% end %>
