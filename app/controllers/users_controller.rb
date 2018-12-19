@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 #need helper method?  #need skinny controllers
 
-  def home  #displays option to log in
+  def signin  #displays option to log in
 
   end
 
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
   def create  #creates a new user
     @user = User.new(user_params)
-      if @user.save
+      if @user.save!
         session[:user_id] = @user.id
         redirect_to user_path(@user)
       else
@@ -49,6 +49,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.permit(:email, :npi, :specialty, :user_type, :first_name, :last_name, :password_digest)
+    params.require(:user).permit(:email, :npi, :specialty, :user_type, :name, :uid, :password_digest)
   end
 end

@@ -1,7 +1,6 @@
-<%= form_for @user, url: "/users/login" do |f| %>
-<% binding.pry %>
-  <div class="field"><%= f.label :name, "Select your name" %><br>
-    <%= f.collection_select(:id, @users, :id, :name) %>
+<%= form_for @user, url: "/users/signin" do |f| %>
+  <div class="field"><%= f.label :name, "Enter your email" %><br>
+    <%= f.text_field :email, class: "form-control" %>
   </div>
 
   <div class="actions">

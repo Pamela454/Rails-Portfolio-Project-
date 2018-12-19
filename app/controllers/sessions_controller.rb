@@ -13,18 +13,16 @@ class SessionsController < ApplicationController
       u.email = auth['info']['email']    #password?
       u.password_digest = SecureRandom.urlsafe_base64.to_s    #password?
     end #needs to raise an error for the user if unable to validate user
-    #render a form for additional attributes?
-    
+
   	session[:user_id] = @user.id
 
-  	render 'users/signin'
+  	render 'users/signup'
 
     else
       @user = User.find_by(email: params[:session][:email])
       if @user && @student.authenticate(params[:session][:password])
         session[:user_id] = @user.id   #need flash message?
-
-        render @user
+        redirect '@user'
       end
     end
   end

@@ -1,11 +1,11 @@
 <% if session[:user_id] %>
-  <h1><%= @user.name %></h1>
+  <h1>Name: <%= @user.name %></h1>
   <h2>Email: <%= @user.email %></h2>
-  <h2>Facebook UID: <%= @user.uid %></h2>
-  <h3>Questions Asked:</h3>
+  <h2>UID: <%= @user.uid %></h2>
+  <h3>Questions Asked: </h3>
     <% if @user.user_type == "Physician" %>
-    <h2>Specialty:<% @user.specialty %></h2>
-    <h2>NPI:<% @user.npi %></h2>
+    <h2>Specialty: <%= @user.specialty %></h2>
+    <h2>NPI: <%= @user.npi %></h2>
     <% end %>
 <% else %>
 
