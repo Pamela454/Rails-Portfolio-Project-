@@ -9,9 +9,14 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def new  #directs to page to create new user
+  def new_patient  #directs to page to create new user
     @user = User.new
     render "new_patient"
+  end
+
+  def new_physician  #directs to page to create new user
+    @user = User.new
+    render "new_physician"
   end
 
   def create  #creates a new user

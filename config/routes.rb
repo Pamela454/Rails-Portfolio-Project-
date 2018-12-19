@@ -4,8 +4,12 @@ Rails.application.routes.draw do
   get 'users/signin' => 'users#signin'
   post 'sessions/create' => 'sessions#create'
 
-  get 'users/new_patient' => 'users#new'
+  get 'users/new_patient' => 'users#new_patient'
   post 'users/new_patient' => 'users#create'
+
+  get 'users/new_physician' => 'users#new_physician'
+  post 'users/new_physician' => 'users#create'
+
 
   resources :users do
     resources :patients
