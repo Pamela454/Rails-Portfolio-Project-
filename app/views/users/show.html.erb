@@ -3,12 +3,18 @@
   <h2>Email: <%= @user.email %></h2>
   <h2>ID: <%= @user.id %></h2>
   <h3>Questions Asked: </h3>
-    <% if @user.user_type == "Physician" %>
+
+<% if @user.user_type == "Physician" %>
     <h2>Specialty: <%= @user.specialty %></h2>
     <h2>NPI: <%= @user.npi %></h2>
-    <% end %>
+  <% end %>
+
+  <% if @user.user_type == "Patient" %>
+  <%= link_to('Ask A Question', 'messages/new') %><br><br>
+  <% end %>
+    <br>
+
 <% else %>
 
 <%= link_to('Log in with Facebook!', '/auth/facebook') %><br>
-
 <% end %>
