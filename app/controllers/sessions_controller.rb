@@ -14,10 +14,10 @@ class SessionsController < ApplicationController
       u.password_digest = SecureRandom.urlsafe_base64.to_s    #password?
     end #needs to raise an error for the user if unable to validate user
     #render a form for additional attributes?
-
+    
   	session[:user_id] = @user.id
 
-  	render 'users/signup'
+  	render 'users/signin'
 
     else
       @user = User.find_by(email: params[:session][:email])

@@ -28,7 +28,6 @@ class UsersController < ApplicationController
   end
 
   def update  #edit user info
-    binding.pry
     @user = User.find(params[:id])
     @user.update(params[:user])
     redirect_to @user

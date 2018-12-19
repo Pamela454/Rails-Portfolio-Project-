@@ -1,4 +1,4 @@
-<%= form_for @user, :url => {:action => 'create'} do |f| %>  <!--form for authorization -->
+<%= form_for @user, :url => url_for(:controller => 'sessions', :action => 'create') do |f| %>  <!--form for authorization -->
 <div class="form-group">
   <%= f.label :email %>
   <br>
