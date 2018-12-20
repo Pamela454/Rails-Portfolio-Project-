@@ -30,12 +30,19 @@ class UsersController < ApplicationController
       end
   end
 
-  def edit   #directs to page to edit user information
+  def edit_patient  #directs to page to edit user information
+    @user = User.find(session[:user_id])
+    render :edit_patient
+  end
+
+  def edit_physician  #directs to page to edit user information
+    @user = User.find(session[:user_id])
+    render :edit_physician
   end
 
   def update  #edit user info
-    @user = User.find(params[:id])
-    @user.update(params[:user])
+    @user = User.find(session[:user_id])
+    @user.update(user_params)
     redirect_to @user
   end
 
@@ -52,6 +59,10 @@ class UsersController < ApplicationController
     when 'Patient'
       'patient'
     end
+  end
+
+  def question_response
+
   end
 
   def user_params

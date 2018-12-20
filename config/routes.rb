@@ -10,6 +10,12 @@ Rails.application.routes.draw do
   get 'users/new_physician' => 'users#new_physician'
   post 'users/new_physician' => 'users#create'
 
+  get '/users/:user_id/patients/:id/edit' => 'users#edit_patient'
+  patch '/users/:user_id/patients/:id/edit' => 'users#update'
+
+  get '/users/:user_id/patients/:id/edit' => 'users#edit_physician'
+  patch '/users/:user_id/patients/:id/edit' => 'users#edit_physician'
+
   resources :users do
     resources :patients
     resources :physicians
