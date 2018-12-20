@@ -6,22 +6,24 @@
   <h3>Title: <%= m.title %></h3>
   <h3>Body: <%= m.body %></h3>
   <% end %>
+  <% end %>
 
 <% if @user.user_type == "Physician" %>
     <h2>Specialty: <%= @user.specialty %></h2>
     <h2>NPI: <%= @user.npi %></h2>
-  <% end %>
+
 <%= form_with url: '/patients/:patient_id/messages/:id', method: :delete do |f| %>
       <%= f.submit "Delete Question" %><br>
 
   <% end %><br>
 
-  <% end %>
-
   <% if @user.user_type == "Patient" %>
   <%= link_to('Ask A Question', '/users/:user_id/messages/new') %><br><br>
   <% end %>
     <br>
+    <% end %>
+
+<%= link_to('Respond to Question', '/users/:user_id/messages/:id/edit') %><br>
 
 <%= link_to('Edit Your Profile', '/users/:user_id/patients/:id/edit') %><br>
 

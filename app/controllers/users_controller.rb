@@ -40,6 +40,14 @@ class UsersController < ApplicationController
     render :edit_physician
   end
 
+  def edit_response
+      @user = User.find(session[:user_id])
+      @message = Message.first
+      if @user.user_type == "Physician"
+        render 'messages/edit_response'
+      end
+  end
+
   def update  #edit user info
     @user = User.find(session[:user_id])
     @user.update(user_params)
@@ -59,10 +67,6 @@ class UsersController < ApplicationController
     when 'Patient'
       'patient'
     end
-  end
-
-  def question_response
-
   end
 
   def user_params

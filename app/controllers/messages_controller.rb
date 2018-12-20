@@ -30,8 +30,9 @@ class MessagesController < ApplicationController
   end
 
   def update
+    @message = Message.first
     @message.update(message_params)
-    redirect_to @message
+    render :show
   end
 
   def destroy
