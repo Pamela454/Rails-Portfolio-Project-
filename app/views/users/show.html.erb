@@ -3,8 +3,8 @@
   <h2>Email: <%= @user.email %></h2>
   <h2>ID: <%= @user.id %></h2>
   <h3>Questions Asked: <% @messages.each do |m| unless @messages.nil? %></h3>
-  <h3><%= m.title %></h3>
-  <h3><%= m.body %></h3>
+  <h3>Title: <%= m.title %></h3>
+  <h3>Body: <%= m.body %></h3>
   <% end %>
 
 <% if @user.user_type == "Physician" %>
