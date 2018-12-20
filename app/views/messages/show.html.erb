@@ -1,0 +1,6 @@
+  <h3><%= @message.title %></h3>
+  <h3><%= @message.body %></h3>
+
+  <%= form_with url: '/patients/:patient_id/messages/:id', method: :delete do |f| %>
+    <%= f.submit "Delete Question" %><br>
+  <% end %><br>

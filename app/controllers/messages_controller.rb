@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
 #before action to restric access?? would apply to other controllers
   def new  #creates a new message
-    @message = Message.new(message_params)
+    @message = Message.new
   end
 
   def show #shows all messages from a given user
@@ -10,6 +10,17 @@ class MessagesController < ApplicationController
 
   def index #displays all messages
     @messages = Messages.all
+  end
+
+  def create
+    @message = Message.new(message_params)
+    @user = User.find_by(params[:id])
+    @messages = Message.find_by(params[:id])
+      if @message.save
+        render :show
+      else
+        render :new
+      end
   end
 
   def edit
@@ -21,14 +32,16 @@ class MessagesController < ApplicationController
   end
 
   def destroy
-    @message.destroy
-    redirect_to @message 
+    @message = Message.find_by(params[:user_id])
+    @message.delete
+
+    render :index
   end
 
 private
 
-  def user_params # a message must have a bod, title, and user_id
-    params.require(:title, :body, :user_id)
+  def message_params # a message must have a bod, title, and user_id
+    params.require(:message).permit(:title, :body, :user_id)
   end
 
 

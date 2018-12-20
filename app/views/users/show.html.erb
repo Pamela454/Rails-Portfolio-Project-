@@ -10,7 +10,7 @@
   <% end %>
 
   <% if @user.user_type == "Patient" %>
-  <%= link_to('Ask A Question', 'messages/new') %><br><br>
+  <%= link_to('Ask A Question', '/patients/:patient_id/messages/new') %><br><br>
   <% end %>
     <br>
 
