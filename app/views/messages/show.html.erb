@@ -3,4 +3,9 @@
 
   <%= form_with url: '/patients/:patient_id/messages/:id', method: :delete do |f| %>
     <%= f.submit "Delete Question" %><br>
-  <% end %><br>
+
+    <% end %><br>
+
+    <%= link_to 'Edit Question', '/users/:user_id/messages/:id/edit' %><br><br>
+
+    <%= link_to('Go Back to User Show Page', '/users/:user_id') %><br><br>

@@ -2,6 +2,8 @@ class MessagesController < ApplicationController
 #before action to restric access?? would apply to other controllers
   def new  #creates a new message
     @message = Message.new
+    @user = User.find(session[:user_id])
+
   end
 
   def show #shows all messages from a given user
@@ -24,6 +26,7 @@ class MessagesController < ApplicationController
   end
 
   def edit
+    @message = Message.find(params[:id])
   end
 
   def update

@@ -1,0 +1,16 @@
+<%= form_for(@message) do |f| %>
+<div class="form-group">
+   <%= f.label :title %><br>
+   <%= f.text_field :title, class: "form-control" %></div>
+
+ <div class="form-group">
+   <%= f.label :body %><br>
+   <%= f.text_field :body, class: "form-control" %></div>
+
+<div class="actions">
+    <%= f.submit class: "btn btn-primary" %>
+</div>
+
+<% end %>
+
+<%= link_to 'Show', @message %>

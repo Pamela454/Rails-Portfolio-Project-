@@ -10,15 +10,13 @@ Rails.application.routes.draw do
   get 'users/new_physician' => 'users#new_physician'
   post 'users/new_physician' => 'users#create'
 
-
   resources :users do
     resources :patients
     resources :physicians
+    resources :messages
   end
 
   resources :sessions
-  resources :patients do
-      resources :messages
-  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
