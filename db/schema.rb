@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2018_12_11_190324) do
     t.string "title"
     t.string "body"
     t.string "response"
+    t.string "specialty"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
