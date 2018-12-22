@@ -2,7 +2,7 @@
   <h1>Name: <%= @user.name %></h1>
   <h2>Email: <%= @user.email %></h2>
   <h2>ID: <%= @user.id %></h2>
-  <h3>Questions Asked: <% @messages.each do |m| unless @messages.nil? %></h3>
+  <h3>Questions Asked: <% @messages.each do |m| unless @messages.nil? %></h3><br><br>
   <h3>Title: <%= m.title %></h3>
   <h3>Body: <%= m.body %></h3>
   <% end %>
@@ -22,10 +22,11 @@
   <% end %>
     <br>
     <% end %>
-
+<br><br>
+<% if @user.user_type == "Physician" %>
 <%= link_to('Respond to Question', '/users/:user_id/messages/:id/edit') %><br>
-
+<% end %>
+<br>
 <%= link_to('Edit Your Profile', '/users/:user_id/patients/:id/edit') %><br>
 
-<%= link_to('Sign Up with Facebook!', '/auth/facebook') %><br>
 <% end %>
