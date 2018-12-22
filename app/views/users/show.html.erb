@@ -16,12 +16,12 @@
       <%= f.submit "Delete Question" %><br>
 
   <% end %><br>
-
+  <% end %>
+<br><br><br><br>
   <% if @user.user_type == "Patient" %>
   <%= link_to('Ask A Question', '/users/:user_id/messages/new') %><br><br>
   <% end %>
     <br>
-    <% end %>
 <br><br>
 <% if @user.user_type == "Physician" %>
 <%= link_to('Respond to Question', '/users/:user_id/messages/:id/edit') %><br>
@@ -30,3 +30,5 @@
 <%= link_to('Edit Your Profile', '/users/:user_id/patients/:id/edit') %><br>
 
 <% end %>
+<br><br>
+<%= link_to('Log Out', '/sessions/:id') %>

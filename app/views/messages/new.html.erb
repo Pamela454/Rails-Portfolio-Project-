@@ -11,7 +11,7 @@
 
 <div class="form-group">
     <%= f.label :specialty %><br>
-    <%= f.collection_select :specialty, User.all :specialty, :specialty class: "form-control" %></div><br><br>
+    <%= f.text_field :specialty, class: "form-control" %></div><br><br>
 
 <div class="form-group">
     <%= f.hidden_field :user_id, value: @user.id, class: "form-control" %></div><br><br>
