@@ -14,10 +14,12 @@
 </div>
 <% end %><br><br>
 
-<%= link_to('Sign Up with Facebook!', '/auth/facebook') %><br><br>
-<%= link_to('Set Up a New Account as a Patient', 'users/new_patient') %><br><br>
-<%= link_to('Set Up a New Account as a Physician', 'users/new_physician') %><br><br>
+<%= link_to('Log In with Facebook!', '/auth/facebook') %><br><br>
+<%= link_to('Create a New Account as a Patient', 'users/new_patient') %><br><br>
+<%= link_to('Create a New Account as a Physician', 'users/new_physician') %><br><br>
 
+<%  if session[:user_id] != nil %>
 <%= form_with url: '/sessions/:id', method: :delete do |f| %>
-  <%= f.submit "Logout" %><br>
+  <% f.submit "Logout" %><br>
 <% end %><br>
+<% end %>
