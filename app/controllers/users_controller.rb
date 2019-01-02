@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 #need helper method?  #need skinny controllers
-#search messages - use form_tag, not directly connected to a model 
+#search messages - use form_tag, not directly connected to a model
   def signin  #displays option to log in
 
   end
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
   def edit_response
       @user = User.find(session[:user_id])
       @message = Message.first
-      if @user.user_type == "Physician"
+      if @user.type == "Physician"
         render 'messages/edit_response'
       end
   end
@@ -61,7 +61,7 @@ class UsersController < ApplicationController
   end
 
   def set_type
-    case params[:user_type]
+    case params[:type]
     when 'Physician'
       'physician'
     when 'Patient'
@@ -70,6 +70,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:email, :npi, :specialty, :user_type, :name, :uid, :password)
+    params.require(:user).permit(:email, :npi, :specialty, :type, :name, :uid, :password)
   end
 end
