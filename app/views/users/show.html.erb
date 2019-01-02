@@ -8,7 +8,7 @@
   <% end %>
   <% end %>
 
-<% if @user.user_type == "Physician" %>
+<% if @user.type == "Physician" %>
     <h2>Specialty: <%= @user.specialty %></h2>
     <h2>NPI: <%= @user.npi %></h2>
 
@@ -18,12 +18,12 @@
   <% end %><br>
   <% end %>
 <br><br><br><br>
-  <% if @user.user_type == "Patient" %>
+  <% if @user.type == "Patient" %>
   <%= link_to('Ask A Question', '/users/:user_id/messages/new') %><br><br>
   <% end %>
     <br>
 <br><br>
-<% if @user.user_type == "Physician" %>
+<% if @user.type == "Physician" %>
 <%= link_to('Respond to Question', '/users/:user_id/messages/:id/edit') %><br>
 <% end %>
 <br>
@@ -31,4 +31,4 @@
 
 <% end %>
 <br><br>
-<%= link_to('Log Out', '/sessions/:id') %>
+<%= link_to 'Log Out', '/sessions/:id', method: :destroy  %>

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 #need helper method?  #need skinny controllers
-
+#search messages - use form_tag, not directly connected to a model 
   def signin  #displays option to log in
 
   end

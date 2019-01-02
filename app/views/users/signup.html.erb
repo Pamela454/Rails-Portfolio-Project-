@@ -15,21 +15,21 @@
 </div><br>
 
 <div class="form-group">
-    <%= f.label :npi, "NPI If Creating Physician Account" %>
+    <%= f.label :npi, "NPI (Only If Creating Physician Account)" %>
     <br>
     <%= f.number_field :npi, class: "form-control" %>
   </div><br>
 
   <div class="form-group">
-    <%= f.label :specialty, "Specialty If Creating Physician Account" %>
+    <%= f.label :specialty, "Specialty (Only If Creating Physician Account)" %>
     <br>
     <%= f.text_field :specialty, class: "form-control" %>
   </div><br>
 
   <div class="form-group">
-    <%= f.label :user_type, " Choose Physician or Patient User" %>
+    <%= f.label :type, " Choose Physician or Patient User" %>
     <br>
-    <%= f.text_field :user_type, class: "form-control" %>
+    <%= f.text_field :type, class: "form-control" %>
   </div><br>
 
   <div class="actions"> <!-- uses update post -->

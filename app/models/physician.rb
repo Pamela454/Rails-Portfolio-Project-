@@ -1,13 +1,12 @@
 class Physician < User
   has_secure_password
   belongs_to :user
-  has_many :patients, :through => :messages
-  validates :name, presence: true
-  validates :email, presence: true
+  has_many :responses
+  has_many :messages, through: :responses
+  validates :name, :email, :npi, :specialty, :password_digest, presence: true
   validates :email, uniqueness: true
-  validates :npi, presence: true
-  validates :specialty, presence: true
-  validates :password_digest, presence: true
+  validates :name, length: { minimum: 2 }
+  validates :npi, length: { minimum: 10 }
 
 #validations specific to this model
 end

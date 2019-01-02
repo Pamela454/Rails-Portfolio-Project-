@@ -1,4 +1,5 @@
 <%= form_for @user, :url => {:controller => 'users', :action => 'new_patient'} do |f| %>  <!--form for authorization -->
+<h3>Please Enter the Following Info to Create a New Patient Account</h3>
 <div class="form-group">
   <%= f.label :email %>
   <br>
@@ -17,7 +18,7 @@
 
   <div class="form-group">
     <br>
-    <%= f.hidden_field :user_type, value: "Patient", class: "form-control" %>
+    <%= f.hidden_field :type, value: "Patient", class: "form-control" %>
   </div><br>
 
   <div class="actions"> <!-- uses update post -->

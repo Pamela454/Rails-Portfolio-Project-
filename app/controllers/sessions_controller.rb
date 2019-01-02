@@ -29,6 +29,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy #logs out user by deleting session
+    binding.pry
     session.delete :user_id
     redirect_to root_path
   end
