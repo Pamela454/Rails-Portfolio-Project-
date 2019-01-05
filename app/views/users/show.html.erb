@@ -5,19 +5,17 @@
   <h2>Type: <%= @user.type %></h2>
   <h3>Questions Asked: <% @messages.each do |m| unless @messages.nil? %></h3><br><br>
   <h3>Title: <%= m.title %></h3>
-  <h3>Body: <%= m.body %></h3>
+  <h3>Body: <%= m.question %></h3>
+  <%= link_to 'Delete Question', user_message_path(m), :method => :destroy %></p>
+
   <% end %>
   <% end %>
 
 <% if @user.type == "Physician" %>
     <h2>Specialty: <%= @user.specialty %></h2>
     <h2>NPI: <%= @user.npi %></h2>
+    <% end %><br>
 
-<%= form_with url: '/patients/:patient_id/messages/:id', method: :delete do |f| %>
-      <%= f.submit "Delete Question" %><br>
-
-  <% end %><br>
-  <% end %>
 <br><br><br><br>
   <% if @user.type == "Patient" %>
   <%= link_to('Ask A Question', '/users/:user_id/messages/new') %><br><br>

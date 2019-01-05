@@ -18,7 +18,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @user = User.find_by(params[:id])
     @messages = Message.find_by(params[:id])
-      if @message.save
+      if @message.save!
         render :show
       else
         render :new
@@ -45,7 +45,7 @@ class MessagesController < ApplicationController
 private
 
   def message_params # a message must have a bod, title, and user_id
-    params.require(:message).permit(:title, :body, :user_id, :response)
+    params.require(:message).permit(:title, :question, :user_id)
   end
 
 

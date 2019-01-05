@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   #disguising presence of another resource?
   root "application#welcome" #only routes get requests
-  
+
   get '/auth/facebook/callback' => 'sessions#create'
 
   get 'users/signin' => 'users#signin'
@@ -23,9 +23,9 @@ Rails.application.routes.draw do
   patch '/users/:user_id/messages/:id/edit' => 'messages#update'
 
   resources :users do  #use shallow method?
+    resources :messages
     resources :patients
     resources :physicians #use only and except to cut down on memory use
-    resources :messages
   end
 
   resources :sessions
