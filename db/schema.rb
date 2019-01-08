@@ -18,31 +18,32 @@ ActiveRecord::Schema.define(version: 2018_48_50_622942) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "message_responses", force: :cascade do |t|
+  create_table "message_categories", force: :cascade do |t|
     t.integer "message_id"
     t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_message_responses_on_category_id"
-    t.index ["message_id"], name: "index_message_responses_on_message_id"
+    t.index ["category_id"], name: "index_message_categories_on_category_id"
+    t.index ["message_id"], name: "index_message_categories_on_message_id"
   end
 
   create_table "messages", force: :cascade do |t|
     t.string "title"
     t.string "question"
-    t.integer "user_id"
+    t.integer "patient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["patient_id"], name: "index_messages_on_patient_id"
   end
 
   create_table "responses", force: :cascade do |t|
     t.string "response"
-    t.integer "user_id"
+    t.integer "physician_id"
     t.integer "message_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["message_id"], name: "index_responses_on_message_id"
-    t.index ["user_id"], name: "index_responses_on_user_id"
+    t.index ["physician_id"], name: "index_responses_on_physician_id"
   end
 
   create_table "users", force: :cascade do |t|

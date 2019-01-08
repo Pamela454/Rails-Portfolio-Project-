@@ -1,7 +1,7 @@
 class Patient < User
   has_secure_password
   belongs_to :user, optional: true
-  has_many :messages
+  has_many :messages, dependent: :destroy
   validates :name, :email, :password_digest, presence: true
   validates :email, uniqueness: true
   validates :name, length: { minimum: 2 }

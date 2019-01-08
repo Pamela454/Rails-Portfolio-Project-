@@ -1,5 +1,5 @@
 class Message < ApplicationRecord
-  belongs_to :user
+  belongs_to :patient, foreign_key: :patient_id
   has_many :message_categories
   has_many :categories, through: :message_categories
   has_many :responses
