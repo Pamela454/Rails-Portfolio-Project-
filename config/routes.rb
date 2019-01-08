@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get '/auth/facebook/callback' => 'sessions#create'
 
+  get  '/logout',   to: 'sessions#destroy', via: :delete
+
   get 'users/signin' => 'users#signin'
   post 'sessions/create' => 'sessions#create'
 
@@ -28,6 +30,10 @@ Rails.application.routes.draw do
   end
   #index, show, new, edit, create, update and destroy actions -resource
   resources :sessions, only: [:new, :create, :destroy]
+  resources :categories do
+    resources :message_categories
+  end
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end #http://localhost:3000/rails/info/routes available routes, rails routes

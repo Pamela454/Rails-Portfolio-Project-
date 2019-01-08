@@ -15,11 +15,11 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.new(message_params)
-    @user = User.find_by(params[:id])
+    @patient = Patient.find_by(params[:patient_id])
     @messages = Message.find_by(params[:id])
+    @message = Message.new(message_params)
       if @message.save!
-        render :show
+        redirect_to 'categories/new'
       else
         render :new
       end

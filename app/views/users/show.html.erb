@@ -1,3 +1,7 @@
+<% if flash[:notice] %>
+<div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+
 <% if session[:user_id] %>
   <h1>Name: <%= @user.name %></h1>
   <h2>Email: <%= @user.email %></h2>
@@ -29,4 +33,4 @@
 
 <% end %>
 <br><br>
-<%= link_to 'Log Out', '/sessions/:id', method: :destroy  %>
+<%= link_to 'Log Out', '/logout', :method => :delete  %>
