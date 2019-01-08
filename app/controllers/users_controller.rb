@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def show  #directs to users show page. Can view messages sent and respond
     @user = User.find(session[:user_id])
-    @messages = Message.where(user_id: session[:user_id]) || "None"
+    @messages = Message.where(patient_id: session[:user_id]) || "None"
   end
 
   def new_patient  #directs to page to create new user

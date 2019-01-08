@@ -6,8 +6,8 @@
   <h3>Questions Asked: <% @messages.each do |m| unless @messages.nil? %></h3><br><br>
   <h3>Title: <%= m.title %></h3>
   <h3>Body: <%= m.question %></h3>
-  <%= link_to 'Delete Question', user_message_path(m), :method => :destroy %></p>
-
+  <%= link_to 'Delete Question', 'user_message_path(m.patient, m)', :method => :delete %></p>
+   <%=# needs two arguments because this is a nested route %>
   <% end %>
   <% end %>
 

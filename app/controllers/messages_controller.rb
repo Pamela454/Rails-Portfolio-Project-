@@ -7,7 +7,7 @@ class MessagesController < ApplicationController
   end
 
   def show #shows all messages from a given user
-    @message = Message.find(params[:user_id]) #will throw an exception if not found by the attribute supplied
+    @message = Message.find(params[:patient_id]) #will throw an exception if not found by the attribute supplied
   end
 
   def index #displays all messages
@@ -36,6 +36,7 @@ class MessagesController < ApplicationController
   end
 
   def destroy
+    binding.pry
     @message = Message.find_by(params[:user_id])
     @message.delete
 

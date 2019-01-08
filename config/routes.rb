@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get '/users/:user_id/messages/:id/edit' => 'users#edit_response'
   patch '/users/:user_id/messages/:id/edit' => 'messages#update'
 
+
   resources :users do  #use shallow method?
     resources :messages
     resources :patients
