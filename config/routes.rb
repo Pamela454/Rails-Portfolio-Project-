@@ -24,12 +24,10 @@ Rails.application.routes.draw do
 
 
   resources :users do  #use shallow method?
-    resources :messages
-    resources :patients
-    resources :physicians #use only and except to cut down on memory use
+    resources :messages, :patients, :physicians
   end
-
-  resources :sessions
+  #index, show, new, edit, create, update and destroy actions -resource
+  resources :sessions, only: [:new, :create, :destroy]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end #http://localhost:3000/rails/info/routes available routes, rails routes
