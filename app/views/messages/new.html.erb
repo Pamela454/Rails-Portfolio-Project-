@@ -1,6 +1,5 @@
 <%= form_for @message, :url => {:controller => 'messages', :action => 'create'} do |f| %>
 <h1>New Message</h1>
-
 <div class="form-group">
     <%= f.label :title %><br>
     <%= f.text_field :title, class: "form-control" %></div><br><br>
@@ -12,9 +11,23 @@
 <div class="form-group">
     <%= f.hidden_field :user_id, value: @user.id, class: "form-control" %></div><br><br>
 
+<div class="form-group">
+    <br>
+    <%= f.hidden_field :patient_id, value: @user.id, class: "form-control" %>
+    </div><br>
+
+<div class="form-group">
+    <%= f.label :category_one%><br>
+    <%= f.collection_select :patient_id, Category.all, :id, :category %>
+</div><br>
+
+<div class="form-group">
+    <%= f.label :category_two%><br>
+    <%= f.collection_select :patient_id, Category.all, :id, :category %>
+</div><br>
+
 <div class="actions">
     <%= f.submit class: "btn btn-primary" %>
 </div>
-
 
 <% end %>

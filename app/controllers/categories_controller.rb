@@ -1,8 +1,5 @@
 class CategoriesController < ApplicationController
 
-  def new
-    @categories = Category.all
-  end
 
   def create
     @category = Category.create(category_params)
@@ -10,6 +7,7 @@ class CategoriesController < ApplicationController
       redirect_to 'messages/show'
     else
       redirect_to 'messages/new'
+    end
   end
 
   private

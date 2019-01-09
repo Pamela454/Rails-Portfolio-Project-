@@ -1,36 +1,35 @@
 class MessagesController < ApplicationController
 #before action to restric access?? would apply to other controllers
   def new  #creates a new message
-    @message = Message.new
+    @message = Message.new(patient_id: current_user.id)
     @user = User.find(session[:user_id])
 
   end
 
-  def show #shows all messages from a given user
+  def show #may not need this
     @message = Message.find(params[:patient_id]) #will throw an exception if not found by the attribute supplied
   end
 
-  def index #displays all messages
-    @messages = Messages.all
+  def index #is this still needed?
+    @messages = Messages.find(current_user.id).messages ||= nil
+    @patient = current_user
   end
 
   def create
-    @patient = Patient.find_by(params[:patient_id])
-    @messages = Message.find_by(params[:id])
     @message = Message.new(message_params)
       if @message.save!
-        redirect_to 'categories/new'
+        redirect_to :controller => 'categories', :action => 'new'
       else
         render :new
       end
   end
 
   def edit
-    @message = Message.find(params[:id])
+    @message = Message.find(params[:patient_id])
   end
 
   def update
-    @message = Message.first
+    @message = Message.find(params[:message][:id])
     @message.update(message_params)
     render :show
   end
@@ -45,8 +44,12 @@ class MessagesController < ApplicationController
 
 private
 
+  def current_user
+      User.find(session[:user_id])
+  end
+
   def message_params # a message must have a bod, title, and user_id
-    params.require(:message).permit(:title, :question, :patient_id)
+    params.require(:message).permit(:title, :question, :patient_id, category_ids:[], categories_attributes: [:category])
   end
 
 

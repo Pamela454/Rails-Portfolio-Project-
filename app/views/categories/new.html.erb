@@ -1,7 +1,0 @@
-<%= form_for @categories, :url => {:controller => 'categories', :action => 'create'} do |f| %>
-<% @categories.tap do |c| unless @categories.nil? %>
-<h3><%= c.collection_select(:category, :category_id, Category.all, :id, :category, prompt: 'Select One')%></h3>
-<%= c.submit %>
-<% end %>
-
-<% end %>

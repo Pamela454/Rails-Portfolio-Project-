@@ -1,0 +1,4 @@
+<%= @category.messages.each do |message| %>
+<%= link_to message.title, message_path(message) %>
+<%= message.content %>
+<% end %>

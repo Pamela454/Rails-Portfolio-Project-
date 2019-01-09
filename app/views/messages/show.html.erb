@@ -4,7 +4,7 @@
   <h3>Response: <%= Response.try([@message.id])%></h3>
   <% end %>
 
-  <%= form_with url: '/patients/:patient_id/messages/:id', method: :delete do |f| %>
+  <%= form_with url: 'user_message_path(m.patient, m)', method: :delete do |f| %>
     <%= f.submit "Delete Question" %><br>
 
     <% end %><br>
