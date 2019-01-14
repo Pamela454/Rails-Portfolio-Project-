@@ -9,6 +9,7 @@ class ResponsesController < ApplicationController
     @response = Response.create(response_params)
     @message = Message.find_by(id: params[:message_id])
     if @response.save
+      flash[:notice] = "Response successfully created"
 			render 'show'
 		else
 			render 'new'

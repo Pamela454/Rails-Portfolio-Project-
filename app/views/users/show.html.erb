@@ -1,5 +1,5 @@
 <% if flash[:notice] %>
-<div class="notice"><%= flash[:notice] %></div>
+<div class="notice"><h2><%= flash[:notice] %></h2></div>
   <% end %>
 
 <% if session[:user_id] %>
@@ -21,7 +21,7 @@
 
 <br><br><br><br>
   <% if @user.type == "Patient" %>
-  <%= link_to('Ask A Question', '/users/:user_id/messages/new') %><br><br>
+  <%= link_to('Ask A Question', "/users/<%=user_id%>/messages/new") %><br><br>
   <% end %>
     <br>
 <br><br>

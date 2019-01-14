@@ -18,6 +18,7 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
       if @message.save!
+        flash[:notice] = "Message successfully created"
         redirect_to :controller => 'categories', :action => 'new'
       else
         render :new
@@ -31,14 +32,14 @@ class MessagesController < ApplicationController
   def update
     @message = Message.find(params[:message][:id])
     @message.update(message_params)
+    flash[:notice] = "Message successfully updated"
     render :show
   end
 
   def destroy
-    binding.pry
     @message = Message.find_by(params[:user_id])
     @message.delete
-
+    flash[:notice] = "Message successfully deleted"
     render :index
   end
 

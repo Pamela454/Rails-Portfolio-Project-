@@ -23,6 +23,7 @@ class SessionsController < ApplicationController
       @user = User.find_by(email: params[:session][:email])
       if @user && @user.authenticate(params[:session][:password])
         session[:user_id] = @user.id   #need flash message?
+        flash[:notice] = "Unable to login with those credentials"
         redirect_to user_path(@user)
       end
     end
@@ -30,6 +31,7 @@ class SessionsController < ApplicationController
 
   def destroy #logs out user by deleting session
     session.delete :user_id
+    flash[:notice] = "Successfully logged out"
     redirect_to root_path
   end
 

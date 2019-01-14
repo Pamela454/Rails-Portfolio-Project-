@@ -45,6 +45,7 @@ class UsersController < ApplicationController
       @user = User.find(session[:user_id])
       @message = Message.first
       if @user.type == "Physician"
+        flash[:notice] = "Response successfully edited"
         render 'messages/edit_response'
       end
   end
@@ -52,6 +53,7 @@ class UsersController < ApplicationController
   def update  #edit user info
     @user = User.find(session[:user_id])
     @user.update(user_params)
+    flash[:notice] = "Profile successfully edited"
     redirect_to @user
   end
 
