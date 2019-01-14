@@ -1,3 +1,7 @@
+<% if flash[:notice] %>
+<div class="notice"><h2><%= flash[:notice] %></h2></div>
+  <% end %>
+
   <h3>Title: <%= @message.title %></h3>
   <h3>Body: <%= @message.question %></h3>
   <% if Response.exists?(@message.id) %>

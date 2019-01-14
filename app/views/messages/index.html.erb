@@ -1,3 +1,7 @@
+<% if flash[:notice] %>
+<div class="notice"><h2><%= flash[:notice] %></h2></div>
+  <% end %>
+
 <% @messages.tap do |m| unless @messages.nil? %>
 <h3><%= m.title %></h3>
 <h3><%= m.body %></h3>
