@@ -13,8 +13,10 @@
 
     <% end %><br>
 
-    <%= link_to 'Edit Question', '/users/:user_id/messages/:id/edit' %><br><br>
+    <%= link_to "Edit Question", edit_user_message_path(current_user) %><br><br>
 
-    <%= link_to 'Send a Response', '/users/:user_id/messages/:id/edit' %><br><br>
+    <%= link_to "Send a Response", new_user_response_path(current_user) %><br><br>
 
-    <%= link_to('Go Back to User Show Page', '/users/:user_id') %><br><br>
+    <%= link_to "Go Back to User Show Page", user_path(current_user) %><br><br>
+
+    <%= link_to 'Log Out', '/logout', :method => :delete  %><br><br>

@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
 
   resources :users do  #use shallow method?
-    resources :messages, :patients, :physicians
+    resources :messages, :patients, :physicians, :responses
   end
   #index, show, new, edit, create, update and destroy actions -resource
   resources :sessions, only: [:new, :create, :destroy]

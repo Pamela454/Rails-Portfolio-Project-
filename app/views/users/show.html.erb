@@ -21,15 +21,16 @@
 
 <br><br><br><br>
   <% if @user.type == "Patient" %>
-  <%= link_to('Ask A Question', "/users/<%=user_id%>/messages/new") %><br><br>
+  <%= link_to "Ask A Question", new_user_message_path(current_user) %><br><br>
+  <%= link_to "Edit Your Profile", edit_user_patient_path(current_user) %><br>
   <% end %>
     <br>
 <br><br>
 <% if @user.type == "Physician" %>
-<%= link_to('Respond to Question', '/users/:user_id/messages/:id/edit') %><br>
+<%= link_to "Respond to Question", edit_user_message_path(current_user) %><br>
+<%= link_to "Edit Your Profile", edit_user_physician_path(current_user) %><br>
 <% end %>
 <br>
-<%= link_to('Edit Your Profile', '/users/:user_id/patients/:id/edit') %><br>
 
 <% end %>
 <br><br>
