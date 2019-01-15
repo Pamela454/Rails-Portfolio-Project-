@@ -3,6 +3,7 @@ class Response < ApplicationRecord
   belongs_to :message
   accepts_nested_attributes_for :physician
 
+
   def physician_attributes=(hash)
     hash.each do |i, att|
       if att.present?

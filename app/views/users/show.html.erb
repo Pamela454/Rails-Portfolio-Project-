@@ -27,6 +27,13 @@
 <br><br>
 <% end %>
 <br><br>
+<% if @user.type == "Physician" %>
+<h3>Questions Asked By Category: <% Message.all.each do |m| unless Message.all.nil? %></h3><br><br>
+<h3>Title: <%= m.title %></h3>
+<h3>Body: <%= m.question %></h3>
+<h3>Category: <%= Category.find(m.category_ids).category unless Category.all == [] %></h3><% end %>
+<% end %>
 <%= link_to "Respond to Question", new_user_response_path(current_user) %><br><br>
 <%= link_to "Edit Your Profile", users_new_physician_path(current_user) %><br><br>
 <%= link_to 'Log Out', '/logout', :method => :delete  %>
+<% end %>

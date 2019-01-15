@@ -2,7 +2,7 @@ class ResponsesController < ApplicationController
 
   def new
     @response = Response.new
-    @message = Message.find_by(id: params[:message_id])
+    @message = Message.find_by(category: params[:category])
   end
 
   def create
