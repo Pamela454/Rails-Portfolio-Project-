@@ -4,8 +4,6 @@ Rails.application.routes.draw do
 
   get '/auth/facebook/callback' => 'sessions#create'
 
-  get  '/logout',   to: 'sessions#destroy', via: :delete
-
   get 'users/signin' => 'users#signin'
   post 'sessions/create' => 'sessions#create'
 
@@ -21,18 +19,20 @@ Rails.application.routes.draw do
   get '/users/:user_id/patients/:id/edit' => 'users#edit_physician'
   patch '/users/:user_id/patients/:id/edit' => 'users#edit_physician'
 
-  get '/users/:user_id/messages/:id/edit' => 'users#edit_response'
+  get '/users/:user_id/responses/:id/edit' => 'users#edit_response'
   patch '/users/:user_id/messages/:id/edit' => 'messages#update'
 
 
   resources :users do  #use shallow method?
-    resources :messages, :patients, :physicians, :responses
+    resources :messages, :responses
   end
   #index, show, new, edit, create, update and destroy actions -resource
-  resources :sessions, only: [:new, :create, :destroy]
   resources :categories do
     resources :message_categories
   end
+
+  get  '/logout',   to: 'sessions#destroy', via: :delete
+  get  'users/:id/messages/:id',   to: 'messages#destroy', via: :delete
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -1,13 +1,11 @@
 class MessagesController < ApplicationController
 #before action to restric access?? would apply to other controllers
-  def new  #creates a new message
-    @message = Message.new(patient_id: current_user.id)
-    @user = User.find(session[:user_id])
-
+  def new  #creates a new message    @message = Message.new(patient_id: current_user.id)
+   @message = Message.new(patient_id: current_user.id)
   end
 
   def show #may not need this
-    @message = Message.find(params[:patient_id]) #will throw an exception if not found by the attribute supplied
+    @message = Message.find(params[:id]) #will throw an exception if not found by the attribute supplied
   end
 
   def index #is this still needed?
@@ -19,14 +17,14 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
       if @message.save!
         flash[:notice] = "Message successfully created"
-        redirect_to :controller => 'categories', :action => 'new'
+        render :show
       else
         render :new
       end
   end
 
   def edit
-    @message = Message.find(params[:patient_id])
+    @message = Message.find(params[:id])
   end
 
   def update
@@ -37,16 +35,15 @@ class MessagesController < ApplicationController
   end
 
   def destroy
-    @message = Message.find_by(params[:user_id])
+    @message = Message.find_by(params[:id])
     @message.delete
     flash[:notice] = "Message successfully deleted"
-    render :index
+    redirect_to :controller => 'users', :action => 'show'
   end
 
 private
-
-  def current_user
-      User.find(session[:user_id])
+  def current_user #only fires one sql request
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
   def message_params # a message must have a bod, title, and user_id

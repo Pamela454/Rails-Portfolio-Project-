@@ -9,4 +9,8 @@ class Physician < User
   validates :npi, length: { minimum: 10 }
 
 #validations specific to this model
+
+  def self.model_name
+    User.model_name
+  end
 end

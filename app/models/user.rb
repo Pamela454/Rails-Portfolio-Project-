@@ -6,6 +6,8 @@ class User < ApplicationRecord
   scope :physicians_response, -> { physicians.where("response > 0")}  #returns a list of objects
   has_many :physicians
   has_many :patients
+
+    
 end
 
   #written as a class method

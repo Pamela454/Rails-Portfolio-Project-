@@ -7,11 +7,6 @@
   <h2>Email: <%= @user.email %></h2>
   <h2>ID: <%= @user.id %></h2>
   <h2>Type: <%= @user.type %></h2>
-  <h3>Questions Asked: <% @messages.each do |m| unless @messages.nil? %></h3><br><br>
-  <h3>Title: <%= m.title %></h3>
-  <h3>Body: <%= m.question %></h3>
-  <%= link_to 'Delete Question', 'user_message_path(m.patient, m)', :method => :delete %></p>
-  <% end %>
   <% end %>
 
 <% if @user.type == "Physician" %>
@@ -21,17 +16,17 @@
 
 <br><br><br><br>
   <% if @user.type == "Patient" %>
-  <%= link_to "Ask A Question", new_user_message_path(current_user) %><br><br>
-  <%= link_to "Edit Your Profile", edit_user_patient_path(current_user) %><br>
+  <h3>Questions Asked: <% @messages.each do |m| unless @messages.nil? %></h3><br><br>
+  <h3>Title: <%= m.title %></h3>
+  <h3>Body: <%= m.question %></h3>
   <% end %>
+  <%= link_to "Ask A Question", new_user_message_path(current_user) %><br><br>
+  <%= link_to 'Delete Question', user_message_path(@user.id, @message.id), method: :delete %>
+<% end %>
     <br>
 <br><br>
-<% if @user.type == "Physician" %>
-<%= link_to "Respond to Question", edit_user_message_path(current_user) %><br>
-<%= link_to "Edit Your Profile", edit_user_physician_path(current_user) %><br>
-<% end %>
-<br>
-
 <% end %>
 <br><br>
+<%= link_to "Respond to Question", new_user_response_path(current_user) %><br><br>
+<%= link_to "Edit Your Profile", users_new_physician_path(current_user) %><br><br>
 <%= link_to 'Log Out', '/logout', :method => :delete  %>

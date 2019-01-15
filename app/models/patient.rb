@@ -7,4 +7,8 @@ class Patient < User
   validates :name, length: { minimum: 2 }
 
 #validations specific to this model
+
+  def self.model_namev#build correct path
+    User.model_name
+  end
 end

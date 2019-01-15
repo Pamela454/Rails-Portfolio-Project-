@@ -4,18 +4,17 @@
 
   <h3>Title: <%= @message.title %></h3>
   <h3>Body: <%= @message.question %></h3>
+  <h3>Categories: <%= @message.category_ids %></h3>
   <% if Response.exists?(@message.id) %>
   <h3>Response: <%= Response.try([@message.id])%></h3>
   <% end %>
 
-  <%= form_with url: 'user_message_path(m.patient, m)', method: :delete do |f| %>
+  <%= form_with url: 'user_message_path(@message.id)', method: :delete do |f| %>
     <%= f.submit "Delete Question" %><br>
 
     <% end %><br>
 
-    <%= link_to "Edit Question", edit_user_message_path(current_user) %><br><br>
-
-    <%= link_to "Send a Response", new_user_response_path(current_user) %><br><br>
+    <%= link_to "Edit Question", edit_user_message_path(current_user.id, @message.id) %><br><br>
 
     <%= link_to "Go Back to User Show Page", user_path(current_user) %><br><br>
 

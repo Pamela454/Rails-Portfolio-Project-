@@ -9,26 +9,26 @@
     <%= f.text_field :question, class: "form-control" %></div><br><br>
 
 <div class="form-group">
-    <%= f.hidden_field :user_id, value: @user.id, class: "form-control" %></div><br><br>
+    <%= f.hidden_field :user_id, value: current_user.id, class: "form-control" %></div><br><br>
 
 <div class="form-group">
     <br>
-    <%= f.hidden_field :patient_id, value: @user.id, class: "form-control" %>
+    <%= f.hidden_field :patient_id, value: current_user.id, class: "form-control" %>
     </div><br>
 
 <div class="form-group">
     <%= f.label :category_one%><br>
-    <%= f.collection_select :patient_id, Category.all, :id, :category %>
+    <%= f.collection_check_boxes :category_ids, Category.all, :id, :category %>
 </div><br>
 
 <div class="form-group">
     <%= f.label :category_two%><br>
-    <%= f.collection_select :patient_id, Category.all, :id, :category %>
+    <%= f.collection_check_boxes :category_ids, Category.all, :id, :category %>
 </div><br>
 
 <div class="actions">
     <%= f.submit class: "btn btn-primary" %>
-</div>
+</div><br>
 
 <%= link_to 'Log Out', '/logout', :method => :delete  %>
 
