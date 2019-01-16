@@ -1,4 +1,4 @@
-<%= form_for(@response) do |f| %>
+<%= form_for @response, url: {action: "create"}, html: {class: "form-control"} do |f| %>
 <h1>New Response</h1>
 
 <div class="form-group">
@@ -6,12 +6,13 @@
     <%= f.text_field :response, class: "form-control" %></div><br><br>
 
 <div class="form-group">
-    <%= f.label :message_id %><br>
-    <%= f.hidden_field :message_id, class: "form-control" %></div><br><br>
+    <%= f.hidden_field :message_id, value: @message.id, class: "form-control" %></div><br><br>
 
 <div class="form-group">
-    <%= f.label :physician_id %><br>
-    <%= f.hidden_field :physician_id, class: "form-control" %></div><br><br>
+    <%= f.hidden_field :category_ids, value: @message.category_ids, class: "form-control" %></div><br><br>
+
+<div class="form-group">
+    <%= f.hidden_field :physician_id, value: current_user.id, class: "form-control" %></div><br><br>
 
 <div class="actions">
     <%= f.submit class: "btn btn-primary" %>

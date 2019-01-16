@@ -47,7 +47,7 @@ private
   end
 
   def message_params # a message must have a bod, title, and user_id
-    params.require(:message).permit(:title, :question, :patient_id, category_ids:[], categories_attributes: [:category])
+    params.require(:message).permit(:title, :question, :patient_id, category_ids:[])
   end
 
 

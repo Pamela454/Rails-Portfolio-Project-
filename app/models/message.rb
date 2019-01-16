@@ -5,6 +5,7 @@ class Message < ApplicationRecord
   has_many :responses
   has_many :physicians, through: :responses
   accepts_nested_attributes_for :categories
+  validates :category_id, presence: true
 
   #need scope method to allow search for specialty or answered questions
 

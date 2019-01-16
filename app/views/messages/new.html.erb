@@ -1,5 +1,5 @@
 <%= form_for @message, :url => {:controller => 'messages', :action => 'create'} do |f| %>
-<h1>New Message</h1>
+<h1>New Question</h1>
 <div class="form-group">
     <%= f.label :title %><br>
     <%= f.text_field :title, class: "form-control" %></div><br><br>
@@ -17,13 +17,13 @@
     </div><br>
 
 <div class="form-group">
-    <%= f.label :category_one%><br>
-    <%= f.collection_check_boxes :category_ids, Category.all, :id, :category %>
+    <%= f.label :new_or_preexisting%><br>
+    <%= f.collection_check_boxes :category_ids, Category.all[0..1], :id, :category %>
 </div><br>
 
 <div class="form-group">
-    <%= f.label :category_two%><br>
-    <%= f.collection_check_boxes :category_ids, Category.all, :id, :category %>
+    <%= f.label :affected_system%><br>
+    <%= f.collection_check_boxes :category_ids, Category.all[2..11], :id, :category %>
 </div><br>
 
 <div class="actions">
