@@ -13,14 +13,14 @@ Rails.application.routes.draw do
   get 'users/new_physician' => 'physicians#new'
   post 'users/new_physician' => 'users#create'
 
-  get '/users/:user_id/responses/:id/edit' => 'users#edit_response'
-  patch '/users/:user_id/messages/:id/edit' => 'messages#update'
+  #get '/users/:user_id/responses/:id/edit' => 'users#edit_response'
+  #patch '/users/:user_id/messages/:id/edit' => 'messages#update'
 
   get  '/logout',   to: 'sessions#destroy', via: :delete
-  get  'users/:user_id/messages/:id', to: 'messages#destroy', via: :delete
 
   resources :users do  #use shallow method?
-    resources :messages, :responses
+    resources :messages
+    resources :responses
     resources :patients, only: [:edit, :update]
     resources :physicians, only: [:edit, :update]
   end

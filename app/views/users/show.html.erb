@@ -19,7 +19,7 @@
   <h3>Questions Asked: <% @messages.each do |m| unless @messages.nil? %></h3><br><br>
     <h3>Title: <%= m.title %></h3>
     <h3>Body: <%= m.question %></h3>
-    <%= link_to 'Delete Question', user_message_path(@user.id, m.id), method: :delete %><br><br>
+    <%= link_to "Delete Question", user_message_path(@user.id, m.id), method: :delete %><br><br>
     <% end %>
   <% end %>
   <%= link_to "Ask A Question", new_user_message_path(current_user) %><br><br><br><br>
