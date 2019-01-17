@@ -7,10 +7,10 @@ Rails.application.routes.draw do
   get 'users/signin' => 'users#signin'
   post 'sessions/create' => 'sessions#create'
 
-  get 'users/new_patient' => 'users#new_patient'
+  get 'users/new_patient' => 'patients#new'
   post 'users/new_patient' => 'users#create'
 
-  get 'users/new_physician' => 'users#new_physician'
+  get 'users/new_physician' => 'physicians#new'
   post 'users/new_physician' => 'users#create'
 
   get '/users/:user_id/responses/:id/edit' => 'users#edit_response'
