@@ -1,4 +1,4 @@
-<%= form_for @user, :url => {:controller => 'users', :action => 'new_patient'} do |f| %>  <!--form for authorization -->
+<%= form_for @user, :url => {:controller => 'users', :action => 'create'} do |f| %>  <!--form for authorization -->
 <h3>Please Enter the Following Info to Create a New Patient Account</h3>
   <div class="form-group">
     <%= f.label :email %>

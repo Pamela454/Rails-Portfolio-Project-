@@ -10,16 +10,6 @@ class UsersController < ApplicationController
     @messages = Message.where(patient_id: session[:user_id]) || "None"
   end
 
-  def new_patient  #directs to page to create new user
-    @user = User.new
-    render "new_patient"
-  end
-
-  def new_physician  #directs to page to create new user
-    @user = User.new
-    render "new_physician"
-  end
-
   def create  #creates a new user
     @user = User.new(user_params)
       if @user.save!
@@ -29,16 +19,6 @@ class UsersController < ApplicationController
       else
         render :new
       end
-  end
-
-  def edit_patient  #directs to page to edit user information
-    @user = User.find(session[:user_id])
-    render :edit_patient
-  end
-
-  def edit_physician  #directs to page to edit user information
-    @user = User.find(session[:user_id])
-    render :edit_physician
   end
 
   def edit_response

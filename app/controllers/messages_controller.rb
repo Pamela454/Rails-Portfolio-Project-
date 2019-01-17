@@ -17,7 +17,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
       if @message.save!
         flash[:notice] = "Message successfully created"
-        render :show
+        redirect_to :controller => 'messages', :action => 'show', :id => @message.id
       else
         render :new
       end
@@ -35,7 +35,7 @@ class MessagesController < ApplicationController
   end
 
   def destroy
-    @message = Message.find_by(params[:id])
+    @message = Message.find(params[:id])
     @message.delete
     flash[:notice] = "Message successfully deleted"
     redirect_to :controller => 'users', :action => 'show'

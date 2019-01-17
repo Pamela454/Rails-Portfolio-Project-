@@ -4,7 +4,9 @@
 
   <h3>Title: <%= @message.title %></h3>
   <h3>Body: <%= @message.question %></h3>
-  <h3>Categories: <%= @message.category_ids %></h3>
+  <h3>Categories: <% @message.categories.each do |c| %></h3>
+    <%= c.category %><br>
+    <% end %>
   <% if Response.exists?(@message.id) %>
   <h3>Response: <%= Response.try([@message.id])%></h3>
   <% end %>

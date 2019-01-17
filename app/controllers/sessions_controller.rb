@@ -23,7 +23,6 @@ class SessionsController < ApplicationController
       @user = User.find_by(email: params[:session][:email])
       if @user && @user.authenticate(params[:session][:password])
         session[:user_id] = @user.id   #need flash message?
-        flash[:notice] = "Unable to login with those credentials"
         redirect_to user_path(@user)
       end
     end

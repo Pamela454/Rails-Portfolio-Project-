@@ -13,26 +13,22 @@ Rails.application.routes.draw do
   get 'users/new_physician' => 'users#new_physician'
   post 'users/new_physician' => 'users#create'
 
-  get '/users/:user_id/patients/:id/edit' => 'users#edit_patient'
-  patch '/users/:user_id/patients/:id/edit' => 'users#update'
-
-  get '/users/:user_id/patients/:id/edit' => 'users#edit_physician'
-  patch '/users/:user_id/patients/:id/edit' => 'users#edit_physician'
-
   get '/users/:user_id/responses/:id/edit' => 'users#edit_response'
   patch '/users/:user_id/messages/:id/edit' => 'messages#update'
 
+  get  '/logout',   to: 'sessions#destroy', via: :delete
+  get  'users/:user_id/messages/:id', to: 'messages#destroy', via: :delete
 
   resources :users do  #use shallow method?
     resources :messages, :responses
+    resources :patients, only: [:edit, :update]
+    resources :physicians, only: [:edit, :update]
   end
+
   #index, show, new, edit, create, update and destroy actions -resource
   resources :categories do
     resources :message_categories
   end
-
-  get  '/logout',   to: 'sessions#destroy', via: :delete
-  get  'users/:id/messages/:id',   to: 'messages#destroy', via: :delete
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

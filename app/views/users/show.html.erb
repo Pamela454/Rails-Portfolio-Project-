@@ -19,13 +19,14 @@
   <h3>Questions Asked: <% @messages.each do |m| unless @messages.nil? %></h3><br><br>
     <h3>Title: <%= m.title %></h3>
     <h3>Body: <%= m.question %></h3>
-    <%= link_to 'Delete Question', user_message_path(@user.id, m.id), method: :delete %>
+    <%= link_to 'Delete Question', user_message_path(@user.id, m.id), method: :delete %><br><br>
     <% end %>
   <% end %>
+  <%= link_to "Ask A Question", new_user_message_path(current_user) %><br><br><br><br>
+  <%= link_to "Edit Your Profile", edit_user_patient_path(current_user) %><br><br>
 <% end %>
 <br><br><br>
 
-<%= link_to "Ask A Question", new_user_message_path(current_user) %><br><br>
     <br>
 <br><br>
 <br><br>
@@ -33,6 +34,9 @@
   <h3>Questions Asked By Category: <% Message.all.each do |m| unless Message.all.nil? %></h3><br><br>
     <h3>Title: <%= m.title %></h3>
     <h3>Body: <%= m.question %></h3>
+    <h3>Response: <% m.responses.each do |r| %></h3>
+       <%= r.response %>
+       <% end %><br><br>
     <%= link_to "Respond to Question", new_user_response_path(current_user, :message => m.id) %><br><br>
   <% end %>
     <h3>Categories: <% Category.find(m.category_ids).each do |c| unless m.category_ids == [] %></h3>
@@ -40,7 +44,7 @@
 <% end %>
 <% end %>
 <% end %>
+<%= link_to "Edit Your Profile", edit_user_physician_path(current_user) %><br><br>
 <% end %><br><br>
-<%= link_to "Edit Your Profile", users_new_physician_path(current_user) %><br><br>
 
 <%= link_to 'Log Out', '/logout', :method => :delete  %>
