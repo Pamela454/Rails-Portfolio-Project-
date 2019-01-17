@@ -11,9 +11,8 @@
   <h3>Response: <%= Response.try([@message.id])%></h3>
   <% end %>
 
-  <%= form_with url: 'user_message_path(@message.id)', method: :delete do |f| %>
+  <%= form_with url: user_message_path(@message.id), method: :delete do |f| %>
     <%= f.submit "Delete Question" %><br>
-
     <% end %><br>
 
     <%= link_to "Edit Question", edit_user_message_path(current_user.id, @message.id) %><br><br>

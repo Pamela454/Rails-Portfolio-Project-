@@ -16,11 +16,20 @@ class ResponsesController < ApplicationController
 		end
   end
 
+  def edit
+      @user = User.find(session[:user_id])
+      @message = Message.find_by(id: params[:response][:message_id])
+      if @user.type == "Physician"
+        flash[:notice] = "Response successfully edited"
+        render 'messages/edit_response'
+      end
+  end
+
   private
 
-    def response_params # a message must have a bod, title, and user_id
+  def response_params # a message must have a bod, title, and user_id
       params.require(:response).permit(:response, :message_id, :physician_id, physician_attributes:[:category])
-    end
-
-
   end
+
+
+end

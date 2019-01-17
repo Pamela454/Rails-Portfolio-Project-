@@ -10,9 +10,9 @@ class MessageCategoriesController < ApplicationController
 	def create
 		@message = Message.find_by(id: params[:message_id])
 		@categories = Category.find_by(id: params[:category_id])
-		@message_categories = @transaction.transaction_items.new(transaction_item_params)
-		if @transaction_item.save
-			redirect_to 
+		@message_categories = @message.message_categories.new(message_categories_params)
+		if @message_categories.save
+			redirect_to user_path(@user)
 		else
 			render 'new'
 		end

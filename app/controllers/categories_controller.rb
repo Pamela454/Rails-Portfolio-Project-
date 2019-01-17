@@ -5,6 +5,7 @@ class CategoriesController < ApplicationController
     if @category.save
       redirect_to 'messages/show'
     else
+      flash[:notice] = "Unable to save categories. Please try again."
       redirect_to 'messages/new'
     end
   end

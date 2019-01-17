@@ -8,10 +8,10 @@ class MessagesController < ApplicationController
     @message = Message.find(params[:id]) #will throw an exception if not found by the attribute supplied
   end
 
-  def index #is this still needed?
-    @messages = Messages.find(current_user.id).messages ||= nil
-    @patient = current_user
-  end
+  #def index #is this still needed?
+  #  @messages = Messages.find(current_user.id).messages ||= nil
+  #  @patient = current_user
+  #end
 
   def create
     @message = Message.new(message_params)
