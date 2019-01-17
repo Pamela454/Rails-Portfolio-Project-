@@ -21,4 +21,4 @@ Confirm:
  - [X] The application is pretty DRY #correct routing file
  - [X] Limited logic in controllers #encapsulate controller logic in model methods
  - [X] Views use helper methods if appropriate
- - [ ] Views use partials if appropriate
+ - [X] Views use partials if appropriate

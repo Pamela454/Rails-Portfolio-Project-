@@ -1,12 +1,13 @@
 <%= form_for @message, :url => {:controller => 'messages', :action => 'create'} do |f| %>
 <h1>New Question</h1>
-<div class="form-group">
-    <%= f.label :title %><br>
-    <%= f.text_field :title, class: "form-control" %></div><br><br>
 
 <div class="form-group">
-    <%= f.label :question %><br>
-    <%= f.text_field :question, class: "form-control" %></div><br><br>
+   <%= f.label :title %><br>
+   <%= f.text_field :title, class: "form-control" %></div><br><br>
+
+ <div class="form-group">
+   <%= f.label :question %><br>
+   <%= f.text_field :question, class: "form-control" %></div><br><br>
 
 <div class="form-group">
     <%= f.hidden_field :user_id, value: current_user.id, class: "form-control" %></div><br><br>

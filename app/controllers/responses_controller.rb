@@ -16,14 +16,14 @@ class ResponsesController < ApplicationController
 		end
   end
 
-  def edit
-      @user = User.find(session[:user_id])
-      @message = Message.find_by(id: params[:response][:message_id])
-      if @user.type == "Physician"
-        flash[:notice] = "Response successfully edited"
-        render 'messages/edit_response'
-      end
-  end
+  #def edit
+  #    @user = User.find(session[:user_id])
+  #    @message = Message.find_by(id: params[:response][:message_id])
+  #    if @user.type == "Physician"
+  #      flash[:notice] = "Response successfully edited"
+  #      render 'messages/edit_response'
+  #    end
+  #end
 
   private
 
