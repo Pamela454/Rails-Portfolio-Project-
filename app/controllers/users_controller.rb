@@ -16,7 +16,7 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         flash[:notice] = "Profile successfully created"
         redirect_to user_path(@user)
-      else
+    else
         render :new
       end
   end

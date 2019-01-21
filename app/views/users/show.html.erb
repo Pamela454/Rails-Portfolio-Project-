@@ -17,6 +17,7 @@
 <br><br><br><br>
 <% if @user.type == "Patient" %>
   <h3>Questions Asked: <% @messages.each do |m| unless @messages.nil? %></h3><br><br>
+    <h3>Message ID: <%= m.id %></h3>
     <h3>Title: <%= m.title %></h3>
     <h3>Body: <%= m.question %></h3>
     <%= form_with url: user_message_path(current_user, m.id), method: :delete do |f| %>
@@ -34,10 +35,12 @@
 <br><br>
 <% if @user.type == "Physician" %>
   <h3>Questions Asked By Category: <% Message.all.each do |m| unless Message.all.nil? %></h3><br><br>
+    <h3>Message ID: <%= m.id %></h3>
     <h3>Title: <%= m.title %></h3>
     <h3>Body: <%= m.question %></h3>
-    <h3>Response: <% m.responses.each do |r| %></h3>
-       <%= r.response %>
+    <h3>Responses: <% m.responses.each do |r| %></h3>
+       <h4>Response ID:<%= r.id %></h4>
+       <h4>Response:<%= r.response %></h4>
        <% end %><br><br>
     <%= link_to "Respond to Question", new_user_response_path(current_user, :message => m.id) %><br><br>
   <% end %>

@@ -1,4 +1,5 @@
 class ResponsesController < ApplicationController
+  before_action :login_required
 
   def new
     @response = Response.new
@@ -27,7 +28,7 @@ class ResponsesController < ApplicationController
 
   private
 
-  def response_params # a message must have a bod, title, and user_id
+  def response_params # a message must have a body, title, and user_id
       params.require(:response).permit(:response, :message_id, :physician_id, physician_attributes:[:category])
   end
 
