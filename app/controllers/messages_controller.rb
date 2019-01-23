@@ -43,9 +43,6 @@ class MessagesController < ApplicationController
   end
 
 private
-  def current_user #only fires one sql request
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
-  end
 
   def message_params # a message must have a bod, title, and user_id
     params.require(:message).permit(:title, :question, :patient_id, category_ids:[])

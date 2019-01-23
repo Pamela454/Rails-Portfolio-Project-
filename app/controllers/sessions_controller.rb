@@ -31,8 +31,8 @@ class SessionsController < ApplicationController
         flash[:notice] = "Incorrect name and/or password"
         redirect_to root_path
       end
-   end
- end
+    end
+  end
 
   def destroy #logs out user by deleting session
     session.delete :user_id

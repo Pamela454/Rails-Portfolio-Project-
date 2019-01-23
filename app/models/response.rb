@@ -2,7 +2,7 @@ class Response < ApplicationRecord
   belongs_to :physician, foreign_key: :physician_id
   belongs_to :message
   accepts_nested_attributes_for :physician
-
+  #scope :all_message_ids -> Response.pluck(:message_id)
 
   def physician_attributes=(hash)
     hash.each do |i, att|

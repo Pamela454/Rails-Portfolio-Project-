@@ -8,17 +8,18 @@ class UsersController < ApplicationController
   def show  #directs to users show page. Can view messages sent and respond
     @user = User.find(session[:user_id])
     @messages = Message.where(patient_id: session[:user_id]) || "None"
+    @responses = Response.where(physician_id: session[:user_id]) || "None"
   end
 
   def create  #creates a new user
     @user = User.new(user_params)
-      if @user.save!
-        session[:user_id] = @user.id
-        flash[:notice] = "Profile successfully created"
-        redirect_to user_path(@user)
+    if @user.save!
+      session[:user_id] = @user.id
+      flash[:notice] = "Profile successfully created"
+      redirect_to user_path(@user)
     else
-        render :new
-      end
+      render :new
+    end
   end
 
   def update  #edit user info
@@ -34,14 +35,14 @@ class UsersController < ApplicationController
     @user = User.find(params[:user_id])
   end
 
-  def set_type
-    case params[:type]
-    when 'Physician'
-      'physician'
-    when 'Patient'
-      'patient'
-    end
-  end
+  #def user_type switch statement
+  #  case params[:type]
+  #  when 'Physician'
+  #    'physician'
+  #  when 'Patient'
+  #    'patient'
+  #  end
+  #end
 
   def user_params
     params.require(:user).permit(:email, :npi, :specialty, :type, :name, :uid, :password)
