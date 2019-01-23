@@ -5,7 +5,6 @@ class Message < ApplicationRecord
   has_many :responses
   has_many :physicians, through: :responses
   accepts_nested_attributes_for :categories
-  scope :unanswered, -> { where("Message.all.ids != Message.answered_message_id") }
   scope :new_condition, -> {joins(:categories).merge(Category.new_condition)}
   scope :existing_condition, -> {joins(:categories).merge(Category.existing_condition)}
   scope :unanswered_questions, -> {left_outer_joins(:responses).where(responses: {message_id: nil})}
