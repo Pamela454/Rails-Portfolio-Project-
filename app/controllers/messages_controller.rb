@@ -29,7 +29,7 @@ class MessagesController < ApplicationController
   end
 
   def update
-    @message = Message.find(params[:message][:id])
+    @message = Message.find(params[:id])
     @message.update(message_params)
     flash[:notice] = "Message successfully updated"
     render :show

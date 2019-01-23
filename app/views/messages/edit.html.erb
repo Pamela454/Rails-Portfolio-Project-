@@ -1,4 +1,4 @@
-<%= form_for @message, url: {action: "edit"}, html: {class: "form-control"} do |f| %>
+<%= form_for @message, :url => {:controller => 'messages', :action => 'update'} do |f| %>
 <div class="form-group">
    <%= f.label :title %><br>
    <%= f.text_field :title, class: "form-control" %></div><br><br>
@@ -13,6 +13,6 @@
 
 <% end %>
 
-<%= link_to 'Show', user_message_path(@message) %><br><br>
+<%= link_to 'Return to User Show Page', user_message_path(@message) %><br><br>
 
 <%= link_to 'Log Out', '/logout', :method => :delete  %><br><br>
