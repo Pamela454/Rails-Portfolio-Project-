@@ -29,6 +29,10 @@
     <h3>Message ID: <%= m.id %></h3>
     <h3>Title: <%= m.title %></h3>
     <h3>Body: <%= m.question %></h3>
+    <h3>Responses: <% m.responses.each do |r| %></h3>
+      <h3>Response ID: <%= r.id %></h3>
+      <h3>Response: <%= r.response %></h3>
+      <% end %><br><br>
     <%= link_to "Edit Question", edit_user_message_path(current_user, m.id) %><br><br>
     <%= form_with url: user_message_path(current_user, m.id), method: :delete do |f| %>
       <%= f.submit "Delete Question" %><br>
