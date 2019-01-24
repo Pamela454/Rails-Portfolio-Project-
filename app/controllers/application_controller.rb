@@ -14,6 +14,10 @@ class ApplicationController < ActionController::Base
     redirect_to root_path unless logged_in?
   end
 
+  def user_type
+    User.find(session[:user_id]).type
+  end
+
   def logged_in?
     !!current_user
   end

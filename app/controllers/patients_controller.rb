@@ -6,8 +6,12 @@ class PatientsController < UsersController
   end
 
   def edit  #directs to page to edit user information
-    @user = User.find(session[:user_id])
-    render :edit
+    if user_type == "Patient"
+     @user = User.find(session[:user_id])
+     render :edit
+   else
+     redirect_to :controller => 'users', :action => 'show', :id => current_user.id
+   end
   end
 
 end

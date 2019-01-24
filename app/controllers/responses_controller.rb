@@ -2,8 +2,13 @@ class ResponsesController < ApplicationController
   before_action :login_required
 
   def new
-    @response = Response.new
-    @message = Message.find_by(id: params[:message])
+    if user_type == "Physician"
+      @response = Response.new
+      @message = Message.find_by(id: params[:message])
+    else
+      flash[:notice] = "You do not have access to this feature."
+      redirect_to :controller => 'users', :action => 'show', :id => current_user.id
+    end
   end
 
   def create
@@ -18,15 +23,24 @@ class ResponsesController < ApplicationController
   end
 
   def edit
+    if user_type == "Physician"
       @user = User.find(session[:user_id])
       @response = Response.find_by(id: params[:id])
+    else
+      flash[:notice] = "You do not have access to this feature."
+      redirect_to :controller => 'users', :action => 'show', :id => current_user.id
+    end
   end
 
   def update  #edit user info
-    @response = Response.find(params[:id])
-    @response.update(response_params)
-    flash[:notice] = "Response successfully edited"
-    redirect_to :controller => 'users', :action => 'show', :id => 'current_user'
+    if user_type == "Physician"
+     @response = Response.find(params[:id])
+     @response.update(response_params)
+     flash[:notice] = "Response successfully edited"
+     redirect_to :controller => 'users', :action => 'show', :id => 'current_user'
+   else
+    redirect_to :controller => 'users', :action => 'show', :id => current_user.id
+   end
   end
 
   def destroy
