@@ -1,6 +1,6 @@
 class MessageCategoriesController < ApplicationController
   before_action :login_required
-  
+
   def new
 		@message_categories = MessageCategory.new
 		@message = Message.find_by(id: params[:message_id])

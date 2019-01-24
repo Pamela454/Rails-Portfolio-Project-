@@ -1,3 +1,7 @@
+<% if flash[:notice] %>
+  <div class="notice"><h2><%= flash[:notice] %></h2></div>
+<% end %>
+
 <%= form_for @user, :url => {:controller => 'users', :action => 'create'} do |f| %>  <!--form for authorization -->
 <div class="form-group">
   <%= f.hidden_field :email, value: @user.email, class: "form-control" %>

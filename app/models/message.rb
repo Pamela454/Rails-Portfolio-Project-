@@ -4,6 +4,8 @@ class Message < ApplicationRecord
   has_many :categories, through: :message_categories
   has_many :responses
   has_many :physicians, through: :responses
+  validates :title, presence: true
+  validates :question, presence: true
   accepts_nested_attributes_for :categories
   scope :new_condition, -> {joins(:categories).merge(Category.new_condition)}
   scope :existing_condition, -> {joins(:categories).merge(Category.existing_condition)}

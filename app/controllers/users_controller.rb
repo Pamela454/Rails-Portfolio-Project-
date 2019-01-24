@@ -13,12 +13,13 @@ class UsersController < ApplicationController
 
   def create  #creates a new user
     @user = User.new(user_params)
-    if @user.save!
+    if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "Profile successfully created"
       redirect_to user_path(@user)
     else
-      render :new
+      flash[:error]
+      redirect_to root_path
     end
   end
 
