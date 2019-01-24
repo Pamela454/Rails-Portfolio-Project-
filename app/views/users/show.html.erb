@@ -34,7 +34,7 @@
       <%= f.submit "Delete Question" %><br>
       <% end %><br>
     <% end %>
-  <% end %>
+  <% end %><br><br>
   <%= link_to "Ask A Question", new_user_message_path(current_user) %><br><br><br><br>
   <%= link_to "Edit Your Profile", edit_user_patient_path(current_user) %><br><br>
 <% end %>
@@ -76,5 +76,4 @@
 <% end %><br><br>
 <%= link_to "Edit Your Profile", edit_user_physician_path(current_user) %><br><br>
 <% end %><br><br>
-
-<%= link_to 'Log Out', '/logout', :method => :delete  %>
+<%= link_to 'Log Out', '/logout', :method => :delete  %><br><br>

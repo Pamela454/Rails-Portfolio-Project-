@@ -18,7 +18,7 @@
     </div><br>
 
 <div class="form-group">
-    <%= f.label :new_or_preexisting%><br>
+    <%= f.label :new_or_preexisting_condition%><br>
     <%= f.collection_check_boxes :category_ids, Category.all[0..1], :id, :category %>
 </div><br>
 
@@ -29,8 +29,6 @@
 
 <div class="actions">
     <%= f.submit class: "btn btn-primary" %>
-</div><br>
-
-<%= link_to 'Log Out', '/logout', :method => :delete  %>
+</div><br><br>
 
 <% end %>

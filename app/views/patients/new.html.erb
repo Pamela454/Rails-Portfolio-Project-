@@ -1,5 +1,5 @@
 <%= form_for @user, :url => {:controller => 'users', :action => 'create'} do |f| %>  <!--form for authorization -->
-<h3>Please Enter the Following Info to Create a New Patient Account</h3>
+<h2>Please Enter the Following Info to Create a New Patient Account</h2>
   <div class="form-group">
     <%= f.label :email %>
     <br>
@@ -26,7 +26,5 @@
   <div class="actions"> <!-- uses update post -->
     <%= f.submit class: "btn btn-primary" %>
   </div><br>
-
-  <%= link_to 'Log Out', '/logout', :method => :delete  %>
 
 <% end %>

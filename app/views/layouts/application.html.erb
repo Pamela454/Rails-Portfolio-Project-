@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Patientquestionwebsite</title>
+    <title>Welcome to Ask Your Health Question</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
+  <%= yield %>
 
   <body>
-    <%= yield %>
+      <% if current_user %>
+      <%= link_to "Go Back to User Show Page", user_path(current_user) %><br><br>
+      <%= link_to 'Log Out', '/logout', :method => :delete  %><br><br>
+      <% end %>
   </body>
 </html>

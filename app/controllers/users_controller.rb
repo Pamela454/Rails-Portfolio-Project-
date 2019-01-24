@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     @user = User.find(session[:user_id])
     @messages = Message.where(patient_id: session[:user_id]) || "None"
     @responses = Response.where(physician_id: session[:user_id]) || "None"
+    render :layout => false
   end
 
   def create  #creates a new user

@@ -1,4 +1,5 @@
 <%= form_for @user, :url => {:controller => 'users', :action => 'update'} do |f| %>  <!--form for authorization -->
+<h2>Edit Your Profile</h2>
 <div class="form-group">
   <%= f.label :email %>
   <br>
@@ -23,7 +24,5 @@
   <div class="actions"> <!-- uses update post -->
     <%= f.submit class: "btn btn-primary" %>
   </div><br>
-
-  <%= link_to 'Log Out', '/logout', :method => :delete  %>
 
 <% end %>
