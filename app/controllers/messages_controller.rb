@@ -23,7 +23,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     if @message.save!
       flash[:notice] = "Message successfully created"
-      redirect_to :controller => 'messages', :action => 'show', :id => @message.id
+      redirect_to :controller => 'users', :action => 'show', :id => current_user.id
     else
       render :new
     end

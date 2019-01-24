@@ -37,7 +37,7 @@ class ResponsesController < ApplicationController
      @response = Response.find(params[:id])
      @response.update(response_params)
      flash[:notice] = "Response successfully edited"
-     redirect_to :controller => 'users', :action => 'show', :id => 'current_user'
+     redirect_to :controller => 'users', :action => 'show', :id => current_user.id
    else
     redirect_to :controller => 'users', :action => 'show', :id => current_user.id
    end

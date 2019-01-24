@@ -25,9 +25,17 @@ class UsersController < ApplicationController
 
   def update  #edit user info
     @user = User.find(session[:user_id])
-    @user.update(user_params)
-    flash[:notice] = "Profile successfully edited"
-    redirect_to @user
+    if user_type == "Patient"
+     @user.update(patient_params)
+     flash[:notice] = "Profile successfully edited"
+     redirect_to user_path(@user)
+   elsif user_type == "Physician"
+     @user.update(user_params)
+     flash[:notice] = "Profile successfully edited"
+     redirect_to user_path(@user)
+   else
+     redirect_to user_path(@user)
+   end
   end
 
   private
@@ -47,5 +55,13 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:email, :npi, :specialty, :type, :name, :uid, :password)
+  end
+
+  def patient_params
+    params.require(:patient).permit(:email, :name, :uid, :password)
+  end
+
+  def physician_params
+    params.require(:physician).permit(:email, :npi, :specialty, :type, :name, :uid, :password)
   end
 end
