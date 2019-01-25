@@ -1,6 +1,6 @@
 <%= form_for @user, url: "/users/signin" do |f| %>
   <div class="field"><%= f.label :name, "Enter your email" %><br>
-    <%= f.text_field :email, class: "form-control" %>
+    <%= f.text_field :email, :class => "span5" %>
   </div>
 
   <div class="actions">

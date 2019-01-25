@@ -1,35 +1,42 @@
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
 <%= form_for @user, :url => url_for(:controller => 'sessions', :action => 'create') do |f| %>  <!--form for authorization -->
 <div class="form-group">
   <%= f.label :email %>
   <br>
-  <%= f.text_field :email, class: "form-control" %>
+  <%= f.text_field :email, :class => "span5" %>
 </div><br>
 
 <div class="form-group">
   <%= f.label :name %>
   <br>
-  <%= f.text_field :name, class: "form-control" %>
+  <%= f.text_field :name, :class => "span5" %>
 </div><br>
 
 <div class="form-group">
   <%= f.label :npi %>
   <br>
-  <%= f.number_field :npi, class: "form-control" %>
+  <%= f.number_field :npi, :class => "span5" %>
 </div><br>
 
 <div class="form-group">
   <%= f.label :specialty %>
   <br>
-  <%= f.text_field :specialty, class: "form-control" %>
+  <%= f.text_field :specialty, :class => "span5" %>
 </div><br>
 
 <div class="form-group">
   <%= f.label :user_type %>
   <br>
-  <%= f.text_field :user_type, class: "form-control" %>
+  <%= f.text_field :user_type, :class => "span5" %>
 </div><br>
 
 <div class="actions"> <!-- uses update post -->
   <%= f.submit class: "btn btn-primary" %>
 </div><br>
 <% end %>
+
+ </table>
+</div>

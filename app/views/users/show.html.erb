@@ -1,3 +1,6 @@
+<div class="container">
+  <div class="page-header">
+
 <% if flash[:notice] %>
   <div class="notice"><h2><%= flash[:notice] %></h2></div>
 <% end %>
@@ -22,6 +25,13 @@
       <% end %>
     <% end %>
 <% end %><br>
+ </div>
+</div>
+
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
 
 <br><br><br><br>
 <% if @user.type == "Patient" %>
@@ -81,3 +91,6 @@
 <%= link_to "Edit Your Profile", edit_user_physician_path(current_user) %><br><br>
 <% end %><br><br>
 <%= link_to 'Log Out', '/logout', :method => :delete  %><br><br>
+
+ </table>
+</div>

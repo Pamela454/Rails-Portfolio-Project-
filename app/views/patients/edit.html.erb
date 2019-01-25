@@ -1,19 +1,28 @@
+<div class="container">
+  <div class="page-header">
 <%= form_for @user, :url => {:controller => 'users', :action => 'update'} do |f| %>  <!--form for authorization -->
 <h2>Edit Your Profile</h2>
+ </div>
+</div>
+
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
 <div class="form-group">
   <%= f.label :email %>
   <br>
-  <%= f.text_field :email, value: @user.email, class: "form-control" %>
+  <%= f.text_field :email, value: @user.email, :class => "span5" %>
 </div><br>
 <div class="form-group">
   <%= f.label :password %>
   <br>
-  <%= f.password_field :password, value: @user.password_digest, class: "form-control" %>
+  <%= f.password_field :password, value: @user.password_digest, :class => "span5" %>
 </div><br>
 <div class="form-group">
   <%= f.label :name %>
   <br>
-  <%= f.text_field :name, value: @user.name, class: "form-control" %>
+  <%= f.text_field :name, value: @user.name, :class => "span5" %>
 </div><br>
 
   <div class="form-group">
@@ -26,3 +35,6 @@
   </div><br>
 
 <% end %>
+
+ </table>
+</div>

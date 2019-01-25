@@ -1,15 +1,27 @@
+<div class="container">
+  <div class="page-header">
 <%= form_for @message, :url => {:controller => 'messages', :action => 'update'} do |f| %>
 <h2>Edit Question</h2>
+ </div>
+</div>
+
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
 <div class="form-group">
    <%= f.label :title %><br>
-   <%= f.text_field :title, class: "form-control" %></div><br><br>
+   <%= f.text_field :title, :class => "span5" %></div><br><br>
 
  <div class="form-group">
    <%= f.label :question %><br>
-   <%= f.text_field :question, class: "form-control" %></div><br><br>
+   <%= f.text_field :question, :class => "span5" %></div><br><br>
 
 <div class="actions">
    <%= f.submit class: "btn btn-primary" %>
  </div><br><br>
 
 <% end %>
+
+ </table>
+</div>

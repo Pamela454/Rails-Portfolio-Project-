@@ -1,7 +1,15 @@
+<div class="container">
+  <div class="page-header">
 <% if flash[:notice] %>
   <div class="notice"><h2><%= flash[:notice] %></h2></div>
 <% end %>
+ </div>
+</div>
 
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
 <%= form_for @user, :url => {:controller => 'users', :action => 'create'} do |f| %>  <!--form for authorization -->
 <div class="form-group">
   <%= f.hidden_field :email, value: @user.email, class: "form-control" %>
@@ -21,22 +29,25 @@
 <div class="form-group">
     <%= f.label :npi, "NPI (Only If Creating Physician Account)" %>
     <br>
-    <%= f.number_field :npi, class: "form-control" %>
+    <%= f.number_field :npi, :class => "span5" %>
   </div><br>
 
   <div class="form-group">
     <%= f.label :specialty, "Specialty (Only If Creating Physician Account)" %>
     <br>
-    <%= f.text_field :specialty, class: "form-control" %>
+    <%= f.text_field :specialty, :class => "span5" %>
   </div><br>
 
   <div class="form-group">
     <%= f.label :type, " Choose Physician or Patient User" %>
     <br>
-    <%= f.text_field :type, class: "form-control" %>
+    <%= f.text_field :type, :class => "span5" %>
   </div><br>
 
   <div class="actions"> <!-- uses update post -->
     <%= f.submit class: "btn btn-primary" %>
   </div><br>
 <% end %>
+
+ </table>
+</div>
