@@ -2,8 +2,8 @@ class MessagesController < ApplicationController
   before_action :login_required
 #before action to restric access?? would apply to other controllers
   def new  #creates a new message    @message = Message.new(patient_id: current_user.id)
-   if user_type == "Patient"
-     @message = Message.new(patient_id: current_user.id)
+   if user_type == "Patient" #changed for nested route
+     @message = Message.new(patient_id: params[:user_id])
    else
      flash[:notice] = "You do not have access to this feature."
      redirect_to :controller => 'users', :action => 'show', :id => current_user.id
@@ -14,14 +14,17 @@ class MessagesController < ApplicationController
     @message = Message.find(params[:id]) #will throw an exception if not found by the attribute supplied
   end
 
-  #def index #is this still needed?
-  #  @messages = Messages.find(current_user.id).messages ||= nil
-  #  @patient = current_user
-  #end
+  def index
+    if params[:user_id]
+      @messages = Message.where(patient_id: params[:user_id])
+    else
+      @messages = Message.all
+    end
+  end
 
   def create
     @message = Message.new(message_params)
-    if @message.save!
+    if @message.save
       flash[:notice] = "Message successfully created"
       redirect_to :controller => 'users', :action => 'show', :id => current_user.id
     else
@@ -31,10 +34,17 @@ class MessagesController < ApplicationController
 
   def edit
     if user_type == "Patient"
-      @message = Message.find(params[:id])
-    else
+      if params[:user_id]
+        patient = Patient.find_by(id: params[:patient_id])
+        if patient = nil
+          redirect_to :controller => 'users', :action => 'show', :id => current_user.id
+        else
+        @message = Message.find_by(id: params[:id])
+        end
+     else
       flash[:notice] = "You do not have access to this feature."
       redirect_to :controller => 'users', :action => 'show', :id => current_user.id
+      end
     end
   end
 

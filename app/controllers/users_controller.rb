@@ -17,9 +17,12 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       flash[:notice] = "Profile successfully created"
       redirect_to user_path(@user)
-    else
+    elsif params[:user][:type] == "Physician"
       flash[:error]
-      redirect_to root_path
+      render 'physicians/new'
+    elsif params[:user][:type] == "Patient"
+      flash[:error]
+      render 'physicians/new'
     end
   end
 

@@ -1,0 +1,14 @@
+<% if flash[:notice] %>
+<div class="notice"><h2><%= flash[:notice] %></h2></div>
+  <% end %>
+
+<h2><%=@category.category %></h2>
+<% @category.messages.each do |m| %>
+<div>
+<%= m.id %>
+<%= m.title %>
+<%= m.question %></div>
+<% m.responses.each do |r| %>
+  <%= r.response %>
+  <% end %>
+<% end %>

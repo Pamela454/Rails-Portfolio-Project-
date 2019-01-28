@@ -1,6 +1,16 @@
 <div class="container">
   <div class="page-header">
 <%= form_for @user, :url => {:controller => 'users', :action => 'create'} do |f| %>  <!--form for authorization -->
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2>There were some errors:</h2>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 <h2>Please Enter the Following Info to Create a New Patient Account</h2>
  </div>
 </div>
@@ -9,19 +19,19 @@
   <table class="table table-striped">
     <thead>
       <tr>
-  <div class="form-group">
+<div class="field<%= ' field_with_errors' if @user.errors[:email].any? %>">
     <%= f.label :email %>
     <br>
     <%= f.text_field :email, value: @user.email, :class => "span5" %>
   </div><br>
 
-  <div class="form-group">
+<div class="field<%= ' field_with_errors' if @user.errors[:password].any? %>">
     <%= f.label :password %>
     <br>
     <%= f.password_field :password, value: @user.password_digest, :class => "span5" %>
   </div><br>
 
-  <div class="form-group">
+<div class="field<%= ' field_with_errors' if @user.errors[:name].any? %>">
     <%= f.label :name %>
     <br>
     <%= f.text_field :name, value: @user.name, :class => "span5" %>

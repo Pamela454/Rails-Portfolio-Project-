@@ -1,0 +1,10 @@
+<h2>Questions Asked</h2>
+<div><br><br>
+<% @messages.each do |m| %>
+  <h3>Title: <%= m.title %></h3>
+  <h3>Body: <%= m.question %></h3>
+  <h3>Categories: <% m.categories.each do |c| %></h3>
+   <%= c.category %><br>
+   <% end %><br><br>
+<%end%>
+</div><br><br>

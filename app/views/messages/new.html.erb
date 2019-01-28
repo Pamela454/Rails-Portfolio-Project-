@@ -1,6 +1,16 @@
 <div class="container">
   <div class="page-header">
 <%= form_for @message, :url => {:controller => 'messages', :action => 'create'} do |f| %>
+<% if @message.errors.any? %>
+    <div id="error_explanation">
+      <h2>There were some errors:</h2>
+      <ul>
+        <% @message.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 <h1>New Question</h1>
  </div>
 </div>
@@ -9,11 +19,12 @@
   <table class="table table-striped">
     <thead>
       <tr>
-<div class="form-group">
+
+<div class="field<%= ' field_with_errors' if @message.errors[:title].any? %>">
    <%= f.label :title %><br>
    <%= f.text_field :title, :class => "span5" %></div><br><br>
 
- <div class="form-group">
+<div class="field<%= ' field_with_errors' if @message.errors[:question].any? %>">   
    <%= f.label :question %><br>
    <%= f.text_field :question, :class => "span5" %></div><br><br>
 

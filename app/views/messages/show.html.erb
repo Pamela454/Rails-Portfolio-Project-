@@ -7,8 +7,8 @@
   <h3>Categories: <% @message.categories.each do |c| %></h3>
     <%= c.category %><br>
     <% end %>
-  <% if Response.exists?(@message.id) %>
-  <h3>Response: <%= Response.try([@message.id])%></h3>
+  <h3>Response: <% @message.responses.each do |r|%></h3>
+  <%= r.response %><br>
   <% end %>
 
   <%= form_with url: user_message_path(@message.id), method: :delete do |f| %>

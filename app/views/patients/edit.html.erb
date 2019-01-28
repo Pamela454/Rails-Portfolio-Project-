@@ -14,11 +14,13 @@
   <br>
   <%= f.text_field :email, value: @user.email, :class => "span5" %>
 </div><br>
+
 <div class="form-group">
   <%= f.label :password %>
   <br>
   <%= f.password_field :password, value: @user.password_digest, :class => "span5" %>
 </div><br>
+
 <div class="form-group">
   <%= f.label :name %>
   <br>

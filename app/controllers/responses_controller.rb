@@ -3,7 +3,7 @@ class ResponsesController < ApplicationController
 
   def new
     if user_type == "Physician"
-      @response = Response.new
+      @response = Response.new(physician_id: params[:user_id])
       @message = Message.find_by(id: params[:message])
     else
       flash[:notice] = "You do not have access to this feature."
@@ -24,11 +24,18 @@ class ResponsesController < ApplicationController
 
   def edit
     if user_type == "Physician"
-      @user = User.find(session[:user_id])
-      @response = Response.find_by(id: params[:id])
+      if params[:user_id]
+        physician = Physician.find_by(id: params[:user_id])
+        if physician = nil
+          redirect_to :controller => 'users', :action => 'show', :id => current_user.id
+        elsif
+          @response = Response.find_by(id: params[:id])
+          @user = User.find(session[:user_id])
+        end
     else
       flash[:notice] = "You do not have access to this feature."
       redirect_to :controller => 'users', :action => 'show', :id => current_user.id
+     end
     end
   end
 
@@ -39,7 +46,7 @@ class ResponsesController < ApplicationController
      flash[:notice] = "Response successfully edited"
      redirect_to :controller => 'users', :action => 'show', :id => current_user.id
    else
-    redirect_to :controller => 'users', :action => 'show', :id => current_user.id
+     render :edit
    end
   end
 

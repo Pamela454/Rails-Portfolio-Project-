@@ -1,5 +1,16 @@
 <%= form_for @user, url: "/users/signin" do |f| %>
-  <div class="field"><%= f.label :name, "Enter your email" %><br>
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2>There were some errors:</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="field<%= ' field_with_errors' if @user.errors[:email].any? %>">
     <%= f.text_field :email, :class => "span5" %>
   </div>
 

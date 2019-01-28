@@ -3,31 +3,41 @@
     <thead>
       <tr>
 <%= form_for @user, :url => url_for(:controller => 'sessions', :action => 'create') do |f| %>  <!--form for authorization -->
-<div class="form-group">
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2>There were some errors:</h2>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="field<%= ' field_with_errors' if @user.errors[:email].any? %>">
   <%= f.label :email %>
   <br>
   <%= f.text_field :email, :class => "span5" %>
 </div><br>
 
-<div class="form-group">
+<div class="field<%= ' field_with_errors' if @user.errors[:name].any? %>">
   <%= f.label :name %>
   <br>
   <%= f.text_field :name, :class => "span5" %>
 </div><br>
 
-<div class="form-group">
+<div class="field<%= ' field_with_errors' if @person.errors[:name].any? %>">
   <%= f.label :npi %>
   <br>
   <%= f.number_field :npi, :class => "span5" %>
 </div><br>
 
-<div class="form-group">
+<div class="field<%= ' field_with_errors' if @person.errors[:name].any? %>">
   <%= f.label :specialty %>
   <br>
   <%= f.text_field :specialty, :class => "span5" %>
 </div><br>
 
-<div class="form-group">
+<div class="field<%= ' field_with_errors' if @person.errors[:name].any? %>">
   <%= f.label :user_type %>
   <br>
   <%= f.text_field :user_type, :class => "span5" %>

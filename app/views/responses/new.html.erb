@@ -1,6 +1,16 @@
 <div class="container">
   <div class="page-header">
 <%= form_for @response, url: {action: "create"}, html: {class: "form-control"} do |f| %>
+<% if @response.errors.any? %>
+    <div id="error_explanation">
+      <h2>There were some errors:</h2>
+      <ul>
+        <% @response.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 <h2>New Response</h2>
  </div>
 </div>
@@ -9,7 +19,7 @@
   <table class="table table-striped">
     <thead>
       <tr>
-<div class="form-group">
+<div class="field<%= ' field_with_errors' if @response.errors[:response].any? %>">    
     <%= f.label :response %><br>
     <%= f.text_field :response, :class => "span5" %></div><br><br>
 

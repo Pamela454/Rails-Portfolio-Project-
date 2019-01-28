@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get  '/logout',   to: 'sessions#destroy', via: :delete
 
   resources :users do  #use shallow method?
-    resources :messages, only: [:new, :create, :edit, :update, :destroy]
+    resources :messages, only: [:new, :create, :edit, :update, :index, :destroy]
     resources :responses, only: [:new, :create, :edit, :update, :destroy]
     resources :patients, only: [:edit, :update]
     resources :physicians, only: [:edit, :update]
