@@ -17,3 +17,6 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require_tree .
+//= require patients.coffee
+//= require physicians.coffee
+//= require users.coffee

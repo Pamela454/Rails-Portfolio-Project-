@@ -19,8 +19,14 @@ class MessagesController < ApplicationController
   def index
     if params[:user_id]
       @messages = Message.where(patient_id: params[:user_id])
+      respond_to do |m|
+        m.html {render html :index}
+        m.json {render json: @messages}
     else
       @messages = Message.all
+      respond_to do |m|
+        m.html {render html :index}
+        m.json {render json: @messages}
     end
   end
 
