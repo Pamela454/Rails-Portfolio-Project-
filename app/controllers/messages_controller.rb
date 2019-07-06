@@ -14,6 +14,10 @@ class MessagesController < ApplicationController
 
   def show #may not need this
     @message = Message.find(params[:id]) #will throw an exception if not found by the attribute supplied
+    respond_to do |m|
+      m.html {render :show}
+      m.json {render json: @message}
+    end
   end
 
   def index
@@ -22,11 +26,13 @@ class MessagesController < ApplicationController
       respond_to do |m|
         m.html {render html :index}
         m.json {render json: @messages}
+      end
     else
       @messages = Message.all
       respond_to do |m|
         m.html {render html :index}
         m.json {render json: @messages}
+      end
     end
   end
 

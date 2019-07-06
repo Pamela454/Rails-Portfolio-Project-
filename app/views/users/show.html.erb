@@ -35,6 +35,16 @@
 
 <br><br><br><br>
 <% if @user.type == "Patient" %>
+
+    <button id='messages-data'>Get Messages</button>
+      <div id='ajax-messages'>[messages...]</div>
+      <br>
+      <br>
+
+    <button id='ajax-new-message'>New Message</button>
+      <div id="new-message-form-div">[form]</div>
+
+
   <h3>Questions Asked: <% @messages.each do |m| unless @messages.nil? %></h3><br><br>
     <h3>Message ID: <%= m.id %></h3>
     <h3>Title: <%= m.title %></h3>
