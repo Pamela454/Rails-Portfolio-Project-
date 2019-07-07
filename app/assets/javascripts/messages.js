@@ -1,4 +1,4 @@
-$(function () {
+$(function () {  //is this needed? 
 	console.log('messages.js is loaded ...')
 	listenForClick()
 	listenForNewMessageFormClick()
