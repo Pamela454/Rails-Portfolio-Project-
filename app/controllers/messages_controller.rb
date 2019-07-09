@@ -15,8 +15,8 @@ class MessagesController < ApplicationController
   def show #may not need this
     @message = Message.find(params[:id]) #will throw an exception if not found by the attribute supplied
     respond_to do |m|
-      m.html {render :show}
-      m.json {render json: @message}
+      m.html {render :show}  
+      m.json {render json: @message} #use to.json? rendering a hash
     end
   end
 
