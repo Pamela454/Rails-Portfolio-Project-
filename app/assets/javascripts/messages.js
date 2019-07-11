@@ -4,7 +4,7 @@ $(document).ready(() => {  //is this needed?
 	listenForNewMessageFormClick()
 });
 
-let userId = function finduserId() {
+let userId = function retriveuserId(){
 	return $('h2#userid').data('user-id')
 }
 
@@ -14,7 +14,7 @@ function listenForClick() {
 	console.log('button clicked');
 		event.preventDefault()  //prevent default rendering when button is clicked 
 		//getMessages()
-		var url = `${userId}/messages.json`
+		var url = `${userId()}/messages.json`
 		console.log(`THIS IS THE URL YOU ARE USING: ${url}`)
 		fetch(url, {
 			headers: {
