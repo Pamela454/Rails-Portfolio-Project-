@@ -5,27 +5,35 @@ $(document).ready(() => {  //is this needed?
 });
 
 let userId = function finduserId() {
-	return $('button#messages-data').data('user-id')
+	return $('h2#userid').data('user-id')
 }
 
 function listenForClick() {
 	console.log('setting up click handler');
-	$('button#messages-data').on('click', function (event) {
+	$('button#messages-data').on('click', event => {
 	console.log('button clicked');
 		event.preventDefault()  //prevent default rendering when button is clicked 
 		//getMessages()
-		fetch('/users/${userId()}/messages.json') 
-			.then(res => res.json()) //parsing the data
+		var url = `${userId}/messages.json`
+		console.log(`THIS IS THE URL YOU ARE USING: ${url}`)
+		fetch(url, {
+			headers: {
+            	'Content-Type': 'application/json',
+            	// 'Content-Type': 'application/x-www-form-urlencoded',
+        		}
+        	})
+			.then(res => res.json()) 
 			.then(allMessages => {
-				$('.container').html('')
+				$('.container').html(`${allMessages}`)
 				console.log('Asked data from index')
 				return Promise.resolve("Dummy response to keep the console quiet");
 				allMessages.forEach(messages => {
                     let newMessage = new Message(message)
-                    let messageHtml = newMessage.formatIndex()
+                    let messageHtml = newMessage.postHTML()
                     $('.container').append(messageHtml)
                 })
 			})
+			.catch(error => console.error('Error:', error));
 
 	})
 }
@@ -55,7 +63,7 @@ function listenForNewMessageFormClick() {
 	})
 }
 
-function Message(message) {
+function Message(message) {   //constructor function 
 		this.id = message.id
 		this.title = message.title
 		this.question = message.question
@@ -73,19 +81,10 @@ function newMessageForm() {
 		`)
 }
 
+//prototype function called on constructor, can't use arrow function 
 Message.prototype.postHTML = function () {
-	let messageResponses = this.responses.map(comment => {
-		return (`
-			<p>${responses.content}</p>
-		`)
-	}).join('')
-
-	return (`	
-		<div class='message'>
-			<h3>${this.title}</h3>
-			<p>${this.content}</p>
-			<p>${postComments}</p>
-		</div>
-	`)
+	let postHtml = `<a href= "${this.id}/messages" data-id= "${this.id}" class = "show-messages"><h1>${this.title}</h1></a>` 
+    
+    return postHtml
 }
 

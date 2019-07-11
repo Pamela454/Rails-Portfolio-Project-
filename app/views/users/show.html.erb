@@ -8,7 +8,7 @@
 <% if session[:user_id] %>
   <h1>Name: <%= @user.name %></h1>
   <h2>Email: <%= @user.email %></h2>
-  <h2>ID: <%= @user.id %></h2>
+  <h2 id="userid" data-user-id=" <%= @user.id %>">ID: <%= @user.id %></h2>
   <h2>Type: <%= @user.type %></h2>
 <% end %>
 
@@ -39,10 +39,6 @@
     <button id='messages-data'>Get Questions</button>
       <div id='ajax-messages'>[messages...]</div>
       <br>
-      <br>
-
-    <button id='ajax-new-message'>New Question</button>
-      <div id="new-message-form-div">[form]</div>
 
 
   <h3>Questions Asked: <% @messages.each do |m| unless @messages.nil? %></h3><br><br>
@@ -53,7 +49,8 @@
       <h3>Response ID: <%= r.id %></h3>
       <h3>Response: <%= r.response %></h3>
       <% end %><br><br>
-    <%= link_to "Edit Question", edit_user_message_path(current_user, m.id) %><br><br>
+    <%= link_to "Edit Question", edit_user_message_path(current_user, m.id), class: 'ajax-new-message'%><br><br>
+          <div id="new-message-form-div">[form]</div>
     <%= form_with url: user_message_path(current_user, m.id), method: :delete do |f| %>
       <%= f.submit "Delete Question" %><br>
       <% end %><br>

@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   #get '/users/:user_id/responses/:id/edit' => 'users#edit_response'
   #patch '/users/:user_id/messages/:id/edit' => 'messages#update'
 
-  get  '/logout',   to: 'sessions#destroy', via: :delete
+  delete  '/logout',   to: 'sessions#destroy', via: :delete
 
   resources :users do  #use shallow method?
     resources :messages, only: [:new, :create, :edit, :update, :index, :destroy]
