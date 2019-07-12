@@ -56,6 +56,28 @@ function listenForClick() {
 //	})
 //}
 
+function listenforMessageClick() {
+    $('.responses-data').on('click', function (event) {
+		event.preventDefault()
+		console.log(this)
+		var answers = `${this.responses}`
+		fetch(answers, {
+        	})
+			.then(res => res.json()) 
+			.then(allResponses => {
+				$('.square').html('')
+				console.log(allResponses)
+				allResponses.forEach(response => {
+                    let newMessage = new Message(message)
+                    let messageHtml = newMessage.postHTML()
+                    $('.box').append(messageHtml)
+                })
+			})
+			.catch(error => console.error('Error:', error));
+
+	})
+}
+
 function listenForNewMessageFormClick() {
 	$('.ajax-new-message').on('click', function (event) {
 		event.preventDefault()
@@ -93,10 +115,13 @@ Message.prototype.postHTML = function () {
 	<div class='message'>
 	 <h2>Title: ${this.title}</h2>
 	 <h2>Question: ${this.question}</h2>
+	 <button id='responses-data'>Show Responses</button>
 	</div>
    `)
     
     return postHtml
 }  //add function to format message response. 
+
+
 
 
