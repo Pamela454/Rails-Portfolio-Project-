@@ -8,6 +8,7 @@ let userId = function retriveuserId(){
 	return $('h2#userid').data('user-id')
 }
 
+//index of user's questions asked is displayed 
 function listenForClick() {
 	console.log('setting up click handler');
 	$('button#messages-data').on('click', event => {
@@ -16,25 +17,28 @@ function listenForClick() {
 		//getMessages()
 		var url = `${userId()}/messages.json`
 		fetch(url, {
-			headers: {
-            	'Content-Type': 'application/json',
+			//headers: {
+            //	'Content-Type': 'application/json',
             	// 'Content-Type': 'application/x-www-form-urlencoded',
-        		}
+        	//	}
         	})
 			.then(res => res.json()) 
 			.then(allMessages => {
-				$('.container').html('')
+				$('.box').html('')
+				console.log(allMessages)
 				//return Promise.resolve("Dummy response to keep the console quiet");
 				allMessages.forEach(message => {
                     let newMessage = new Message(message)
                     let messageHtml = newMessage.postHTML()
-                    $('.container').append(messageHtml)
+                    $('.box').append(messageHtml)
                 })
 			})
 			.catch(error => console.error('Error:', error));
 
 	})
 }
+
+//function to view individual question, display comments in has many relationship 
 
 //function getMessages() {
 //	$.ajax({
@@ -53,11 +57,11 @@ function listenForClick() {
 //}
 
 function listenForNewMessageFormClick() {
-	$('button#ajax-new-message').on('click', function (event) {
+	$('.ajax-new-message').on('click', function (event) {
 		event.preventDefault()
-		let newMessageForm = Message.newMessageForm()
+		let newForm = newMessageForm()
 		// $('div#new-post-form-div')
-		document.querySelector('div#new-message-form-div').innerHTML = newMessageForm
+		document.querySelector('div#new-message-form-div').innerHTML = newForm
 	})
 }
 
@@ -66,18 +70,18 @@ function Message(message) {   //constructor function
 		this.title = message.title
 		this.question = message.question
 		this.responses = message.responses
-}
+	}
 
 function newMessageForm() {
 		return (`
 		<strong>New message comment form</strong>
 			<form>
-				<input id='message-title' type='text' name='title'></input><br>
-				<input type='text' name='question'></input><br>
+				<input id='message-title' type='text' name='title'> Title</input><br>
+				<input type='text' name='question'> Question</input><br>
 				<input type='submit' />
 			</form>
 		`)
-}
+}   //ES6 template literals
 
 
 //let postHtml = `<a href= "${this.id}/messages" data-id= "${this.id}" class = "show-messages"><h1>${this.title}</h1></a>` 
@@ -85,15 +89,14 @@ function newMessageForm() {
 
 //prototype function called on constructor, can't use arrow function 
 Message.prototype.postHTML = function () {
-	return (`
+	return (`    
 	<div class='message'>
-	 <h2>${this.title}</h2>
-	 <h2>${this.id}</h2>
-	 <h2>${this.question}</h2>
+	 <h2>Title: ${this.title}</h2>
+	 <h2>Question: ${this.question}</h2>
 	</div>
    `)
     
     return postHtml
-}
+}  //add function to format message response. 
 
 
