@@ -15,7 +15,6 @@ function listenForClick() {
 		event.preventDefault()  //prevent default rendering when button is clicked 
 		//getMessages()
 		var url = `${userId()}/messages.json`
-		console.log(`THIS IS THE URL YOU ARE USING: ${url}`)
 		fetch(url, {
 			headers: {
             	'Content-Type': 'application/json',
@@ -24,10 +23,9 @@ function listenForClick() {
         	})
 			.then(res => res.json()) 
 			.then(allMessages => {
-				$('.container').html(`${allMessages}`)
-				console.log('Asked data from index')
-				return Promise.resolve("Dummy response to keep the console quiet");
-				allMessages.forEach(messages => {
+				$('.container').html('')
+				//return Promise.resolve("Dummy response to keep the console quiet");
+				allMessages.forEach(message => {
                     let newMessage = new Message(message)
                     let messageHtml = newMessage.postHTML()
                     $('.container').append(messageHtml)
@@ -81,10 +79,21 @@ function newMessageForm() {
 		`)
 }
 
+
+//let postHtml = `<a href= "${this.id}/messages" data-id= "${this.id}" class = "show-messages"><h1>${this.title}</h1></a>` 
+
+
 //prototype function called on constructor, can't use arrow function 
 Message.prototype.postHTML = function () {
-	let postHtml = `<a href= "${this.id}/messages" data-id= "${this.id}" class = "show-messages"><h1>${this.title}</h1></a>` 
+	return (`
+	<div class='message'>
+	 <h2>${this.title}</h2>
+	 <h2>${this.id}</h2>
+	 <h2>${this.question}</h2>
+	</div>
+   `)
     
     return postHtml
 }
+
 
