@@ -2,10 +2,15 @@ $(document).ready(() => {  //is this needed?
 	console.log('messages.js is loaded ...')
 	listenForClick()
 	listenForNewMessageFormClick()
+	listenforMessageClick()
 });
 
 let userId = function retriveuserId(){
 	return $('h2#userid').data('user-id')
+}
+
+let messageId = function retrievemessageId() {
+	return $()
 }
 
 //index of user's questions asked is displayed 
@@ -115,12 +120,33 @@ Message.prototype.postHTML = function () {
 	<div class='message'>
 	 <h2>Title: ${this.title}</h2>
 	 <h2>Question: ${this.question}</h2>
-	 <button id='responses-data'>Show Responses</button>
+	 <button id='responses-data' data-message-id= '${this.id}' onclick="responseHandler()">Show Responses</button>
 	</div>
    `)
     
     return postHtml
 }  //add function to format message response. 
+
+function responseHandler() {
+		event.preventDefault()
+		console.log(this)
+		var answers = `${this.responses}`
+		fetch(answers, {
+        	})
+			.then(res => res.json()) 
+			.then(allResponses => {
+				$('.square').html('')
+				console.log(allResponses)
+				allResponses.forEach(response => {
+                    let newMessage = new Message(message)
+                    let messageHtml = newMessage.postHTML()
+                    $('.box').append(messageHtml)
+                })
+			})
+			.catch(error => console.error('Error:', error));
+
+	
+}
 
 
 
