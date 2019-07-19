@@ -118,18 +118,17 @@ function newMessageForm() {
 Message.prototype.postHTML = function () {
 	return (`    
 	<div class='message'>
+	 <h2>Id: ${this.id}</h2>
 	 <h2>Title: ${this.title}</h2>
 	 <h2>Question: ${this.question}</h2>
 	 <button id='responses-data' data-message-id= '${this.id}' onclick="responseHandler()">Show Responses</button>
 	</div>
    `)
-    
     return postHtml
 }  //add function to format message response. 
 
 function responseHandler() {
 		event.preventDefault()
-		console.log(this)
 		var answers = `${this.responses}`
 		fetch(answers, {
         	})

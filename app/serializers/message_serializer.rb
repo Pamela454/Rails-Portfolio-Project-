@@ -1,5 +1,5 @@
 class MessageSerializer < ActiveModel::Serializer
-	attributes :title, :question, :created_at
+	attributes :title, :question, :created_at, :id
 	has_many :message_categories
     has_many :categories, through: :message_categories
     has_many :responses
