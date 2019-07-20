@@ -2,16 +2,13 @@ $(document).ready(() => {  //is this needed?
 	console.log('messages.js is loaded ...')
 	listenForClick()
 	listenForNewMessageFormClick()
-	listenforMessageClick()
+	responseHandler()
 });
 
 let userId = function retriveuserId(){
 	return $('h2#userid').data('user-id')
 }
 
-let messageId = function retrievemessageId() {
-	return $()
-}
 
 //index of user's questions asked is displayed 
 function listenForClick() {
@@ -61,27 +58,27 @@ function listenForClick() {
 //	})
 //}
 
-function listenforMessageClick() {
-    $('.responses-data').on('click', function (event) {
-		event.preventDefault()
-		console.log(this)
-		var answers = `${this.responses}`
-		fetch(answers, {
-        	})
-			.then(res => res.json()) 
-			.then(allResponses => {
-				$('.square').html('')
-				console.log(allResponses)
-				allResponses.forEach(response => {
-                    let newMessage = new Message(message)
-                    let messageHtml = newMessage.postHTML()
-                    $('.box').append(messageHtml)
-                })
-			})
-			.catch(error => console.error('Error:', error));
-
-	})
-}
+//function listenforMessageClick() {
+//    $('.responses-data').on('click', function (event) {
+//		event.preventDefault()
+//		console.log(this)
+//		var answers = `${this.responses}`
+//		fetch(answers, {
+//        	})
+//			.then(res => res.json()) 
+//			.then(allResponses => {
+//				$('.square').html('')
+//				console.log(allResponses)
+//				allResponses.forEach(response => {
+//                    let newMessage = new Message(message)
+//                    let messageHtml = newMessage.postHTML()
+//                    $('.box').append(messageHtml)
+//                })
+//			})
+//			.catch(error => console.error('Error:', error));
+//
+//	})
+//}
 
 function listenForNewMessageFormClick() {
 	$('.ajax-new-message').on('click', function (event) {
@@ -97,6 +94,13 @@ function Message(message) {   //constructor function
 		this.title = message.title
 		this.question = message.question
 		this.responses = message.responses
+	}
+
+function Response(response) {   //constructor function 
+		this.id = response.id
+		this.response = response.response
+		this.physician_id = response.physician_id
+		this.message_id = response.message_id
 	}
 
 function newMessageForm() {
@@ -127,19 +131,33 @@ Message.prototype.postHTML = function () {
     return postHtml
 }  //add function to format message response. 
 
+
+Response.prototype.postHTML = function () {
+	return (`    
+	<div class='message'>
+	 <h2>Id: ${this.id}</h2>
+	 <h2>Response: ${this.response}</h2>
+	 <h2>Physician Id: ${this.physician_id}</h2>
+	 <h2>Message Id: ${this.message_id}</h2>
+	</div>
+   `)
+    return postHtml
+} 
+
 function responseHandler() {
-		event.preventDefault()
-		var answers = `${this.responses}`
-		fetch(answers, {
+		//event.preventDefault()
+		var answers = `${userId()}/responses.json`  
+		console.log(answers)
+		fetch(answers, {   
         	})
 			.then(res => res.json()) 
 			.then(allResponses => {
-				$('.square').html('')
 				console.log(allResponses)
+				$('.square').html('')
 				allResponses.forEach(response => {
-                    let newMessage = new Message(message)
-                    let messageHtml = newMessage.postHTML()
-                    $('.box').append(messageHtml)
+                    let newResponse = new Response(response)
+                    let responseHtml = newResponse.postHTML()
+                    $('.box').append(responseHtml)
                 })
 			})
 			.catch(error => console.error('Error:', error));

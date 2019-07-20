@@ -11,6 +11,25 @@ class ResponsesController < ApplicationController
     end
   end
 
+  def index
+      if params[:user_id]
+      @message = Message.find_by(patient_id: params["user_id"])
+      @responses = @message.responses 
+
+      respond_to do |r|
+        r.html {render html :index}
+        r.json {render json: @responses}
+      end
+
+    else
+      @responses = Response.all 
+      respond_to do |r|
+        r.html {render :index}
+        r.json {render json: @responses}
+      end
+    end
+  end
+
   def create
     @message = Message.find_by(id: params[:response][:message_id])
     @response = Response.create(response_params)
