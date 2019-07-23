@@ -7,7 +7,7 @@ $(document).ready(() => {  //is this needed?
 
 let userId = function retriveuserId(){
 	return $('h2#userid').data('user-id')
-}
+}  //does this need to be wrapped in a scoping function
 
 
 //index of user's questions asked is displayed 
@@ -79,14 +79,13 @@ function listenForClick() {
 //
 //	})
 //}
-
 function listenForNewMessageFormClick() {
-	$('.ajax-new-message').on('click', function (event) {
+	$(".ajax-new-message").on('click', event => {
 		event.preventDefault()
 		let newForm = newMessageForm()
 		// $('div#new-post-form-div')
 		document.querySelector('div#new-message-form-div').innerHTML = newForm
-	})
+	})                          
 }
 
 function Message(message) {   //constructor function 
@@ -125,7 +124,7 @@ Message.prototype.postHTML = function () {
 	 <h2>Id: ${this.id}</h2>
 	 <h2>Title: ${this.title}</h2>
 	 <h2>Question: ${this.question}</h2>
-	 <button id='responses-data' data-message-id= '${this.id}' onclick="responseHandler()">Show Responses</button>
+	 <button id='responses-data' data-message-id= '${this.id}' onclick="responseHandler()">Show Responses to this Question</button>
 	</div>
    `)
     return postHtml
