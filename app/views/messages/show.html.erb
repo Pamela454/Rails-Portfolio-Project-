@@ -3,10 +3,10 @@
   <% end %>
 
   <h3>Title: <%= @message.title %></h3>
-  <h3>Body: <%= @message.question %></h3>
+  <h3>Question: <%= @message.question %></h3>
   <h3>Categories: <% @message.categories.each do |c| %></h3>
-    <%= c.category %><br>
-    <% end %>
+    <%= c.category %><br> 
+    <% end %> 
   <h3>Response: <% @message.responses.each do |r|%></h3>
   <%= r.response %><br>
   <% end %>

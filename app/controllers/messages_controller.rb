@@ -13,10 +13,10 @@ class MessagesController < ApplicationController
   end
 
   def show #may not need this
-    @message = Message.find(params[:id]) #will throw an exception if not found by the attribute supplied
+    @message = Message.find_by(params[:id]) #will throw an exception if not found by the attribute supplied
     respond_to do |m|
       m.html {render :show}  
-      m.json {render json: @message} #use to.json? rendering a hash
+      m.json {render json: @message} #show page for JSON data 
     end
   end
 
@@ -25,7 +25,7 @@ class MessagesController < ApplicationController
       @messages = Message.where(patient_id: params[:user_id])
       respond_to do |m|
         m.html {render html :index}
-        m.json {render json: @messages}
+        m.json {render json: @messages} #index page for JSON data 
       end
     else
       @messages = Message.all

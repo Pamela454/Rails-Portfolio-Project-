@@ -1,6 +1,7 @@
 <div class="container">
   <div class="page-header">
-<%= form_for @message, :url => {:controller => 'messages', :action => 'create'} do |f| %>
+    <form class= "new_message", id="new_message">
+<%= form_for @message, html: { class: "new_message", id: "new_message" }, :url => {:controller => 'messages', :action => 'create'} do |f| %>
 <% if @message.errors.any? %>
     <div id="error_explanation">
       <h2>There were some errors:</h2>
@@ -47,10 +48,10 @@
 </div><br>
 
 <div class="actions">
-    <%= f.submit class: "btn btn-primary" %>
+    <%= f.submit class: "btn btn-primary", :onclick => "newMessageHandler()" %>
 </div><br><br>
 
 <% end %>
-
+   </form>
  </table>
 </div>
