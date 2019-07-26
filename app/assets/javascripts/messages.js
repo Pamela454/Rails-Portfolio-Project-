@@ -3,9 +3,8 @@ $(document).ready(() => {  //is this needed?
 	listenForClick()
 	//listenForNewMessageFormClick()
 	responseHandler()
-	formSubmissionClick()
-	test23()
-	newMessageHandler()
+	//formSubmissionClick()
+	//newMessageHandler()
 });
 
 let userId = function retriveuserId(){
@@ -178,18 +177,29 @@ function responseHandler() {
 	})	
 }
 
-function test23() {
-	console.log('attempting to wire up btn handler')
-$('.btn.btn-primary').on('submit', function(e) {
-	e.preventDefault()
-	console.log("hello")
-})	
-}
+//function test23() {
+//	console.log('attempting to wire up btn handler')
+//$('.btn.btn-primary').on('submit', function(e) {
+//	e.preventDefault()
+//	console.log("hello")
+//})	
+//}
+
 
 function newMessageHandler(event) {
 	console.log("new message handled")
+	//$('form').submit
 	$("#new_message").on("submit", function(e) {
         e.preventDefault()
+        const values = $(this).serialize()  
+        console.log("this is it" + values)   
+        var posting = $.post(`/users/9/messages`, values)
+        posting.done(function(data) {
+        	console.log("this is a string: " + data)
+        const newMessage = new Message(data)
+        const htmlMessage = newMessage.formatShow()
+        $(".container").html(htmlMessage)
+      })
 	})
 }
 
