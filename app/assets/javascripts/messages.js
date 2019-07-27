@@ -15,11 +15,11 @@ let userId = function retriveuserId(){
 //index of user's questions asked is displayed 
 function listenForClick() {
 	console.log('setting up click handler');
-	$('button#messages-data').on('click', event => {
+	$("button#messages-data").on('click', event => {
 	console.log('button clicked');
 		event.preventDefault()  //prevent default rendering when button is clicked 
 		//getMessages()
-		history.pushState(null, null, "messages") //this gives wrong url
+		//history.pushState(null, null, "messages") //this gives wrong url
 		var url = `${userId()}/messages.json`
 		fetch(url, {
 			//headers: {
@@ -29,13 +29,13 @@ function listenForClick() {
         	})
 			.then(res => res.json()) 
 			.then(allMessages => {
-				$('.box').html('')
+				$('.square').html('')
 				console.log(allMessages)
 				//return Promise.resolve("Dummy response to keep the console quiet");
 				allMessages.forEach(message => {
                     let newMessage = new Message(message)
                     let messageHtml = newMessage.postHTML()
-                    $('.box').append(messageHtml)
+                    $('.square').append(messageHtml)
                 })
 			})
 			.catch(error => console.error('Error:', error));
@@ -132,9 +132,9 @@ Message.prototype.formatShow = function () {
 
 
 	let postHtml = `
-	   <h3>${this.id}</h3>
-	   <h3>${this.title}</h3>
-	   <h3>${this.question}</h3>
+	   <h3>Id:${this.id}</h3>
+	   <h3>Title: ${this.title}</h3>
+	   <h3>Question: ${this.question}</h3>
 	   <h3>${responseHtml}</h3> 
 	`
 

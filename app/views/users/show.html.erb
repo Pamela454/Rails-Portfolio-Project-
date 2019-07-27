@@ -38,21 +38,31 @@
 
 
 <div class="box">
-    <button id='messages-data'>Get Questions</button>
+    <button id='messages-data' >Get Questions</button>
       <div id='ajax-messages'>[messages...]</div>
       <div class="square">
       </div>
-      <br>
+      <br><br><br><br>
 
 
-  <!-- <h3>Questions Asked: <% @messages.each do |m| unless @messages.nil? %></h3><br><br>
+  <%= link_to "View All Questions",  user_messages_path(current_user) %><br><br> 
+  <%= link_to "Ask A Question", new_user_message_path(current_user), class: 'ajax-new-message' %>   <div id="new-message-form-div">[form]</div><br><br><br><br>
+
+  <%= link_to "Edit Your Profile", edit_user_patient_path(current_user) %><br><br>
+<% end %>
+
+
+<%
+=begin %>
+  <h3>Questions Asked: <% @messages.each do |m| unless @messages.nil? %></h3><br><br>
     <h3>Message ID: <%= m.id %></h3>
     <h3>Title: <%= m.title %></h3>
     <h3>Body: <%= m.question %></h3>
     <h3>Responses: <% m.responses.each do |r| %></h3>
       <h3>Response ID: <%= r.id %></h3>
       <h3>Response: <%= r.response %></h3>
-      <% end %><br><br> -->
+      <% end %><br><br>
+
 
 </div>
     <%= link_to "Edit Question", edit_user_message_path(current_user, m.id) %><br><br>
@@ -62,12 +72,10 @@
       <% end %><br>
     <% end %>
   <% end %><br><br>
-  <%= link_to "View All Questions",  user_messages_path(current_user) %><br><br>
-  <%= link_to "Ask A Question", new_user_message_path(current_user), class: 'ajax-new-message' %>   <div id="new-message-form-div">[form]</div><br><br><br><br>
 
-  <%= link_to "Edit Your Profile", edit_user_patient_path(current_user) %><br><br>
-<% end %>
-<br><br><br>
+<%
+=end %>
+
 
 <% if @user.type == "Physician" %>
  <h3>Unanswered Questions:<% Message.unanswered_questions.to_a.each do |m|%></h3>
