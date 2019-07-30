@@ -5,7 +5,7 @@
 <% if @message.errors.any? %>
     <div id="error_explanation">
       <h2>There were some errors:</h2>
-      <ul>
+      <ul> 
         <% @message.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
@@ -13,8 +13,10 @@
     </div>
   <% end %>
 <h1>New Question</h1>
+<h2 id="userid" data-user-id="<%= @user.id %>">User ID: <%= @user.id %></h2>
  </div>
 </div>
+
 
 <div class="container">
   <table class="table table-striped">

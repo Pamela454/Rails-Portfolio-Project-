@@ -2,9 +2,9 @@ $(document).ready(() => {  //is this needed?
 	console.log('messages.js is loaded ...')
 	listenForClick()
 	//listenForNewMessageFormClick()
-	responseHandler()
+	//responseHandler()
 	//formSubmissionClick()
-	//newMessageHandler()
+	newMessageHandler()
 });
 
 let userId = function retriveuserId(){
@@ -75,16 +75,16 @@ function listenForClick() {
 //	})                          
 //}
       
-function formSubmissionClick() {
-	$("button#new-question").submit(function(event){
-	event.preventDefault()
-	console.log('hello')
-	let submission = $(this).serialize()
-	console.log(submission)
-	$.post(`${userId()}/messages`, submission).done(function(data){
-	})
-  })
-}
+//function formSubmissionClick() {
+//	$("button#new-question").submit(function(event){
+//	event.preventDefault()
+//	console.log('hello')
+//	let submission = $(this).serialize()
+//	console.log(submission)
+//	$.post(`${userId()}/messages`, submission).done(function(data){
+//	})
+ // })
+//}
 
 function Message(message) {   //constructor function 
 		this.id = message.id
@@ -100,20 +100,6 @@ function Response(response) {   //constructor function
 		this.message_id = response.message_id
 	}
 
-//function newMessageForm() {
-//		return (`
-//		<strong>New Question Form</strong>
-//			<form>
-//				<input id='message-title' type='text' name='title'> Title</input><br>
-//				<input type='text' name='question'> Question</input><br>  
-//				<input type="button" id="new-question" value="Submit" onclick="formSubmissionClick()"/>
-//			</form>
-//		`)
-//}   //ES6 template literals
-
-
-//let postHtml = `<a href= "${this.id}/messages" data-id= "${this.id}" class = "show-messages"><h1>${this.title}</h1></a>` 
-
 
 //prototype function called on constructor, can't use arrow function 
 Message.prototype.postHTML = function () {
@@ -128,14 +114,23 @@ Message.prototype.postHTML = function () {
 
 Message.prototype.formatShow = function () {
 
-	let responseHtml = this.responses
+	const responseHtml = this.responses
+
+	const newResponses = new Response(responseHtml)
+
+	function Response(response) {  
+		this.id = response.id
+		this.response = response.response
+		this.physician_id = response.physician_id
+		this.message_id = response.message_id
+	}
 
 
 	let postHtml = `
 	   <h3>Id:${this.id}</h3>
 	   <h3>Title: ${this.title}</h3>
 	   <h3>Question: ${this.question}</h3>
-	   <h3>${responseHtml}</h3> 
+	   <h3>${newResponses}</h3> 
 	`
 
 	return postHtml
@@ -156,18 +151,18 @@ Message.prototype.formatShow = function () {
 
 function responseHandler() {
 	$(document).on('click', "a#responses-data", function(e) {
+		console.log("get show page")
 		event.preventDefault()
 	    let messageId = $('a#responses-data').data('message-id')
 		var answers = `${userId()}/messages/${messageId}.json`  
 		fetch(answers, {   
-        	})
+       	})
 			.then(res => res.json()) 
 			.then(showMessage => {
 				$('.box').html('')
 
                     let newMessage = new Message(showMessage)
                     let messageHtml = newMessage.formatShow()
-                    console.log(messageHtml)
 
                     $('.box').append(messageHtml)
                 })
@@ -177,14 +172,7 @@ function responseHandler() {
 	})	
 }
 
-//function test23() {
-//	console.log('attempting to wire up btn handler')
-//$('.btn.btn-primary').on('submit', function(e) {
-//	e.preventDefault()
-//	console.log("hello")
-//})	
-//}
-
+ 
 
 function newMessageHandler(event) {
 	console.log("new message handled")
@@ -192,10 +180,9 @@ function newMessageHandler(event) {
 	$("#new_message").on("submit", function(e) {
         e.preventDefault()
         const values = $(this).serialize()  
-        console.log("this is it" + values)   
-        var posting = $.post(`/users/9/messages`, values)
-        posting.done(function(data) {
-        	console.log("this is a string: " + data)
+        console.log(`${userId()}`)
+        console.log(`/users/${userId()}/messages`)
+        var posting = $.post(`/users/${userId()}/messages`, values).done(function(data) {
         const newMessage = new Message(data)
         const htmlMessage = newMessage.formatShow()
         $(".container").html(htmlMessage)
