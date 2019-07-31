@@ -39,8 +39,10 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.new(message_params)
-    if @message.save!
-      render json: @message
+    if @message.save 
+        respond_to do |m|
+        m.json {render json: @message}
+      end
       #flash[:notice] = "Message successfully created"
       #redirect_to :controller => 'users', :action => 'show', :id => current_user.id
     else
