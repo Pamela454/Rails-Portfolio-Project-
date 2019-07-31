@@ -1,9 +1,6 @@
-$(document).ready(() => {  //is this needed? 
+$(document).ready(() => {  
 	console.log('messages.js is loaded ...')
 	listenForClick()
-	//listenForNewMessageFormClick()
-	//responseHandler()
-	//formSubmissionClick()
 	newMessageHandler()
 });
 
@@ -44,48 +41,6 @@ function listenForClick() {
 }
 
 
-//function listenforMessageClick() {
-//    $('.responses-data').on('click', function (event) {
-//		event.preventDefault()
-//		console.log(this)
-//		var answers = `${this.responses}`
-//		fetch(answers, {
-//        	})
-//			.then(res => res.json()) 
-//			.then(allResponses => {
-//				$('.square').html('')
-//				console.log(allResponses)
-//				allResponses.forEach(response => {
-//                    let newMessage = new Message(message)
-//                    let messageHtml = newMessage.postHTML()
-//                    $('.box').append(messageHtml)
-//                })
-//			})
-//			.catch(error => console.error('Error:', error));
-//
-//	})
-//}
-
-//function listenForNewMessageFormClick() {
-//	$(".ajax-new-message").on('click', event => {
-//		event.preventDefault()
-//		let newForm = newMessageForm()
-//		// $('div#new-post-form-div')
-//		document.querySelector('div#new-message-form-div').innerHTML = newForm
-//	})                          
-//}
-      
-//function formSubmissionClick() {
-//	$("button#new-question").submit(function(event){
-//	event.preventDefault()
-//	console.log('hello')
-//	let submission = $(this).serialize()
-//	console.log(submission)
-//	$.post(`${userId()}/messages`, submission).done(function(data){
-//	})
- // })
-//}
-
 function Message(message) {   //constructor function 
 		this.id = message.id
 		this.title = message.title
@@ -101,7 +56,6 @@ function Response(response) {   //constructor function
 	}
 
 
-//prototype function called on constructor, can't use arrow function 
 Message.prototype.postHTML = function () {
 	return (`    
 	<div class='message'>
@@ -114,40 +68,21 @@ Message.prototype.postHTML = function () {
 
 Message.prototype.formatShow = function () {
 
-	const responseHtml = this.responses
+	var responseHtml = "" 
+	this.responses.forEach(function(response) {
+			var newResponse = new Response(response)
+			 responseHtml += newResponse.response
+	}) 
 
-	const newResponses = new Response(responseHtml)
-
-	function Response(response) {  
-		this.id = response.id
-		this.response = response.response
-		this.physician_id = response.physician_id
-		this.message_id = response.message_id
-	}
-
-
-	let postHtml = `
-	   <h3>Id:${this.id}</h3>
+	let postHtml = 
+	`  <h3>Id:${this.id}</h3>
 	   <h3>Title: ${this.title}</h3>
 	   <h3>Question: ${this.question}</h3>
-	   <h3>${newResponses}</h3> 
+	   <h3>Response: ${responseHtml}</h3> 
 	`
-
 	return postHtml
 }
 
-
-//Response.prototype.postHTML = function () {
-//	return (`    
-//	<div class='message'>
-//	 <h2>Id: ${this.id}</h2>
-//	 <h2>Response: ${this.response}</h2>
-//	 <h2>Physician Id: ${this.physician_id}</h2>
-//	 <h2>Message Id: ${this.message_id}</h2>
-//	</div>
-//  `)
-//    return postHtml
-//} 
 
 function responseHandler() {
 	$(document).on('click', "a#responses-data", function(e) {
