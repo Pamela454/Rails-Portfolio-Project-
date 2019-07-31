@@ -83,17 +83,19 @@ Message.prototype.formatShow = function () {
 	return postHtml
 }
 
-
+     //a#responses-data'
 function responseHandler() {
 	$(document).on('click', "a#responses-data", function(e) {
 		console.log("get show page")
 		event.preventDefault()
-	    let messageId = $('a#responses-data').data('message-id')
-		var answers = `${userId()}/messages/${messageId}.json`  
+	    let messageId = $(this).data('message-id')
+	    console.log(messageId)
+		var answers = `${userId()}/messages/${messageId}.json` 
 		fetch(answers, {   
        	})
 			.then(res => res.json()) 
 			.then(showMessage => {
+				console.log(showMessage)
 				$('.box').html('')
 
                     let newMessage = new Message(showMessage)

@@ -14,7 +14,7 @@ class MessagesController < ApplicationController
   end
 
   def show #may not need this
-    @message = Message.find_by(params[:id]) #will throw an exception if not found by the attribute supplied
+    @message = Message.find(params[:id]) #will throw an exception if not found by the attribute supplied
     respond_to do |m|
       m.html {render :show}  
       m.json {render json: @message} #show page for JSON data 
