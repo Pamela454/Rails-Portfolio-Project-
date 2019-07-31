@@ -120,7 +120,7 @@ function newMessageHandler(event) {
         var posting = $.post(`/users/${userId()}/messages`, values).done(function(data) {
         const newMessage = new Message(data)
         const htmlMessage = newMessage.formatShow()
-        $(".container").html(htmlMessage)
+        $(".carton").html(htmlMessage)
       })
 	})
 }
