@@ -2,11 +2,46 @@ $(document).ready(() => {
 	console.log('messages.js is loaded ...')
 	listenForClick()
 	newMessageHandler()
+	sortQuestions()
 });
 
 let userId = function retriveuserId(){
 	return $('h2#userid').data('user-id')
 }  
+
+
+function sortQuestions() {
+	$("button#messages-sort").on('click', event => {
+      console.log("sort messages")
+      event.preventDefault()  //prevent default rendering when button is clicked 
+		var url = `${userId()}/messages.json`
+		fetch(url, {
+        	})
+			.then(res => res.json()) 
+			.then(allMessages => {
+				$('.square').html('')
+				console.log(allMessages)
+				allMessages.sort(function(a, b) {
+					  var titleA = a.title.toUpperCase(); // ignore upper and lowercase
+					  var titleB = b.title.toUpperCase(); // ignore upper and lowercase
+					  if (titleA < titleB) {
+					    return -1;
+					  }
+					  if (titleA > titleB) {
+					    return 1;
+					  }
+
+					  // names must be equal
+					  return 0;
+					});
+				allMessages.forEach(message => {
+                    let newMessage = new Message(message)
+                    let messageHtml = newMessage.postHTML()
+                    $('.square').append(messageHtml)
+                })
+					 })
+					})
+					}
 
 
 //index of user's questions asked is displayed 
