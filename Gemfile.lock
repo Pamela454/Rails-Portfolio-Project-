@@ -160,7 +160,7 @@ GEM
     pry-rails (0.3.8)
       pry (>= 0.10.4)
     public_suffix (3.0.3)
-    puma (3.12.0)
+    puma (3.12.6)
     rack (2.2.2)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -284,7 +284,7 @@ DEPENDENCIES
   omniauth-facebook
   pry
   pry-rails
-  puma (~> 3.11)
+  puma (~> 3.12)
   rack_session_access
   rails (~> 5.2.1)
   sass-rails (~> 5.0)
