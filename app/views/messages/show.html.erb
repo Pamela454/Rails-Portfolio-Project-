@@ -1,3 +1,4 @@
+<div class="container">
 <% if flash[:notice] %>
 <div class="notice"><h2><%= flash[:notice] %></h2></div>
   <% end %>
@@ -16,3 +17,4 @@
     <% end %><br>
 
     <%= link_to "Edit Question", edit_user_message_path(current_user.id, @message.id) %><br><br>
+</div>

@@ -1,3 +1,10 @@
+<head>
+<style>
+      body {
+      background-image: url('<%= asset_path 'blue-snow.png' %>');
+      }
+</style>
+</head>
 <div class="container">
   <div class="page-header">
 <% if flash[:notice] %>
@@ -12,6 +19,7 @@
       <tr>
         
 <%= form_for(:session, url: "sessions/create")  do |f| %>
+<br>
 <h3>Sign in if you are a Member</h3>
 <div class="field"><%= label :name, "Enter your email" %><br><br>
   <%= f.text_field :email, :class => "span5"  %>

@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.3.3'
+ruby '2.5.6'
 
-gem 'bootstrap'
+gem 'bootstrap-sass'
 
 gem 'jquery-rails'
 
@@ -53,6 +53,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
+gem 'popper_js', '~> 1.14.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
@@ -64,6 +65,7 @@ group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'rails_layout'
   gem 'pry-rails'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
