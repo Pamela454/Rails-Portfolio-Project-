@@ -50,6 +50,7 @@
       <br>
       <br>
       <div class="container">
+       <div class="container-fluid mx-auto text-nowrap text-dark" style="width: 500px;">
         <table class="table table-striped">
             <div class="col sign-in card-title card-body">
               <div class="field<%= ' field_with_errors' if @user.errors[:email].any? %>">
@@ -87,4 +88,5 @@
         </table>
   <% end %>
      </div>
+   </div>
 </div>
