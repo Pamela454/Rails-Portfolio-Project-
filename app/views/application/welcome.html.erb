@@ -9,11 +9,14 @@
       .center {
         justify-content: center;
       }
+      .navbar-custom {
+        background-color: #D8DEEE;
+      }
       .sign-in {
         border: 0;
         border-radius: 1rem;
         box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
-        background-color: #F7F7F7;
+        background-color: #D8DEEE;
       }
       .card-signin .card-title {
         margin-bottom: 2rem;
@@ -28,7 +31,7 @@
 </head>
 <body>
   <div class="text-center center font-weight-bold">
-  <nav class="navbar sticky-top navbar-light center" style="background-color: #e3f2fd;"><h1>Welcome to Your Electronic Medical Record
+  <nav class="navbar navbar-custom sticky-top center"><h1>Welcome to Your Electronic Medical Record
 </h1></nav>
 </div>
 <% if flash[:notice] %>
@@ -42,7 +45,7 @@
     <thead>
       <tr>
         
-<%= form_for(:session, url: "sessions/create")  do |f| %>
+<%= form_for(:session, url: "sessions/create", html: { autocomplete: "new-password" })   do |f| %>
 <br>
 <div class="col sign-in card-title card-body">
 <h3>Sign in if you are a Member</h3>
