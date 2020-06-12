@@ -1,5 +1,37 @@
-<div class="container">
-  <div class="page-header">
+<style>
+      body {
+      background-image: url('<%= asset_path 'camilo-jimenez-vGu08RYjO-s-unsplash.jpg' %>');
+      background-size: cover;
+      }
+      .center {
+        justify-content: center;
+      }
+      .navbar-custom {
+        background-color: #D8DEEE;
+        border: 0;
+        padding: 0;
+        margin: 0;
+      }
+      .sign-in {
+        border: 0;
+        border-radius: 1rem;
+        box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+        background-color: #D8DEEE;
+      }
+      .card-signin .card-title {
+        margin-bottom: 2rem;
+        font-weight: 300;
+        font-size: 1.5rem;
+      }
+      .card-signin .card-body {
+        padding: 2rem;
+      }
+
+</style>
+
+<div class="text-center center font-weight-bold">
+<nav class="navbar navbar-custom sticky-top center font-weight-bold">
+ <div class="page-header">
 <%= form_for @response, url: {action: "create"}, html: {class: "form-control"} do |f| %>
 <% if @response.errors.any? %>
     <div id="error_explanation">
@@ -12,13 +44,18 @@
     </div>
   <% end %>
 <h2>New Response</h2>
- </div>
 </div>
+</nav>
+</div>
+<br>
+<br>
 
-<div class="container">
+ <div class="container-fluid mx-auto text-nowrap text-dark" style="width: 500px;">
   <table class="table table-striped">
     <thead>
       <tr>
+    <div class="col sign-in card-title card-body">
+
 <div class="field<%= ' field_with_errors' if @response.errors[:response].any? %>">    
     <%= f.label :response %><br>
     <%= f.text_field :response, :class => "span5" %></div><br><br>
@@ -34,9 +71,11 @@
 
 <div class="actions">
     <%= f.submit class: "btn btn-primary" %><br><br>
-</div><br>
+</div>
+<br>
 
 <% end %>
+</div>
+</div>
 
  </table>
-</div>

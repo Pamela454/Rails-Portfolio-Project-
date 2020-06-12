@@ -28,17 +28,31 @@
       }
 
 </style>
+
+<div class="text-center center font-weight-bold">
+<nav class="navbar navbar-custom sticky-top center font-weight-bold">
 <% if flash[:notice] %>
 <div class="notice"><h2><%= flash[:notice] %></h2></div>
   <% end %>
+  <h2>Categories</h2>
+</nav>
+</div>
+<br>
+<br>
 
-<h2><%=@category.category %></h2>
+ <div class="container-fluid mx-auto text-nowrap text-dark" style="width: 500px;">
+  <div class="col sign-in card-title card-body">
+<h3><%=@category.category %></h3>
 <% @category.messages.each do |m| %>
 <div>
-<%= m.id %>
+<%= m.id %><br>
 <%= m.title %>
 <%= m.question %></div>
 <% m.responses.each do |r| %>
   <%= r.response %>
   <% end %>
 <% end %>
+</div>
+</div>
+<br>
+<br>
