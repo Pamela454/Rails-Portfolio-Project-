@@ -31,9 +31,8 @@
 </head>
 <body>
   <div class="text-center center font-weight-bold">
-  <nav class="navbar navbar-custom sticky-top center"><h1>Welcome to Your Electronic Medical Record
-</h1>
-</div>
+  <nav class="navbar navbar-custom sticky-top center"><h1>Welcome to Your Electronic Medical Record</h1>
+  </div>
 <% if flash[:notice] %>
 <div class="notice"><h2><%= flash[:notice] %></h2></div>
   <% end %>
@@ -50,7 +49,7 @@
 <br>
 <div class="col sign-in card-title card-body">
 <h3>Sign in if you are a Member</h3>
-<div class="field"><%= label :name, "Enter your email" %><br><br>
+<div class="field"><%= label :name, "Enter your email"%><br><br>
   <%= f.text_field :email, :class => "span5"  %>
 </div><br>
 
@@ -69,11 +68,6 @@
 <%= link_to('Create a New Account as a Patient', 'users/new_patient') %><br><br>
 <%= link_to('Create a New Account as a Physician', 'users/new_physician') %><br><br>
 
-<%  if session[:user_id] != nil %>
-<%= form_with url: '/sessions/:id', method: :delete do |f| %>
-  <% f.submit "Logout" %><br>
-<% end %><br>
-<% end %>
   </table>
 </div>
 </div>
