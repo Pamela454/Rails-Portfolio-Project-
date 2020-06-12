@@ -1,7 +1,43 @@
+<style>
+      body {
+      background-image: url('<%= asset_path 'blue-snow.png' %>');
+      background-size: cover;
+      }
+      .center {
+        justify-content: center;
+      }
+      .navbar-custom {
+        background-color: #D8DEEE;
+        border: 0;
+        padding: 0;
+        margin: 0;
+      }
+      .sign-in {
+        border: 0;
+        border-radius: 1rem;
+        box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+        background-color: #D8DEEE;
+      }
+      .card-signin .card-title {
+        margin-bottom: 2rem;
+        font-weight: 300;
+        font-size: 1.5rem;
+      }
+      .card-signin .card-body {
+        padding: 2rem;
+      }
+
+</style>
 <div class="container">
-<% if flash[:notice] %>
-<div class="notice"><h2><%= flash[:notice] %></h2></div>
+ <% if flash[:notice] %>
+ <div class="notice"><h2><%= flash[:notice] %></h2>
+ </div>
   <% end %>
+
+<div class="container">
+ <div class="container-fluid mx-auto text-nowrap text-dark" style="width: 500px;">
+  <div class="col sign-in card-title card-body">
+
 
   <h3>Title: <%= @message.title %></h3>
   <h3>Body: <%= @message.question %></h3>
@@ -16,5 +52,10 @@
     <%= f.submit "Delete Question" %><br>
     <% end %><br>
 
-    <%= link_to "Edit Question", edit_user_message_path(current_user.id, @message.id) %><br><br>
+    <%= link_to "Edit Question", edit_user_message_path(current_user.id, @message.id) %>
+    <br>
+    <br>
+  </div>
+ </div>
+</div>
 </div>

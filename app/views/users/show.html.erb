@@ -1,25 +1,25 @@
 <head>
-<style>
+ <style>
       body {
       background-image: url('<%= asset_path 'blue-snow.png' %>');
       }
-</style>
+ </style>
 </head>
 <div class="container">
   <div class="page-header">
 
-<% if flash[:notice] %>
+   <% if flash[:notice] %>
   <div class="notice"><h2><%= flash[:notice] %></h2></div>
-<% end %>
+   <% end %>
 
-<% if session[:user_id] %>
-  <h1>Name: <%= @user.name %></h1>
-  <h2>Email: <%= @user.email %></h2>
-  <h2>ID: <%= @user.id %></h2>
-  <h2>Type: <%= @user.type %></h2>
-<% end %>
+   <% if session[:user_id] %>
+    <h1>Name: <%= @user.name %></h1>
+    <h2>Email: <%= @user.email %></h2>
+    <h2>ID: <%= @user.id %></h2>
+    <h2>Type: <%= @user.type %></h2>
+  <% end %>
 
-<% if @user.type == "Physician" %>
+  <% if @user.type == "Physician" %>
     <h2>Specialty: <%= @user.specialty %></h2>
     <h2>NPI: <%= @user.npi %></h2><br><br>
     <h2>Your Responses: <% @responses.each do |r| unless @responses.nil? %></h2>
@@ -27,11 +27,12 @@
       <h3>Response: <%= r.response %></h3>
       <%= link_to "Edit Response", edit_user_response_path(current_user, r.id) %><br><br>
       <%= form_with url: user_response_path(current_user, r.id), method: :delete do |f| %>
-        <%= f.submit "Delete Response" %><br>
-        <% end %>
+       <%= f.submit "Delete Response" %><br>
+       <% end %>
       <% end %>
+     <% end %>
     <% end %>
-<% end %><br>
+    <br>
  </div>
 </div>
 
@@ -39,67 +40,94 @@
   <table class="table table-striped">
     <thead>
       <tr>
+      <br>
+      <% if @user.type == "Patient" %>
+        <h3>Questions Asked: <% @messages.each do |m| unless @messages.nil? %></h3>
+        <br>
+        <br>
+        <br>
 
-<br><br><br><br>
-<% if @user.type == "Patient" %>
-  <h3>Questions Asked: <% @messages.each do |m| unless @messages.nil? %></h3><br><br>
-    <h3>Message ID: <%= m.id %></h3>
+        <h3>Question ID: <%= m.id %></h3>
+        <h3>Title: <%= m.title %></h3>
+        <h3>Body: <%= m.question %></h3>
+        <h3>Responses: <% m.responses.each do |r| %></h3>
+        <h3>Response ID: <%= r.id %></h3>
+        <h3>Response: <%= r.response %></h3>
+      <% end %>
+      <br>
+      <br>
+      <%= link_to "Edit Question", edit_user_message_path(current_user, m.id) %><br>
+        <br>
+        <br>
+        <%= form_with url: user_message_path(current_user, m.id), method: :delete do |f| %>
+        <%= f.submit "Delete Question" %><br>
+        <% end %>
+        <br>
+        <% end %>
+      <% end %>
+      <br>
+      <%= link_to "View All Questions",  user_messages_path(current_user) %>
+      <br>
+      <br>
+      <br>
+      <%= link_to "Ask A Question", new_user_message_path(current_user) %><br>
+      <br>
+      <br>
+      <br>
+      <%= link_to "Edit Your Profile", edit_user_patient_path(current_user) %>
+      <br>
+      <% end %>
+      <br>
+
+  <% if @user.type == "Physician" %>
+    <h3>Unanswered Questions:<% Message.unanswered_questions.to_a.each do |m|%></h3>
+    <h3>Question ID: <%= m.id %></h3>
     <h3>Title: <%= m.title %></h3>
     <h3>Body: <%= m.question %></h3>
-    <h3>Responses: <% m.responses.each do |r| %></h3>
-      <h3>Response ID: <%= r.id %></h3>
-      <h3>Response: <%= r.response %></h3>
-      <% end %><br><br>
-    <%= link_to "Edit Question", edit_user_message_path(current_user, m.id) %><br><br>
-    <%= form_with url: user_message_path(current_user, m.id), method: :delete do |f| %>
-      <%= f.submit "Delete Question" %><br>
-      <% end %><br>
-    <% end %>
-  <% end %><br><br>
-  <%= link_to "View All Questions",  user_messages_path(current_user) %><br><br>
-  <%= link_to "Ask A Question", new_user_message_path(current_user) %><br><br><br><br>
-  <%= link_to "Edit Your Profile", edit_user_patient_path(current_user) %><br><br>
-<% end %>
-<br><br><br>
-
-<% if @user.type == "Physician" %>
- <h3>Unanswered Questions:<% Message.unanswered_questions.to_a.each do |m|%></h3>
-  <h3>Message ID: <%= m.id %></h3>
-  <h3>Title: <%= m.title %></h3>
-  <h3>Body: <%= m.question %></h3><br>
-  <%= link_to "Respond to Question", new_user_response_path(current_user, :message => m.id) %><br><br>
- <%end%>
-  <h3>Questions Regarding New Conditions:<% Message.new_condition.to_a.each do |m|%></h3>
-    <h3>Message ID: <%= m.id %></h3>
-    <h3>Title: <%= m.title %></h3>
-    <h3>Body: <%= m.question %></h3><br>
-    <%= link_to "Respond to Question", new_user_response_path(current_user, :message => m.id) %><br><br>
+    <br>
+  <%= link_to "Respond to Question", new_user_response_path(current_user, :message => m.id) %>
+  <br>
   <%end%>
-  <h3>Questions Regarding Existing Conditions:<% Message.existing_condition.to_a.each do |m|%></h3>
-    <h3>Message ID: <%= m.id %></h3>
+    <h3>Questions Regarding New Conditions:<% Message.new_condition.to_a.each do |m|%></h3>
+    <h3>Question ID: <%= m.id %></h3>
     <h3>Title: <%= m.title %></h3>
-    <h3>Body: <%= m.question %></h3><br>
-    <%= link_to "Respond to Question", new_user_response_path(current_user, :message => m.id) %><br><br>
+    <h3>Body: <%= m.question %></h3>
+    <br>
+  <%= link_to "Respond to Question", new_user_response_path(current_user, :message => m.id) %>
+  <br>
   <%end%>
-  <h3>All Questions Asked: <% Message.all.each do |m| unless Message.all.nil? %></h3><br><br>
-    <h3>Message ID: <%= m.id %></h3>
+    <h3>Questions Regarding Existing Conditions:<% Message.existing_condition.to_a.each do |m|%></h3>
+    <h3>Question ID: <%= m.id %></h3>
+    <h3>Title: <%= m.title %></h3>
+    <h3>Body: <%= m.question %></h3>
+    <br>
+  <%= link_to "Respond to Question", new_user_response_path(current_user, :message => m.id) %>
+  <br>
+  <%end%>
+    <h3>All Questions Asked: <% Message.all.each do |m| unless Message.all.nil? %></h3>
+    <br>
+    <h3>Question ID: <%= m.id %></h3>
     <h3>Title: <%= m.title %></h3>
     <h3>Body: <%= m.question %></h3>
     <h3>Responses: <% m.responses.each do |r| %></h3>
        <h4>Response ID:<%= r.id %></h4>
        <h4>Response:<%= r.response %></h4>
-       <% end %><br><br>
-    <%= link_to "Respond to Question", new_user_response_path(current_user, :message => m.id) %><br><br>
+       <% end %>
+       <br>
+  <%= link_to "Respond to Question", new_user_response_path(current_user, :message => m.id) %><br><br>
   <% end %>
     <h3>Categories: <% m.categories.each do |c| unless m.category_ids == [] %></h3>
-  <h3><%= c.category %></h3>
+    <h3><%= c.category %></h3>
   <%= link_to "Display Category Questions", category_path(c.id) %><br><br>
-<% end %>
-<% end %>
-<% end %><br><br>
-<%= link_to "Edit Your Profile", edit_user_physician_path(current_user) %><br><br>
-<% end %><br><br>
-<%= link_to 'Log Out', '/logout', :method => :delete  %><br><br>
+  <% end %>
+  <% end %>
+  <% end %>
+  <br>
+  <%= link_to "Edit Your Profile", edit_user_physician_path(current_user) %>
+  <br>
+  <% end %>
+  <br>
+  <%= link_to 'Log Out', '/logout', :method => :delete  %><br><br>
 
  </table>
 </div>

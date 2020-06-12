@@ -33,6 +33,7 @@ class SessionsController < ApplicationController
       end
     end
   end
+    
 
   def destroy #logs out user by deleting session
     session.delete :user_id
