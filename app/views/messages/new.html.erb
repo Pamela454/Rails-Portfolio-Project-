@@ -48,12 +48,14 @@
 </div>
 </nav>
 </div>
+<br>
+<br>
 
  <div class="container-fluid mx-auto text-nowrap text-dark" style="width: 500px;">
   <table class="table table-striped">
     <thead>
       <tr>
-
+     <div class="col sign-in card-title card-body">
       <div class="field<%= ' field_with_errors' if @message.errors[:title].any? %>">
         <%= f.label :title %><br>
         <%= f.text_field :title, :class => "span5" %></div><br><br>
@@ -79,7 +81,13 @@
 
       <div class="form-group">
         <%= f.label :affected_system%><br>
-        <%= f.collection_check_boxes :category_ids, Category.all[2..11], :id, :category %>
+        <%= f.collection_check_boxes :category_ids, Category.all[2..3], :id, :category %>
+        <br>
+        <br>
+        <%= f.collection_check_boxes :category_ids, Category.all[4..7], :id, :category %>
+        <br>
+        <br>
+        <%= f.collection_check_boxes :category_ids, Category.all[8..11], :id, :category %>
       </div>
       <br>
 
@@ -90,6 +98,7 @@
     <br>
 
     <% end %>
-
+  </div>
+  </div>
   </table>
 </div>
