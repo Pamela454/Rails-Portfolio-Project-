@@ -36,11 +36,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
    </head>
   <%= yield %>
-
+  <br>
+  <br>
+ <div class="container-fluid mx-auto text-nowrap text-dark" style="width: 300px;">
+  <div class="col sign-in card-title card-body">
   <body>
       <% if current_user %>
       <%= link_to "Go Back to User Show Page", user_path(current_user) %><br><br>
       <%= link_to 'Log Out', '/logout', :method => :delete  %><br><br>
       <% end %>
   </body>
+</div>
+</div>
 </html>
