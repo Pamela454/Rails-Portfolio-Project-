@@ -30,23 +30,22 @@
 </style>
 
 <div class="text-center center font-weight-bold">
-<nav class="navbar navbar-custom sticky-top center font-weight-bold">
+ <nav class="navbar navbar-custom sticky-top center font-weight-bold">
   <div class="page-header">
    <%= form_for @message, :url => {:controller => 'messages', :action => 'create'} do |f| %>
-   <% if @message.errors.any? %>
-    <div id="error_explanation">
+    <% if @message.errors.any? %>
+     <div id="error_explanation">
       <h2>There were some errors:</h2>
       <ul>
-        <% @message.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
+      <% @message.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
       </ul>
-    </div>
-   <% end %>
-  <h1>New Question</h1>
- </div>
-</div>
-</nav>
+     </div>
+    <% end %>
+   <h1>New Question</h1>
+  </div>
+ </nav>
 </div>
 <br>
 <br>

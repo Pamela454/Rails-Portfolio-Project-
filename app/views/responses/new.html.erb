@@ -30,22 +30,24 @@
 </style>
 
 <div class="text-center center font-weight-bold">
-<nav class="navbar navbar-custom sticky-top center font-weight-bold">
- <div class="page-header">
-<%= form_for @response, url: {action: "create"}, html: {class: "form-control"} do |f| %>
-<% if @response.errors.any? %>
-    <div id="error_explanation">
-      <h2>There were some errors:</h2>
-      <ul>
-        <% @response.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-<h2>New Response</h2>
-</div>
-</nav>
+ <nav class="navbar navbar-custom sticky-top center font-weight-bold">
+  <div class="page-header">
+   <%= form_for @response, url: {action: "create"}, html: {class: "form-control"} do |f| %>
+    <% if @response.errors.any? %>
+      <div id="error_explanation">
+       <h2>There were some errors:</h2>
+       <ul>
+       <% @response.errors.full_messages.each do |message| %>
+       <li><%= message %></li>
+       <% end %>
+       </ul>
+      </div>
+      <% end %>
+     <h1>New Response</h1>
+     <br>
+     <br>
+  </div>
+ </nav>
 </div>
 <br>
 <br>
