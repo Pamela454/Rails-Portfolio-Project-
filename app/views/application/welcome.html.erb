@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <style>
-      body {
+      body {                     
       background-image: url('<%= asset_path 'camilo-jimenez-vGu08RYjO-s-unsplash.jpg' %>');
       background-size: cover;
       }
@@ -31,7 +31,8 @@
 </head>
 <body>
   <div class="text-center center font-weight-bold">
-  <nav class="navbar navbar-custom sticky-top center"><h1>Welcome to Ask Your Health Question</h1>
+    <nav class="navbar navbar-custom sticky-top center">
+    <title>Company Name: Welcome to Ask Your Health Question <%= content_for(:title) %></title> <%#changed to a title tag%>
   </div>
 <% if flash[:notice] %>
 <div class="notice"><h2><%= flash[:notice] %></h2></div>

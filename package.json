@@ -1,5 +1,12 @@
 {
   "name": "patientquestionwebsite",
   "private": true,
-  "dependencies": {}
+  "devDependencies": {
+    "prettier": "2.3.2"
+  }
+}
+{
+  "scripts": {
+    "format": "prettier --write '**/*.{js,css,md}'"
+  }
 }
