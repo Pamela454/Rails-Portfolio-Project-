@@ -153,6 +153,7 @@ GEM
       oauth2 (~> 1.1)
       omniauth (~> 1.2)
     popper_js (1.14.7)
+    prettier (2.0.0)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -279,6 +280,7 @@ DEPENDENCIES
   omniauth
   omniauth-facebook
   popper_js (~> 1.14.5)
+  prettier
   pry
   pry-rails
   puma (~> 3.12)

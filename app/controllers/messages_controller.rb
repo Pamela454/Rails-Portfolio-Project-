@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
   before_action :login_required
 #before action to restric access?? would apply to other controllers
+  
   def new  #creates a new message    @message = Message.new(patient_id: current_user.id)
    if user_type == "Patient" #changed for nested route
      if params[:user_id] && Patient.exists?(params[:user_id])
