@@ -43,22 +43,22 @@
     <thead>
       <tr>
 
-<%= form_for(:session, url: "sessions/create", html: { autocomplete: "new-password" })   do |f| %>
+<%#= form_for(:session, url: "sessions/create", html: { autocomplete: "new-password" }) do |f| %>
 <br>
 <div class="col sign-in card-title card-body">
   <h3>Sign in if you are a Member</h3>
-<div class="field"><%= f.label :name, "Enter your email"%><br><br>
-  <%= f.text_field :email %>
+<div class="field"><%#= f.label :name, "Enter your email"%><br><br>
+  <%#= f.text_field :email %>
 </div><br>
 
 <div class="field"><%#= label :password, "Enter your password" %><br><br>
-  <%= f.password_field :password %>
+  <%#= f.password_field :password %>
 </div><br><br>
 
 <div class="actions">
-  <%= f.submit "Sign In"  %>
+  <%#= f.submit "Sign In"  %>
 </div>
-<% end %><br><br>
+<%# end %><br><br>
 
 <h3>Create a New Account</h3>
 

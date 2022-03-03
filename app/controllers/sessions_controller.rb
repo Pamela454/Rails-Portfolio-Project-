@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create]
 
   def new #creates a new session, login
-    @user = User.new
+    @user = User.new(user_params)
     #@users = User.all
   end
 
@@ -45,5 +45,9 @@ class SessionsController < ApplicationController
 
   def auth
     request.env['omniauth.auth']
+  end
+
+  def user_params
+    params.require(:user).permit(:email, :npi, :specialty, :type, :name, :uid, :password)
   end
 end

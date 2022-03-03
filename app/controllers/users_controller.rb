@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 #need helper method?  #need skinny controllers
   def signin  #displays option to log in
-
+    @user = User.new(user_params)
   end
 
   def show  #directs to users show page. Can view messages sent and respond
