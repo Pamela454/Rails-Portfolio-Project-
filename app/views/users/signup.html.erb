@@ -1,64 +1,67 @@
 <div class="container">
   <div class="page-header">
-<% if flash[:notice] %>
-  <div class="notice"><h2><%= flash[:notice] %></h2></div>
-<% end %>
- </div>
+    <% if flash[:notice] %>
+      <div class="notice">
+        <h2><%= flash[:notice] %></h2>
+      </div>
+    <% end %>
+  </div>
 </div>
-
 <div class="container">
   <table class="table table-striped">
     <thead>
       <tr>
-<%= form_for @user, :url => {:controller => 'users', :action => 'create'} do |f| %>  <!--form for authorization -->
-<% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2>There were some errors:</h2>
-      <ul>
-        <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+        <%= form_for @user, :url => {:controller => 'users', :action => 'create'} do |f| %>  <!--form for authorization -->
+          <% if @user.errors.any? %>
+            <div id="error_explanation">
+              <h2>There were some errors:</h2>
+              <ul>
+                <% @user.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <div class="form-group">
+            <%= f.hidden_field :email, value: @user.email, class: "form-control" %>
+          </div>
+          <br>
+          <div class="form-group">
+            <%= f.hidden_field :password, value: @user.password, class: "form-control" %>
+          </div>
+          <br>
+          <div class="form-group">
+            <br>
+            <%= f.hidden_field :uid, value: @auth.uid, class: "form-control" %>
+          </div>
+          <br>
+          <div class="form-group">
+            <br>
+            <%= f.hidden_field :name, value: @auth.info[:name], class: "form-control" %>
+          </div>
+          <br>
+          <div class="field<%= ' field_with_errors' if @user.errors[:npi].any? %>">
+            <%= f.label :npi, "NPI (Only If Creating Physician Account)" %>
+            <br>
+            <%= f.number_field :npi, :class => "span5" %>
+          </div>
+          <br>
+          <div class="field<%= ' field_with_errors' if @user.errors[:specialty].any? %>">
+            <%= f.label :specialty, "Specialty (Only If Creating Physician Account)" %>
+            <br>
+            <%= f.text_field :specialty, :class => "span5" %>
+          </div>
+          <br>
+          <div class="field<%= ' field_with_errors' if @user.errors[:type].any? %>">
+            <%= f.label :type, " Choose Physician or Patient User" %>
+            <br>
+            <%= f.text_field :type, :class => "span5" %>
+          </div>
+          <br>
+          <div class="actions"> <!-- uses update post -->
+            <%= f.submit class: "btn btn-primary" %>
+          </div>
+          <br>
         <% end %>
-      </ul>
+      </table>
     </div>
-  <% end %>
-
-<div class="form-group">
-  <%= f.hidden_field :email, value: @user.email, class: "form-control" %>
-</div><br>
-<div class="form-group">
-  <%= f.hidden_field :password, value: @user.password, class: "form-control" %>
-</div><br>
-<div class="form-group">
-  <br>
-  <%= f.hidden_field :uid, value: @auth.uid, class: "form-control" %>
-</div><br>
-<div class="form-group">
-  <br>
-  <%= f.hidden_field :name, value: @auth.info[:name], class: "form-control" %>
-</div><br>
-
-<div class="field<%= ' field_with_errors' if @user.errors[:npi].any? %>">
-    <%= f.label :npi, "NPI (Only If Creating Physician Account)" %>
-    <br>
-    <%= f.number_field :npi, :class => "span5" %>
-  </div><br>
-
-  <div class="field<%= ' field_with_errors' if @user.errors[:specialty].any? %>">
-    <%= f.label :specialty, "Specialty (Only If Creating Physician Account)" %>
-    <br>
-    <%= f.text_field :specialty, :class => "span5" %>
-  </div><br>
-
-  <div class="field<%= ' field_with_errors' if @user.errors[:type].any? %>">
-    <%= f.label :type, " Choose Physician or Patient User" %>
-    <br>
-    <%= f.text_field :type, :class => "span5" %>
-  </div><br>
-
-  <div class="actions"> <!-- uses update post -->
-    <%= f.submit class: "btn btn-primary" %>
-  </div><br>
-<% end %>
-
- </table>
-</div>

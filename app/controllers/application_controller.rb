@@ -19,6 +19,14 @@ class ApplicationController < ActionController::Base
     User.find(session[:user_id]).type
   end
 
+  def patient_user
+    User.find(session[:user_id]).type == 'patient'
+  end
+
+  def physician_user
+    User.find(session[:user_id]).type == 'physician'
+  end
+
   def logged_in?
     !!current_user
   end

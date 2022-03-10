@@ -1,72 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<style>
+  <head>
+    <style>
       body {
-      background-image: url('<%= asset_path 'camilo-jimenez-vGu08RYjO-s-unsplash.jpg' %>');
-      background-size: cover;
+        background-image: url('<%= asset_path 'camilo-jimenez-vGu08RYjO-s-unsplash.jpg' %>');
+        background-size: cover;
       }
+      
       .center {
         justify-content: center;
       }
+      
       .navbar-custom {
         background-color: #D8DEEE;
       }
+      
       .sign-in {
         border: 0;
         border-radius: 1rem;
         box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
         background-color: #D8DEEE;
       }
+      
       .card-signin .card-title {
         margin-bottom: 2rem;
         font-weight: 300;
         font-size: 1.5rem;
       }
-
-</style>
-</head>
-<body>
-  <div class="text-center center font-weight-bold">
-  <nav class="navbar navbar-custom sticky-top center">
-    <h1>Welcome to Ask Your Health Question</h1>
+    </style>
+  </head>
+  <body>
+    <div class="text-center center font-weight-bold">
+      <nav class="navbar navbar-custom sticky-top center">
+        <h1>Welcome to Ask Your Health Question</h1>
+      </div>
+      <% if flash[:notice] %> 
+        <div class="notice">
+          <h2><%= flash[:notice] %> </h2>
+        </div>
+      <% end %> </nav>
   </div>
-<% if flash[:notice] %>
-<div class="notice"><h2><%= flash[:notice] %></h2></div>
-  <% end %>
- </div>
-</nav>
-</div>
-
-<div class="container-fluid mx-auto text-nowrap text-dark" style="width: 500px;">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-
-<%= form_for(:session, url: "sessions/create", html: { autocomplete: "new-password" }) do |f| %>
-<br>
-<div class="col sign-in card-title card-body">
-  <h3>Sign in if you are a Member</h3>
-<div class="field"><%#= f.label :name, "Enter your email"%><br><br>
-  <%#= f.text_field :email %>
-</div><br>
-
-<div class="field"><%#= label :password, "Enter your password" %><br><br>
-  <%#= f.password_field :password %>
-</div><br><br>
-
-<div class="actions">
-  <%#= f.submit "Sign In"  %>
-</div>
-<%# end %><br><br>
-
-<h3>Create a New Account</h3>
-
-<%= link_to('Login with Facebook!', '/auth/facebook') %><br><br>
-<%= link_to('Create a New Account as a Patient', 'users/new_patient') %><br><br>
-<%= link_to('Create a New Account as a Physician', 'users/new_physician') %><br><br>
-  </table>
-</div>
-</div>
-</body>
-</html> 
+  <div class="container-fluid mx-auto text-nowrap text-dark" style="width: 500px;">
+    <table class="table table-striped">
+      <thead>
+        <tr><%= form_for(:session, url: "sessions/create", html: { autocomplete: "new-password" }) do |f| %> <br>
+            <div class="col sign-in card-title card-body">
+              <h3>Sign in if you are a Member</h3>
+              <div class="field"><%#= f.label :name, "Enter your email"%> <br>
+                <br>
+                <%#= f.text_field :email %>
+              </div>
+              <br>
+              <div class="field"><%#= label :password, "Enter your password" %> <br>
+                <br>
+                <%#= f.password_field :password %>
+              </div>
+              <br>
+              <br>
+              <div class="actions"><%#= f.submit "Sign In"  %> </div>
+              <%# end %> <br>
+              <br>
+              <h3>Create a New Account</h3>
+              <%= link_to('Login with Facebook!', '/auth/facebook') %> <br>
+              <br>
+              <%= link_to('Create a New Account as a Patient', 'users/new_patient') %> <br>
+              <br>
+              <%= link_to('Create a New Account as a Physician', 'users/new_physician') %> <br>
+              <br>
+            </table>
+          </div>
+        </div>
+      </body>
+    </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-   <style>
+    <style>
       body {
       background-image: url('<%= asset_path 'camilo-jimenez-vGu08RYjO-s-unsplash.jpg' %>');
       background-size: cover;
@@ -18,27 +18,26 @@
         box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
         background-color: #D8DEEE;
       }
-    
-
-  </style>
+    </style>
     <title>Welcome to Ask Your Health Question</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">  
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-   </head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  </head>
   <%= yield %>
   <br>
   <br>
- <div class="container-fluid mx-auto text-nowrap text-dark" style="width: 300px;">
-  <div class="col sign-in card-title card-body">
-  <body>
-      <% if current_user %>
-      <%= link_to "Go Back to User Show Page", user_path(current_user) %><br><br>
-      <%= link_to 'Log Out', '/logout', :method => :delete  %><br><br>
-      <% end %>
-  </body>
-</div>
-</div>
+  <div class="container-fluid mx-auto text-nowrap text-dark" style="width: 300px;">
+    <div class="col sign-in card-title card-body">
+      <body>
+        <% if current_user %>
+          <%= link_to "Go Back to User Show Page", user_path(current_user) %><br>
+          <br>
+          <%= link_to 'Log Out', '/logout', :method => :delete  %><br>
+          <br>
+        <% end %>
+      </body>
+    </div>
+  </div>
 </html>

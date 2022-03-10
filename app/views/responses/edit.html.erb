@@ -1,73 +1,69 @@
 <style>
-      body {
-      background-image: url('<%= asset_path 'camilo-jimenez-vGu08RYjO-s-unsplash.jpg' %>');
-      background-size: cover;
-      }
-      .center {
-        justify-content: center;
-      }
-      .navbar-custom {
-        background-color: #D8DEEE;
-        border: 0;
-        padding: 0;
-        margin: 0;
-      }
-      .sign-in {
-        border: 0;
-        border-radius: 1rem;
-        box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
-        background-color: #D8DEEE;
-      }
-      .card-signin .card-title {
-        margin-bottom: 2rem;
-        font-weight: 300;
-        font-size: 1.5rem;
-      }
-      .card-signin .card-body {
-        padding: 2rem;
-      }
-
+  body {
+  background-image: url('<%= asset_path 'camilo-jimenez-vGu08RYjO-s-unsplash.jpg' %>');
+  background-size: cover;
+  }
+  .center {
+    justify-content: center;
+  }
+  .navbar-custom {
+    background-color: #D8DEEE;
+    border: 0;
+    padding: 0;
+    margin: 0;
+  }
+  .sign-in {
+    border: 0;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+    background-color: #D8DEEE;
+  }
+  .card-signin .card-title {
+    margin-bottom: 2rem;
+    font-weight: 300;
+    font-size: 1.5rem;
+  }
+  .card-signin .card-body {
+    padding: 2rem;
+  }
 </style>
-
 <div class="text-center center font-weight-bold">
-<nav class="navbar navbar-custom sticky-top center font-weight-bold">
-  <div class="page-header">
-<%= form_for @response, :url => {:controller => 'responses', :action => 'update'} do |f| %>
-<% if @response.errors.any? %>
-  <div id="error_explanation">
-    <h2>There were some errors:</h2>
-    <ul>
-      <% @response.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
+  <nav class="navbar navbar-custom sticky-top center font-weight-bold">
+    <div class="page-header">
+      <%= form_for @response, :url => {:controller => 'responses', :action => 'update'} do |f| %>
+        <% if @response.errors.any? %>
+          <div id="error_explanation">
+            <h2>There were some errors:</h2>
+            <ul>
+              <% @response.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <h2>Edit Response</h2>
+      </div>
+    </nav>
   </div>
-<% end %>
-<h2>Edit Response</h2>
- </div>
-</nav>
-</div>
-<br>
-<br>
-
- <div class="container-fluid mx-auto text-nowrap text-dark" style="width: 500px;">
-<div class="container">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-  <div class="col sign-in card-title card-body">
-
-  <div class="field<%= ' field_with_errors' if @response.errors[:response].any? %>">
-    <%= f.label :response %><br>
-    <%= f.text_field :response, :class => "span5" %></div><br><br>
-
-<div class="actions">
-    <%= f.submit class: "btn btn-primary" %><br><br>
-</div>
-
-<% end %>
-</div>
-
- </table>
-</div>
-</div>
+  <br>
+  <br>
+  <div class="container-fluid mx-auto text-nowrap text-dark" style="width: 500px;">
+    <div class="container">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <div class="col sign-in card-title card-body">
+              <div class="field<%= ' field_with_errors' if @response.errors[:response].any? %>">
+                <%= f.label :response %><br>
+                <%= f.text_field :response, :class => "span5" %></div>
+              <br>
+              <br>
+              <div class="actions">
+                <%= f.submit class: "btn btn-primary" %><br>
+                <br>
+              </div>
+            <% end %>
+          </div>
+        </table>
+      </div>
+    </div>

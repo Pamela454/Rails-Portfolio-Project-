@@ -2,17 +2,16 @@
 
 # class containing messages CRUD methods
 class MessagesController < ApplicationController
-  before_action :logged_in?, :user_type
+  before_action :logged_in? 
+  before_action :patient_user, only: [:new, :edit, :update]
 
   def new
-    if user_type == 'Patient'
       if params[:user_id] && Patient.exists?(params[:user_id])
       @message = Message.new(patient_id: params[:user_id])
       else
       flash[:notice] = 'You do not have access to this feature.'
       redirect_to controller: 'users', action: 'show', id: current_user.id
       end
-    end
   end
 
   def show
@@ -38,7 +37,6 @@ class MessagesController < ApplicationController
   end
 
   def edit
-    if user_type == 'Patient'
       if params[:user_id]
         patient = Patient.find_by(id: params[:patient_id])
         if patient = nil
@@ -50,18 +48,13 @@ class MessagesController < ApplicationController
         flash[:notice] = 'You do not have access to this feature.'
         redirect_to controller: 'users', action: 'show', id: current_user.id
       end
-    end
   end
 
   def update
-    if user_type == 'Patient'
       @message = Message.find(params[:id])
       @message.update(message_params)
       flash[:notice] = 'Message successfully updated'
       render :show
-    else
-      redirect_to controller: 'users', action: 'show', id: current_user.id
-    end
   end
 
   def destroy

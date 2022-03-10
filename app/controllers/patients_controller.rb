@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # class containing patients CRUD methods
-class PatientsController < UsersController
+class PatientsController < UsersController 
   # directs to page to create new user
   def new
     @user = User.new

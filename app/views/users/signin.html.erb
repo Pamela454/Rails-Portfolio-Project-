@@ -1,22 +1,20 @@
 <div class="container">
-<%= form_for @user, url: "/users/signin" do |f| %>
-<% if @user.errors.any? %>
-  <div id="error_explanation">
-    <h2>There were some errors:</h2>
-    <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
+  <%= form_for @user, url: "/users/signin" do |f| %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2>There were some errors:</h2>
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="field<%= ' field_with_errors' if @user.errors[:email].any? %>">
+      <%= f.text_field :email, :class => "span5" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Sign In"  %>
+    </div>
   </div>
-<% end %>
-
-<div class="field<%= ' field_with_errors' if @user.errors[:email].any? %>">
-    <%= f.text_field :email, :class => "span5" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign In"  %>
-  </div>
-</div>
 <% end %>
