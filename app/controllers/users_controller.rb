@@ -1,42 +1,47 @@
+# frozen_string_literal: true
+
+# class containing users CRUD methods
 class UsersController < ApplicationController
-#need helper method?  #need skinny controllers
-  def signin  #displays option to log in
-    @user = User.new(user_params)
+  # need helper method?  #need skinny controllers
+  # displays option to log in
+  def signin
+    binding.pry
   end
 
-  def show  #directs to users show page. Can view messages sent and respond
+  # directs to users show page. Can view messages sent and respond
+  def show
     @user = User.find(session[:user_id])
-    @messages = Message.where(patient_id: session[:user_id]) || "None"
-    @responses = Response.where(physician_id: session[:user_id]) || "None"
-    render :layout => false
+    @messages = Message.where(patient_id: session[:user_id]) || 'None'
+    @responses = Response.where(physician_id: session[:user_id]) || 'None'
+    render layout: false
   end
 
-  def create  #creates a new user
+  # creates a new user
+  def create
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      flash[:notice] = "Profile successfully created"
+      flash[:notice] = 'Profile successfully created'
       redirect_to user_path(@user)
-    elsif params[:user][:type] == "Physician"
+    elsif params[:user][:type] == 'Physician'
       flash[:error]
       render 'physicians/new'
-    elsif params[:user][:type] == "Patient"
+    elsif params[:user][:type] == 'Patient'
       flash[:error]
       render 'physicians/new'
     end
   end
 
-  def update  #edit user info
+  # edit user info
+  def update
     @user = User.find(session[:user_id])
-    if user_type == "Patient"
-     @user.update(patient_params)
-     flash[:notice] = "Profile successfully edited"
-     redirect_to user_path(@user)
+    if user_type == 'Patient'
+      @user.update(patient_params)
     else
-     @user.update(user_params)
-     flash[:notice] = "Profile successfully edited"
-     redirect_to user_path(@user)
-   end
+      @user.update(user_params)
+    end
+    flash[:notice] = 'Profile successfully edited'
+    redirect_to user_path(@user)
   end
 
   private
@@ -45,14 +50,14 @@ class UsersController < ApplicationController
     @user = User.find(params[:user_id])
   end
 
-  #def user_type switch statement
+  # def user_type switch statement
   #  case params[:type]
   #  when 'Physician'
   #    'physician'
   #  when 'Patient'
   #    'patient'
   #  end
-  #end
+  # end
 
   def user_params
     params.require(:user).permit(:email, :npi, :specialty, :type, :name, :uid, :password)
