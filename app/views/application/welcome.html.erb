@@ -43,7 +43,7 @@
     <thead>
       <tr>
 
-<%#= form_for(:session, url: "sessions/create", html: { autocomplete: "new-password" }) do |f| %>
+<%= form_for(:session, url: "sessions/create", html: { autocomplete: "new-password" }) do |f| %>
 <br>
 <div class="col sign-in card-title card-body">
   <h3>Sign in if you are a Member</h3>
@@ -65,7 +65,6 @@
 <%= link_to('Login with Facebook!', '/auth/facebook') %><br><br>
 <%= link_to('Create a New Account as a Patient', 'users/new_patient') %><br><br>
 <%= link_to('Create a New Account as a Physician', 'users/new_physician') %><br><br>
-
   </table>
 </div>
 </div>

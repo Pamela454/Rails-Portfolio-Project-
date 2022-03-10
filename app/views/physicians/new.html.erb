@@ -28,23 +28,24 @@
       }
 
 </style>
+
 <nav class="navbar navbar-custom sticky-top center font-weight-bold">
     <h2>Please Enter the Following Info to Create a New Physician Account
     </h2>
-  </nav>
+</nav>
 <div class="container">
   <div class="page-header">
-    <% if @user.errors.any? %>
-    <div id="error_explanation">
-     <h2>There were some errors:</h2>
-     <ul>
+    <%= form_for @user, :url => {:controller => 'users', :action => 'create'} do |f| %>  <!--form for authorization -->
+      <% if @user.errors.any? %>
+      <div id="error_explanation">
+      <h2>There were some errors:</h2>
+      <ul>
       <% @user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
      </ul>
     </div>
     <% end %>
-  <%= form_for @user, :url => {:controller => 'users', :action => 'create'} do |f| %>  <!--form for authorization -->
   <br>
   </div>
 </div>
@@ -98,9 +99,8 @@
        <%= f.submit class: "btn btn-primary" %>
       </div>
       <br>
-  <% end %>
-
    </div>
   </table>
-</div>
+ <% end %>
+ </div>
 </div>
