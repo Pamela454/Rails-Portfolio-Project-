@@ -4,9 +4,7 @@
 class UsersController < ApplicationController
   # need helper method?  #need skinny controllers
   # displays option to log in
-  def signin
-    binding.pry
-  end
+  def signin; end
 
   # directs to users show page. Can view messages sent and respond
   def show
@@ -49,15 +47,6 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:user_id])
   end
-
-  # def user_type switch statement
-  #  case params[:type]
-  #  when 'Physician'
-  #    'physician'
-  #  when 'Patient'
-  #    'patient'
-  #  end
-  # end
 
   def user_params
     params.require(:user).permit(:email, :npi, :specialty, :type, :name, :uid, :password)

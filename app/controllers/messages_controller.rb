@@ -2,21 +2,21 @@
 
 # class containing messages CRUD methods
 class MessagesController < ApplicationController
-  before_action :login_required
+  before_action :logged_in?, :user_type
 
   def new
-    if user_type == 'Patient' # changed for nested route
+    if user_type == 'Patient'
       if params[:user_id] && Patient.exists?(params[:user_id])
-        @message = Message.new(patient_id: params[:user_id])
+      @message = Message.new(patient_id: params[:user_id])
       else
-        flash[:notice] = 'You do not have access to this feature.'
-        redirect_to controller: 'users', action: 'show', id: current_user.id
+      flash[:notice] = 'You do not have access to this feature.'
+      redirect_to controller: 'users', action: 'show', id: current_user.id
       end
     end
   end
 
   def show
-    @message = Message.find(params[:id]) # will throw an exception if not found by the attribute supplied
+    @message = Message.find(params[:id])
   end
 
   def index

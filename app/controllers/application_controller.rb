@@ -3,7 +3,7 @@
 # class containing helper methods related to login and authentication of user
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :user_signed_in, :current_user
+  helper_method :logged_in?, :current_user, :user_type
 
   def authenticate
     redirect_to root_path unless user_signed_in?
