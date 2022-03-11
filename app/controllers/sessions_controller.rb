@@ -4,14 +4,12 @@
 class SessionsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create]
 
-  # creates a new session, login
   def new
     @user = User.new(user_params)
-    # @users = User.all
   end
 
-  # creates a new session, authenticates user
-  def create
+  def create  #using either facebook login or welcome form login 
+    binding.pry 
     @auth = auth
     if !@auth.nil? # any edge cases created with two different user types?, will only be able to login through facebook
       @user = User.find_by(uid: auth['uid'])
@@ -39,7 +37,6 @@ class SessionsController < ApplicationController
     end
   end
 
-  # logs out user by deleting session
   def destroy
     session.delete :user_id
     flash[:notice] = 'Successfully logged out'

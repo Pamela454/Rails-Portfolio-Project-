@@ -2,11 +2,9 @@
 
 # class containing users CRUD methods
 class UsersController < ApplicationController
-  # need helper method?  #need skinny controllers
-  # displays option to log in
+
   def signin; end
 
-  # directs to users show page. Can view messages sent and respond
   def show
     @user = User.find(session[:user_id])
     @messages = Message.where(patient_id: session[:user_id]) || 'None'
@@ -14,7 +12,6 @@ class UsersController < ApplicationController
     render layout: false
   end
 
-  # creates a new user
   def create
     @user = User.new(user_params)
     if @user.save
@@ -30,7 +27,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # edit user info
   def update
     @user = User.find(session[:user_id])
     if user_type == 'Patient'
