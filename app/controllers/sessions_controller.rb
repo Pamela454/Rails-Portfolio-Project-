@@ -5,11 +5,12 @@ class SessionsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create]
 
   def new
-    @user = User.new(user_params)
+
   end
 
   def create  #using either facebook login or welcome form login 
-    binding.pry 
+    binding.pry
+    params = params.permit(:email, :password)
     @auth = auth
     if !@auth.nil? # any edge cases created with two different user types?, will only be able to login through facebook
       @user = User.find_by(uid: auth['uid'])
@@ -26,6 +27,7 @@ class SessionsController < ApplicationController
       end
 
     else
+      binding.pry 
       @user = User.find_by(email: params[:session][:email])
       if @user&.authenticate(params[:session][:password])
         session[:user_id] = @user.id

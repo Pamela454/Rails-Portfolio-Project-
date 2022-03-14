@@ -48,11 +48,11 @@ class UsersController < ApplicationController
     params.require(:user).permit(:email, :npi, :specialty, :type, :name, :uid, :password)
   end
 
-  def patient_params
+  def patient_params #is this needed? 
     params.require(:patient).permit(:email, :name, :uid, :password)
   end
 
-  def physician_params
+  def physician_params #is this needed? 
     params.require(:physician).permit(:email, :npi, :specialty, :type, :name, :uid, :password)
   end
 end

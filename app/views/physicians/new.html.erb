@@ -33,7 +33,7 @@
 </nav>
 <div class="container">
   <div class="page-header">
-    <%= form_for @user, :url => {:controller => 'users', :action => 'create'} do |f| %>  <!--form for authorization -->
+    <%= form_with model: @user do |f| %>  <!--form for authorization -->
       <% if @user.errors.any? %>
         <div id="error_explanation">
           <h2>There were some errors:</h2>
@@ -72,13 +72,13 @@
           <div class="field<%= ' field_with_errors' if @user.errors[:npi].any? %>">
             <%= f.label :npi %>
             <br>
-            <%= f.number_field :npi, :class => "span5" %>
+            <%= f.text_field :npi, value: @user.npi, :class => "span5"%>
           </div>
           <br>
           <div class="field<%= ' field_with_errors' if @user.errors[:specialty].any? %>">
             <%= f.label :specialty %>
             <br>
-            <%= f.text_field :specialty, :class => "span5" %>
+            <%= f.text_field :specialty, value: @user.specialty, :class => "span5"  %>
           </div>
           <br>
           <div class="form-group">
