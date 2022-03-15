@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create]
 
   def new
-
+    @user = User.new
   end
 
   def create  #using either facebook login or welcome form login 
@@ -28,8 +28,8 @@ class SessionsController < ApplicationController
 
     else
       binding.pry 
-      @user = User.find_by(email: params[:session][:email])
-      if @user&.authenticate(params[:session][:password])
+      @user = User.find_by(email: params[:email])
+      if @user&.authenticate(params[:password])
         session[:user_id] = @user.id
         redirect_to user_path(@user)
       else

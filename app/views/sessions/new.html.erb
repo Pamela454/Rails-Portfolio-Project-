@@ -17,24 +17,24 @@
     border-radius: 1rem;
     box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
     background-color: #D8DEEE;
-  }
+  }       
+</div><br><br>
 </style>  
 <div class="container-fluid mx-auto text-nowrap text-dark" style="width: 500px;">
-    <%= form_with url: login_path do |f| %> <br>
-              <div class="col sign-in card-title card-body">
+      <%= form_with model: @user do |f| %>
+              <div class="form-group">
                 <h3>Sign in if you are a Member</h3>
               </div>
               <div class="form-group">
                 <%= f.label :email, "Enter your email" %> <br>
                 <br>
-                <% binding.pry %>
-                <%= f.email_field :email, :class => "span5" %> <br>
+                <%= f.email_field :email, value: @user.email, class: 'form-control' %> <br>
               </div>
               <br>
               <div class="form-group">
                 <%= f.label :password, "Enter your password" %> <br>
                 <br>
-                <%= f.password_field :password, :class => "span5"%> <br>
+                <%= f.password_field :password, value: @user.password, class: 'form-control' %> <br>
               </div>
               <br>
               <br>
