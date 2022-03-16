@@ -24,7 +24,7 @@
   </h2>
 </nav>
 <div class="page-header">
-  <%= form_for @user, :url => {:controller => 'users', :action => 'create'} do |f| %>  <!--form for authorization -->
+  <%= form_with model: @user do |f| %>  <!--form for authorization -->
     <% if @user.errors.any? %>
       <div id="error_explanation">
         <h2>There were some errors:</h2>
