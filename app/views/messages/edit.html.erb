@@ -30,7 +30,7 @@
 <div class="text-center center font-weight-bold">
   <nav class="navbar navbar-custom sticky-top center font-weight-bold">
     <div class="page-header">
-      <%= form_for @message, :url => {:controller => 'messages', :action => 'update'} do |f| %>
+      <%= form_with model: @message, url: edit_user_message_path do |f| %>
         <h2>Edit Question</h2>
       </div>
     </nav>
@@ -45,12 +45,12 @@
             <div class="col sign-in card-title card-body">
               <div class="form-group">
                 <%= f.label :title %><br>
-                <%= f.text_field :title, :class => "span5" %></div>
+                <%= f.text_field :title, value: @message.title, class: "span5" %></div>
               <br>
               <br>
               <div class="form-group">
                 <%= f.label :question %><br>
-                <%= f.text_field :question, :class => "span5" %></div>
+                <%= f.text_field :question, value: @message.question, class: "span5" %></div>
               <br>
               <br>
               <div class="actions">
