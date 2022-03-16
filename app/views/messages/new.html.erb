@@ -30,7 +30,7 @@
 <div class="text-center center font-weight-bold">
   <nav class="navbar navbar-custom sticky-top center font-weight-bold">
     <div class="page-header">
-      <%= form_for @message, :url => {:controller => 'messages', :action => 'create'} do |f| %>
+      <%= form_with model: @message, url: new_user_message_path do |f| %>
         <% if @message.errors.any? %>
           <div id="error_explanation">
             <h2>There were some errors:</h2>
@@ -54,12 +54,12 @@
           <div class="col sign-in card-title card-body">
             <div class="field<%= ' field_with_errors' if @message.errors[:title].any? %>">
               <%= f.label :title %><br>
-              <%= f.text_field :title, :class => "span5" %></div>
+              <%= f.text_field :title, value: @message.title, class: "span5" %></div>
             <br>
             <br>
             <div class="field<%= ' field_with_errors' if @message.errors[:question].any? %>">
               <%= f.label :question %><br>
-              <%= f.text_field :question, :class => "span5" %></div>
+              <%= f.text_field :question, value: @message.question, class: "span5" %></div>
             <br>
             <br>
             <div class="form-group">
