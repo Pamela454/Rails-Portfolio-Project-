@@ -8,28 +8,25 @@ class SessionsController < ApplicationController
     @user = User.new
   end
 
-  def create  #using either facebook login or welcome form login 
-    binding.pry
-    params = params.permit(:email, :password)
+  def create  
     @auth = auth
-    if !@auth.nil? # any edge cases created with two different user types?, will only be able to login through facebook
+    if !@auth.nil? 
       @user = User.find_by(uid: auth['uid'])
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     elsif !@auth.nil?
       @user = User.create_by(uid: auth['uid']) do |u|
-        u.name = auth['info']['name'] # facebook exposes users name and password in API
-        u.email = auth['info']['email'] # password?
-        u.password = SecureRandom.urlsafe_base64.to_s # password?
+        u.name = auth['info']['name'] 
+        u.email = auth['info']['email'] 
+        u.password = SecureRandom.urlsafe_base64.to_s 
         session[:user_id] = @user.id
 
         render 'users/signup'
       end
 
     else
-      binding.pry 
-      @user = User.find_by(email: params[:email])
-      if @user&.authenticate(params[:password])
+      @user = User.find_by(email: params[:user][:email])
+      if @user&.authenticate(params[:user][:password])
         session[:user_id] = @user.id
         redirect_to user_path(@user)
       else
