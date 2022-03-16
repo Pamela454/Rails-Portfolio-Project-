@@ -30,8 +30,8 @@
 <div class="text-center center font-weight-bold">
   <nav class="navbar navbar-custom sticky-top center font-weight-bold">
     <div class="page-header">
-      <%= form_for @user, :url => {:controller => 'users', :action => 'update'} do |f| %>  <!--form for authorization -->
-        <h2>Edit Your Profile</h2>
+      <%= form_with model: @user, url: edit_user_physician_path do |f| %>  <!--form for authorization -->
+        <h2>Edit Your Profile</h2>        
       </div>
     </nav>
   </div>
@@ -64,13 +64,13 @@
               <div class="form-group">
                 <%= f.label :npi %>
                 <br>
-                <%= f.number_field :npi, :class => "span5" %>
+                <%= f.number_field :npi, value: @user.npi, :class => "span5" %>
               </div>
               <br>
               <div class="form-group">
                 <%= f.label :specialty %>
                 <br>
-                <%= f.text_field :specialty, :class => "span5" %>
+                <%= f.text_field :specialty, value: @user.specialty, :class => "span5" %>
               </div>
               <br>
               <div class="form-group">
