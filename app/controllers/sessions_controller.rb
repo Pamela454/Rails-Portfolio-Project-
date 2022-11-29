@@ -4,11 +4,11 @@
 class SessionsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create]
 
-  def new end
+  def new 
+  end
 
   def create  
     @auth = auth
-    binding.pry
     if !@auth.nil? 
       @user = User.find_by(uid: auth['uid'])
       session[:user_id] = @user.id
@@ -24,7 +24,6 @@ class SessionsController < ApplicationController
       end
 
     else
-      binding.pry 
       @user = User.find_by(email: params[:user][:email])
       if @user&.authenticate(params[:user][:password])
         session[:user_id] = @user.id

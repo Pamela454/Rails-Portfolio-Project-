@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   get '/auth/facebook/callback' => 'sessions#create'
 
-  get 'sessions/new' => 'sessions#new'
-  post 'sessions/create' => 'sessions#create'
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create', as: 'log_in'
 
   get 'users/new_patient' => 'patients#new'
   post 'users/new_patient' => 'users#create'

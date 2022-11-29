@@ -1,4 +1,4 @@
- <style>
+ <style>  
   body {
   background-image: url('<%= asset_path 'camilo-jimenez-vGu08RYjO-s-unsplash.jpg' %>');
   background-size: cover;
@@ -18,17 +18,16 @@
     box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
     background-color: #D8DEEE;
   }       
-</div><br><br>
 </style>  
 <div class="container-fluid mx-auto text-nowrap text-dark" style="width: 500px;">
-      <%= form_with model: @user, url: login_path do |f| %>
+      <%= form_with scope: :user, url: log_in_url do |f| %>
               <div class="form-group">
                 <h3>Sign in if you are a Member</h3>
               </div>
               <div class="form-group">
                 <%= f.label :email, "Enter your email" %> <br>
                 <br>
-                <%= f.email_field :email, value: :email, class: 'form-control' %> <br>
+                <%= f.text_field :email, value: :email, class: 'form-control' %> <br>
               </div>
               <br>
               <div class="form-group">
@@ -41,6 +40,7 @@
               <div class="form-group">
                 <%= f.submit "Sign In"%> 
               </div>
-              <% end %>
+      <% end %>
           <br>
-    </div>
+  </div>
+  
