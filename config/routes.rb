@@ -23,4 +23,7 @@ Rails.application.routes.draw do
     resources :responses, only: [:new, :create, :edit, :update, :destroy]
     resources :patients, only: [:edit, :update]
   end
+
+  resources :categories, only: [:index]
+  
 end

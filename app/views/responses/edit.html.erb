@@ -30,7 +30,7 @@
 <div class="text-center center font-weight-bold">
   <nav class="navbar navbar-custom sticky-top center font-weight-bold">
     <div class="page-header">
-      <%= form_for @response, :url => {:controller => 'responses', :action => 'update'} do |f| %>
+      <%= form_for :response, :url => { :action => "update" } do |f| %>
         <% if @response.errors.any? %>
           <div id="error_explanation">
             <h2>There were some errors:</h2>

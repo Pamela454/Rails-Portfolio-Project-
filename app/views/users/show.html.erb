@@ -118,13 +118,13 @@
     <% end %>
     <h3>Categories: <% m.categories.each do |c| unless m.category_ids == [] %></h3>
     <h3><%= c.category %></h3>
-    <%= link_to "Display Category Questions", category_path(c.id) %><br>
+    <%= link_to "Display Category Questions", categories_path(c.id) %><br>
     <br>
   <% end %>
 <% end %>
 <% end %>
 <br>
-<%= link_to "Edit Your Profile", edit_user_physician_path(current_user) %>
+<%= link_to "Edit Your Profile", user_path(current_user) %>
 <br>
 <% end %>
 <br>
