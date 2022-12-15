@@ -6,7 +6,7 @@ The PatientQuestionWebsite allows either a patient or physician to register as a
 
 ## Prerequisites
 
-Requires Ruby version 2.5.6 or later
+Requires Ruby version 3.1.0 or later
 
 ## Installation
 
