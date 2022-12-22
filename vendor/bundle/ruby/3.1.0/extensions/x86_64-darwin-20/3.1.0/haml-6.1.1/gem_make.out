@@ -1,0 +1,73 @@
+current directory: /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/3.1.0/gems/haml-6.1.1/ext/haml
+/Users/pamela/.rbenv/versions/3.1.1/bin/ruby -I /Users/pamela/.rbenv/versions/3.1.1/lib/ruby/3.1.0 -r ./siteconf20221220-44491-c901v0.rb extconf.rb
+creating Makefile
+
+current directory: /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/3.1.0/gems/haml-6.1.1/ext/haml
+make DESTDIR\= clean
+
+current directory: /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/3.1.0/gems/haml-6.1.1/ext/haml
+make DESTDIR\=
+compiling haml.c
+In file included from haml.c:1:
+In file included from /Users/pamela/.rbenv/versions/3.1.1/include/ruby-3.1.0/ruby.h:38:
+In file included from /Users/pamela/.rbenv/versions/3.1.1/include/ruby-3.1.0/ruby/ruby.h:27:
+In file included from /Users/pamela/.rbenv/versions/3.1.1/include/ruby-3.1.0/ruby/internal/arithmetic.h:23:
+In file included from /Users/pamela/.rbenv/versions/3.1.1/include/ruby-3.1.0/ruby/internal/arithmetic/char.h:29:
+In file included from /Users/pamela/.rbenv/versions/3.1.1/include/ruby-3.1.0/ruby/internal/core/rstring.h:30:
+/Users/pamela/.rbenv/versions/3.1.1/include/ruby-3.1.0/ruby/internal/fl_type.h:794:24: warning: unused parameter 'obj' [-Wunused-parameter]
+RB_OBJ_TAINTABLE(VALUE obj)
+                       ^
+/Users/pamela/.rbenv/versions/3.1.1/include/ruby-3.1.0/ruby/internal/fl_type.h:811:26: warning: unused parameter 'obj' [-Wunused-parameter]
+RB_OBJ_TAINTED_RAW(VALUE obj)
+                         ^
+/Users/pamela/.rbenv/versions/3.1.1/include/ruby-3.1.0/ruby/internal/fl_type.h:828:22: warning: unused parameter 'obj' [-Wunused-parameter]
+RB_OBJ_TAINTED(VALUE obj)
+                     ^
+/Users/pamela/.rbenv/versions/3.1.1/include/ruby-3.1.0/ruby/internal/fl_type.h:843:24: warning: unused parameter 'obj' [-Wunused-parameter]
+RB_OBJ_TAINT_RAW(VALUE obj)
+                       ^
+/Users/pamela/.rbenv/versions/3.1.1/include/ruby-3.1.0/ruby/internal/fl_type.h:858:20: warning: unused parameter 'obj' [-Wunused-parameter]
+RB_OBJ_TAINT(VALUE obj)
+                   ^
+/Users/pamela/.rbenv/versions/3.1.1/include/ruby-3.1.0/ruby/internal/fl_type.h:874:25: warning: unused parameter 'dst' [-Wunused-parameter]
+RB_OBJ_INFECT_RAW(VALUE dst, VALUE src)
+                        ^
+/Users/pamela/.rbenv/versions/3.1.1/include/ruby-3.1.0/ruby/internal/fl_type.h:874:36: warning: unused parameter 'src' [-Wunused-parameter]
+RB_OBJ_INFECT_RAW(VALUE dst, VALUE src)
+                                   ^
+/Users/pamela/.rbenv/versions/3.1.1/include/ruby-3.1.0/ruby/internal/fl_type.h:890:21: warning: unused parameter 'dst' [-Wunused-parameter]
+RB_OBJ_INFECT(VALUE dst, VALUE src)
+                    ^
+/Users/pamela/.rbenv/versions/3.1.1/include/ruby-3.1.0/ruby/internal/fl_type.h:890:32: warning: unused parameter 'src' [-Wunused-parameter]
+RB_OBJ_INFECT(VALUE dst, VALUE src)
+                               ^
+In file included from haml.c:1:
+In file included from /Users/pamela/.rbenv/versions/3.1.1/include/ruby-3.1.0/ruby.h:38:
+In file included from /Users/pamela/.rbenv/versions/3.1.1/include/ruby-3.1.0/ruby/ruby.h:44:
+/Users/pamela/.rbenv/versions/3.1.1/include/ruby-3.1.0/ruby/internal/newobj.h:173:22: warning: unused parameter 'clone' [-Wunused-parameter]
+rb_clone_setup(VALUE clone, VALUE obj)
+                     ^
+/Users/pamela/.rbenv/versions/3.1.1/include/ruby-3.1.0/ruby/internal/newobj.h:173:35: warning: unused parameter 'obj' [-Wunused-parameter]
+rb_clone_setup(VALUE clone, VALUE obj)
+                                  ^
+/Users/pamela/.rbenv/versions/3.1.1/include/ruby-3.1.0/ruby/internal/newobj.h:190:20: warning: unused parameter 'dup' [-Wunused-parameter]
+rb_dup_setup(VALUE dup, VALUE obj)
+                   ^
+/Users/pamela/.rbenv/versions/3.1.1/include/ruby-3.1.0/ruby/internal/newobj.h:190:31: warning: unused parameter 'obj' [-Wunused-parameter]
+rb_dup_setup(VALUE dup, VALUE obj)
+                              ^
+In file included from haml.c:2:
+In file included from /Users/pamela/.rbenv/versions/3.1.1/include/ruby-3.1.0/ruby/encoding.h:22:
+/Users/pamela/.rbenv/versions/3.1.1/include/ruby-3.1.0/ruby/internal/encoding/ctype.h:82:46: warning: unused parameter 'enc' [-Wunused-parameter]
+rb_enc_isascii(OnigCodePoint c, rb_encoding *enc)
+                                             ^
+haml.c:61:10: warning: implicit conversion loses integer precision: 'size_t' (aka 'unsigned long') to 'unsigned int' [-Wshorten-64-to-32]
+  size = hesc_escape_html(&buf, RSTRING_PTR(str), RSTRING_LEN(str));
+       ~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+15 warnings generated.
+compiling hescape.c
+linking shared-object haml/haml.bundle
+
+current directory: /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/3.1.0/gems/haml-6.1.1/ext/haml
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 haml.bundle ./.gem.20221220-44491-axismd/haml

@@ -6,6 +6,7 @@ class MessagesController < ApplicationController
   before_action :patient_user, only: [:new, :edit, :update]
 
   def new
+    binding.pry 
       if params[:user_id] && Patient.exists?(params[:user_id])
       @message = Message.new(patient_id: params[:user_id])
       else

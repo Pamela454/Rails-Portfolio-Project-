@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   #get '/users/:user_id/responses/:id/edit' => 'users#edit_response'
   #patch '/users/:user_id/messages/:id/edit' => 'messages#update'
 
+  get 'users/:user_id/responses/new' => 'responses#new'
+  post 'users/:user_id/responses/new' => 'responses#create'
+
   get  '/logout',   to: 'sessions#destroy', via: :delete
 
   resources :users do  

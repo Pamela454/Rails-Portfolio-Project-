@@ -2,6 +2,7 @@
 
 # class containing categories CRUD methods
 class CategoriesController < ApplicationController
+
   def show
     @category = Category.find(params[:id])
   end
@@ -14,6 +15,10 @@ class CategoriesController < ApplicationController
       flash[:notice] = 'Unable to save categories. Please try again.'
       redirect_to 'messages/new'
     end
+  end
+
+  def index
+    @categories = Category.all 
   end
 
   private
