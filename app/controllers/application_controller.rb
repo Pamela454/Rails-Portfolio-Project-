@@ -2,7 +2,8 @@
 
 # class containing helper methods related to login and authentication of user
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  #protect_from_forgery with: :exception
+  protect_from_forgery prepend: true
   helper_method :logged_in?, :current_user, :user_type
 
   def authenticate

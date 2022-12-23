@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.1'
@@ -11,15 +11,17 @@ gem 'thin'
 
 gem 'dotenv-rails'
 
-gem 'omniauth'
+gem 'omniauth-facebook' 
 
-gem 'omniauth-facebook' #provider allowed to authenticate user
+gem 'omniauth-rails_csrf_protection'
 
 gem 'activerecord'
 
 gem 'standalone_migrations'
 
 gem 'pry'
+
+gem 'erb-formatter'
 
 gem 'prettier'
 

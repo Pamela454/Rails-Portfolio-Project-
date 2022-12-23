@@ -6,7 +6,6 @@ class MessagesController < ApplicationController
   before_action :patient_user, only: [:new, :edit, :update]
 
   def new
-    binding.pry 
       if params[:user_id] && Patient.exists?(params[:user_id])
       @message = Message.new(patient_id: params[:user_id])
       else
@@ -28,6 +27,7 @@ class MessagesController < ApplicationController
   end
 
   def create
+    binding.pry 
     @message = Message.new(message_params)
     if @message.save
       flash[:notice] = 'Message successfully created'

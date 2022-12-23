@@ -35,7 +35,7 @@
 
   <div class="container">
    <div class="page-header">
-    <%= form_with model: @message, url: new_user_message_path do |f| %>
+    <%= form_with model: @message, url: new_user_message_path, class: "form-control" do |f| %>
         <% if @message.errors.any? %>
           <div id="error_explanation">
             <h2>There were some errors:</h2>
@@ -48,7 +48,6 @@
         <% end %>
     </div>
   </div>
-:title, :question, :patient_id, category_ids: []
 <div class="container">
   <div class="container-fluid mx-auto text-nowrap text-dark" style="width: 500px;">
     <table class="table table-striped">
@@ -64,10 +63,6 @@
             <br>
             <br>
             <div class="form-group">
-              <%= f.hidden_field :user_id, value: current_user.id, class: "form-control" %></div>
-            <br>
-            <br>
-            <div class="form-group">
               <br>
               <%= f.hidden_field :patient_id, value: current_user.id, class: "form-control" %>
             </div>
@@ -75,17 +70,17 @@
             <div class="form-group">
               <%= f.label :new_or_preexisting_condition%><br>
               <%= f.collection_check_boxes :category_ids, Category.all[0..1], :id, :category %>
-            </div>
-            <br>
+            </div>  
+            <br> 
             <div class="form-group">
               <%= f.label :affected_system%><br>
-              <%= f.collection_check_boxes :category_ids, Category.all[2..3], :id, :category %>
+              <!-- %= f.collection_check_boxes :category_ids, Category.all[2..3], :id, :category % -->
               <br>
               <br>
-              <%= f.collection_check_boxes :category_ids, Category.all[4..7], :id, :category %>
+              <!-- %= f.collection_check_boxes :category_ids, Category.all[4..7], :id, :category % -->
               <br>
               <br>
-              <%= f.collection_check_boxes :category_ids, Category.all[8..11], :id, :category %>
+              <!-- %= f.collection_check_boxes :category_ids, Category.all[8..11], :id, :category % -->
             </div>
             <br>
             <div class="actions">

@@ -1,0 +1,12 @@
+.ruby-version
+coverage
+*.gem
+
+.#*
+.env
+log/
+tmp/
+
+## Environment normalization:
+/.bundle
+/vendor/bundle

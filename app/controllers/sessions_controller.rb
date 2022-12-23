@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
   end
 
   def create  
+    auth = request.env["omniauth.auth"]
     @auth = auth
     if !@auth.nil? 
       @user = User.find_by(uid: auth['uid'])
