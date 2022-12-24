@@ -47,7 +47,6 @@
           </div>
         <% end %>
     </div>
-  </div>
 <div class="container">
   <div class="container-fluid mx-auto text-nowrap text-dark" style="width: 500px;">
     <table class="table table-striped">
@@ -69,18 +68,21 @@
             <br>
             <div class="form-group">
               <%= f.label :new_or_preexisting_condition%><br>
-              <%= f.collection_check_boxes :category_ids, Category.all[0..1], :id, :category %>
+              <%= f.collection_check_boxes :category_ids, Category.all[0..1], :id, :category do |b| %>
+              <div>
+              <%= b.label %>
+              </div>
+              <% end %>
+              </div>
             </div>  
             <br> 
             <div class="form-group">
               <%= f.label :affected_system%><br>
-              <!-- %= f.collection_check_boxes :category_ids, Category.all[2..3], :id, :category % -->
-              <br>
-              <br>
-              <!-- %= f.collection_check_boxes :category_ids, Category.all[4..7], :id, :category % -->
-              <br>
-              <br>
-              <!-- %= f.collection_check_boxes :category_ids, Category.all[8..11], :id, :category % -->
+              <%= f.collection_check_boxes :category_ids, Category.all[2..11], :id, :category do |b| %>
+              <div>
+              <%= b.label %>
+              </div>
+              <% end %>
             </div>
             <br>
             <div class="actions">
@@ -91,4 +93,5 @@
       </div>
     </table>
   </div>
+</div>
 </div>

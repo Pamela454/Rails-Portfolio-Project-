@@ -26,8 +26,11 @@ Rails.application.routes.draw do
     resources :messages, only: [:new, :create, :edit, :update, :index, :destroy]
     resources :responses, only: [:new, :create, :edit, :update, :destroy]
     resources :patients, only: [:edit, :update]
+    resources :physicians, only: [:edit, :update]
   end
 
-    resources :categories, only: [:show, :create, :index]
+  resources :categories do
+    resources :message_categories
+  end
   
 end
