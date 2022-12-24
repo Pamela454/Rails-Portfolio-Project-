@@ -21,8 +21,6 @@ gem 'standalone_migrations'
 
 gem 'pry'
 
-gem 'erb-formatter'
-
 gem 'prettier'
 
 gem 'rubocop', require: false
