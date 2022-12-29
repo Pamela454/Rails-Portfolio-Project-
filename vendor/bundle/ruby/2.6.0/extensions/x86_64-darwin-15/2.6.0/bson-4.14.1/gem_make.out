@@ -1,0 +1,32 @@
+current directory: /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/2.6.0/gems/bson-4.14.1/ext/bson
+/Users/pamela/.rbenv/versions/2.6.1/bin/ruby -I /Users/pamela/.rbenv/versions/2.6.1/lib/ruby/2.6.0 -r ./siteconf20221229-4875-1hk8iwp.rb extconf.rb
+creating Makefile
+
+current directory: /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/2.6.0/gems/bson-4.14.1/ext/bson
+make "DESTDIR=" clean
+
+current directory: /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/2.6.0/gems/bson-4.14.1/ext/bson
+make "DESTDIR="
+compiling bytebuf.c
+compiling endian.c
+compiling init.c
+compiling libbson-utf8.c
+compiling read.c
+read.c:142:5: warning: variable 'result' is used uninitialized whenever switch default is taken [-Wsometimes-uninitialized]
+    default:
+    ^~~~~~~
+read.c:146:10: note: uninitialized use occurs here
+  return result;
+         ^~~~~~
+read.c:131:15: note: initialize the variable 'result' to silence this warning
+  VALUE result;
+              ^
+               = 0
+1 warning generated.
+compiling util.c
+compiling write.c
+linking shared-object bson_native.bundle
+
+current directory: /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/2.6.0/gems/bson-4.14.1/ext/bson
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bson_native.bundle ./.gem.20221229-4875-1ihuxg

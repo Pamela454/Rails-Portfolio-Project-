@@ -3,7 +3,7 @@
 # class containing messages CRUD methods
 class MessagesController < ApplicationController
   before_action :logged_in? 
-  before_action :patient_user, only: [:new, :edit, :update]
+  #before_action :patient_user, only: [:new, :edit, :create, :update]
 
   def new
       if params[:user_id] && Patient.exists?(params[:user_id])
