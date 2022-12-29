@@ -1,0 +1,3 @@
+current directory: /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/2.6.0/gems/mimemagic-0.3.10/ext/mimemagic
+/Users/pamela/.rbenv/versions/2.6.1/bin/ruby -rrubygems /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/2.6.0/gems/rake-13.0.1/exe/rake RUBYARCHDIR\=/Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/2.6.0/extensions/x86_64-darwin-15/2.6.0/mimemagic-0.3.10 RUBYLIBDIR\=/Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/2.6.0/extensions/x86_64-darwin-15/2.6.0/mimemagic-0.3.10
+mkdir -p /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/2.6.0/extensions/x86_64-darwin-15/2.6.0/mimemagic-0.3.10/mimemagic
