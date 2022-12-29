@@ -1,0 +1,17 @@
+current directory: /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/2.6.0/gems/thin-1.8.1/ext/thin_parser
+/Users/pamela/.rbenv/versions/2.6.1/bin/ruby -I /Users/pamela/.rbenv/versions/2.6.1/lib/ruby/2.6.0 -r ./siteconf20221229-98867-bhqq1k.rb extconf.rb --with-cflags\=-Wno-error\=implicit-function-declaration
+checking for main() in -lc... yes
+creating Makefile
+
+current directory: /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/2.6.0/gems/thin-1.8.1/ext/thin_parser
+make "DESTDIR=" clean
+
+current directory: /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/2.6.0/gems/thin-1.8.1/ext/thin_parser
+make "DESTDIR="
+compiling parser.c
+compiling thin.c
+linking shared-object thin_parser.bundle
+
+current directory: /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/2.6.0/gems/thin-1.8.1/ext/thin_parser
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 thin_parser.bundle ./.gem.20221229-98867-1yh78v2
