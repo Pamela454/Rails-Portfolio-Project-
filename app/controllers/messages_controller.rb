@@ -8,6 +8,7 @@ class MessagesController < ApplicationController
   def new
       if params[:user_id] && Patient.exists?(params[:user_id])
       @message = Message.new(patient_id: params[:user_id])
+      @categories = Category.all 
       else
       flash[:notice] = 'You do not have access to this feature.'
       redirect_to controller: 'users', action: 'show', id: current_user.id
@@ -27,6 +28,7 @@ class MessagesController < ApplicationController
   end
 
   def create
+    binding.pry 
     @message = Message.new(message_params)
     if @message.save
       flash[:notice] = 'Message successfully created'
@@ -51,6 +53,7 @@ class MessagesController < ApplicationController
   end
 
   def update
+    binding.pry 
       @message = Message.find(params[:id])
       @message.update(message_params)
       flash[:notice] = 'Message successfully updated'

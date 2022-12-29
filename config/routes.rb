@@ -13,9 +13,9 @@ Rails.application.routes.draw do
   get 'users/new_physician' => 'physicians#new'
   post 'users/new_physician' => 'users#create'
 
-  get '/users/:user_id/messages' => 'messages#new'
-  patch '/users/:user_id/messages/:id/edit' => 'messages#update'
-  post 'users/:user_id/messages/new' => 'messages#create'
+  #get '/users/:user_id/messages' => 'messages#new'
+  #patch '/users/:user_id/messages/:id/edit' => 'messages#update'
+  #post 'users/:user_id/messages/new' => 'messages#create'
 
   get 'users/:user_id/responses/new' => 'responses#new'
   post 'users/:user_id/responses/new' => 'responses#create'
