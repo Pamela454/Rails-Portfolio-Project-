@@ -64,7 +64,6 @@ end
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'better_errors'
-  gem 'rspec-rails'
   gem 'binding_of_caller'
   gem 'rails_layout'
   gem 'pry-rails'
@@ -84,7 +83,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'faker'
   # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
+  gem 'webdrivers'
 end
 
 

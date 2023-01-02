@@ -8,7 +8,7 @@ class Patient < User
 
 #validations specific to this model
 
-  def self.model_namev#build correct path
+  def self.model_name 
     User.model_name
   end
 end
