@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   root "application#welcome" 
 
-  get '/auth/facebook/callback' => 'sessions#create'
+  get '/auth/facebook' => 'sessions#create'
 
-  get 'login', to: 'sessions#new'
-  post 'login', to: 'sessions#create', as: 'log_in'
+  get 'users/signin', to: 'sessions#new'
+  post 'users/signin', to: 'sessions#create'
 
   get 'users/new_patient' => 'patients#new'
   post 'users/new_patient' => 'users#create'

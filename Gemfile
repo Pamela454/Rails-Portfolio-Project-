@@ -72,10 +72,11 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'rack_session_access'
 end
 
 group :test do
+  gem 'rack_session_access'
+  gem 'devise'  
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   # Adds support for Capybara system testing and selenium driver
