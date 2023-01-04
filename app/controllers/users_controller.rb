@@ -31,6 +31,7 @@ class UsersController < ApplicationController
     if user_type == "Patient"
      @user.update(patient_params)
      flash[:notice] = "Profile successfully edited"
+     binding.pry 
      redirect_to user_path(@user)
     else
      @user.update(user_params)

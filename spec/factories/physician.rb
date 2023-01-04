@@ -3,7 +3,7 @@ FactoryBot.define do
       name { Faker::Internet.name }
       email { Faker::Internet.email }
       password { Faker::Internet.password }
-      npi { Faker::Internet.npi }
+      npi { Faker::Number.number(10) }
       specialty { Faker::Internet.specialty }
     end
   end
