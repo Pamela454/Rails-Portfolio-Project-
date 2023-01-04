@@ -3,4 +3,4 @@ FactoryBot.define do
       title { Faker::Lorem.word }
       question { Faker::Lorem.word }
     end
-  end
+end
