@@ -7,7 +7,6 @@ RSpec.describe 'Creating a patient user', type: :feature do
       fill_in 'Email', with: 'lsmith@gmail.com'
       fill_in 'Password', with: 'SunnyDay'
       click_on 'Create User'
-      visit user_path()
       expect(page).to have_content('lsmith@gmail.com')
     end
   end
