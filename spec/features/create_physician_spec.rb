@@ -88,4 +88,15 @@ RSpec.describe 'Creating a physician user', type: :feature do
       click_on 'Create User'
       expect(page).to have_content("Specialty can't be blank")
     end
+
+    scenario 'invalid inputs' do
+      visit users_new_physician_path
+      fill_in 'Name', with: 'Dave'
+      fill_in 'Email', with: 'dsmith@gmail.com'
+      fill_in 'Password', with: 'HotSummer'
+      fill_in 'Npi', with: '-123456789'
+      fill_in 'Specialty', with: 'Family Medicine'
+      click_on 'Create User'
+      expect(page).to have_content("Npi must be greater than or equal to 0")
+    end
   end

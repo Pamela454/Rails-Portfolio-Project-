@@ -7,6 +7,7 @@ class Physician < User
   validates :email, uniqueness: true
   validates :name, length: { minimum: 2 }
   validates_length_of :npi, is: 10
+  validates :npi, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
 #validations specific to this model
 
