@@ -33,7 +33,6 @@
     <h2>Please Enter the  Following Info to Create a New Patient Account
     </h2>
   </nav>
-
 <div class="page-header">
   <%= form_for @user, :url => {:controller => 'users', :action => 'create'} do |f| %>  <!--form for authorization -->
     <% if @user.errors.any? %>
