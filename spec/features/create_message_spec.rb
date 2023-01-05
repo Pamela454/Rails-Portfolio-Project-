@@ -38,4 +38,19 @@ RSpec.describe 'Creating a Message', type: :feature do
     click_on 'Create Message'
     expect(page).to have_content("Title can't be blank")
   end
+
+  scenario 'invalid inputs' do
+    @patient = create(:patient)
+    @categories = create_list(:category, 11)
+    login_as(@patient)
+    page.set_rack_session(:user_id => @patient.id)
+    page.set_rack_session(:patient_id => @patient.id)
+    visit user_path(id: @patient.id)
+    click_on 'Ask A Question'
+    visit new_user_message_path(:user_id => @patient.id)
+    fill_in 'message_title', with: 'Sore Throat'
+    fill_in 'message_question', with: ''
+    click_on 'Create Message'
+    expect(page).to have_content("Question can't be blank")
+  end
 end
