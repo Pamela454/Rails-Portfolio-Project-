@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Logout a patient user', type: :feature do
+RSpec.describe 'Logout a physician user', type: :feature do
     #create physician
     #go to physician show page
     #expect page to have user email
@@ -14,7 +14,6 @@ RSpec.describe 'Logout a patient user', type: :feature do
         visit user_path(id: @physician.id)
         expect(page).to have_content('cat@gmail.com')
         click_on ('Log Out')
-        binding.pry 
         expect(page).to have_content("Successfully logged out")
     end
 end
