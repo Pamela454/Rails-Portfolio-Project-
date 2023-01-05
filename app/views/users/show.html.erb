@@ -78,7 +78,6 @@
       <br>
       <% end %>
       <br>
-
   <% if @user.type == "Physician" %>
     <h3>Unanswered Questions:<% Message.unanswered_questions.to_a.each do |m|%></h3>
     <h3>Question ID: <%= m.id %></h3>

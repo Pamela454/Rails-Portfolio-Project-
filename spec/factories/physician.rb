@@ -4,6 +4,6 @@ FactoryBot.define do
       email { Faker::Internet.email }
       password { Faker::Internet.password }
       npi { Faker::Number.number(10) }
-      specialty { Faker::Internet.specialty }
+      specialty { Faker::Lorem.word }
     end
   end
