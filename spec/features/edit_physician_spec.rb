@@ -22,4 +22,20 @@ RSpec.describe 'Edit physician user', type: :feature do
         click_on 'Update User'
         expect(page).to have_content('dsmith@gmail.com')
     end
+
+    scenario 'invalid name input' do
+        @physician = create(:physician)
+        login_as(@patient)
+        page.set_rack_session(:user_id => @physician.id)
+        visit user_path(id: @physician.id)
+        click_on 'Edit Your Profile'
+        fill_in 'Name', with: ''
+        fill_in 'Email', with: 'dsmith@gmail.com'
+        fill_in 'Password', with: 'HotSummer'
+        fill_in 'Npi', with: '1234567891'
+        fill_in 'Specialty', with: 'Family Medicine'
+        click_on 'Update User' #need to add restriction to prevent null data 
+        expect(page).to have_content('dsmith@gmail.com')
+    end
+
 end
