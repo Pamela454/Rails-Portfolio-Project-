@@ -29,12 +29,11 @@ class UsersController < ApplicationController
   def update  #edit user info
     @user = User.find(session[:user_id])
     if user_type == "Patient"
-     @user.update(patient_params)
+     @user.update!(patient_params)
      flash[:notice] = "Profile successfully edited"
-     binding.pry 
      redirect_to user_path(@user)
     else
-     @user.update(user_params)
+     @user.update!(user_params)
      flash[:notice] = "Profile successfully edited"
      redirect_to user_path(@user)
    end
