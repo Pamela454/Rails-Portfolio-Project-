@@ -75,6 +75,7 @@ group :development do
 end
 
 group :test do
+  gem 'simplecov', require: false, group: :test
   gem 'rack_session_access'
   gem 'devise'  
   gem 'rspec-rails'
