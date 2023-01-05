@@ -16,7 +16,6 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "Profile successfully created"
-      binding.pry 
       redirect_to user_path(@user)
     elsif params[:user][:type] == "Physician"
       flash[:error]
