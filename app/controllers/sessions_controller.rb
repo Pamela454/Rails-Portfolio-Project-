@@ -36,7 +36,9 @@ class SessionsController < ApplicationController
     
 
   def destroy #logs out user by deleting session
+    binding.pry 
     session.delete :user_id
+    binding.pry 
     flash[:notice] = "Successfully logged out"
     redirect_to root_path
   end
