@@ -14,7 +14,6 @@ RSpec.describe 'Logout a patient user', type: :feature do
         visit user_path(id: @patient.id)
         expect(page).to have_content("Email: cat@gmail.com")
         click_on ('Log Out')
-        binding.pry
         expect(page).to have_content("Successfully logged out")
         #expect(session[:user_id]).to equal('nil')
     end
