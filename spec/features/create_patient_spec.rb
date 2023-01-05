@@ -10,7 +10,7 @@ RSpec.describe 'Creating a patient user', type: :feature do
       expect(page).to have_content('lsmith@gmail.com')
     end
 
-    scenario 'invalid inputs' do
+    scenario 'invalid name input' do
       visit users_new_patient_path
       fill_in 'Name', with: ''
       fill_in 'Email', with: 'lsmith@gmail.com'
@@ -19,7 +19,7 @@ RSpec.describe 'Creating a patient user', type: :feature do
       expect(page).to have_content("Name can't be blank")
     end
 
-    scenario 'invalid inputs' do
+    scenario 'invalid email input' do
       visit users_new_patient_path
       fill_in 'Name', with: 'Linda'
       fill_in 'Email', with: ''
@@ -28,7 +28,7 @@ RSpec.describe 'Creating a patient user', type: :feature do
       expect(page).to have_content("Email can't be blank")
     end
 
-    scenario 'invalid inputs' do
+    scenario 'invalid password input' do
       visit users_new_patient_path
       fill_in 'Name', with: 'Linda'
       fill_in 'Email', with: 'lsmith@gmail.com'
