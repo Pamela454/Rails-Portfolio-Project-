@@ -22,7 +22,7 @@ class UsersController < ApplicationController
       render 'physicians/new'
     elsif params[:user][:type] == "Patient"
       flash[:error]
-      redirect_to 'patients/new'
+      render 'patients/new'
     end
   end
 
