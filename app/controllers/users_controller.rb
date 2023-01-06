@@ -22,7 +22,7 @@ class UsersController < ApplicationController
       render 'physicians/new'
     elsif params[:user][:type] == "Patient"
       flash[:error]
-      render 'patients/new'
+      redirect_to 'patients/new'
     end
   end
 
@@ -33,9 +33,13 @@ class UsersController < ApplicationController
      flash[:notice] = "Profile successfully edited"
      redirect_to user_path(@user)
     else
-     @user.update!(user_params)
+     if @user.update(user_params)
      flash[:notice] = "Profile successfully edited"
      redirect_to user_path(@user)
+     else
+      flash[:error] 
+      render 'physicians/edit'
+     end
    end
   end
 

@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2023-01-05T18:21:55-05:00">2023-01-05T18:21:55-05:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2023-01-05T23:02:50-05:00">2023-01-05T23:02:50-05:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,14 +23,14 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="yellow">
-  84.8%
+  84.95%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.28
+         1.44
        </span>
     </span> hits/line
     )
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>204</b> relevant lines,
-    <span class="green"><b>173</b> lines covered</span> and
+    <b>206</b> relevant lines,
+    <span class="green"><b>175</b> lines covered</span> and
     <span class="red"><b>31</b> lines missed. </span>
     (<span class="yellow">
-  84.8%
+  84.95%
 </span>
 )
   </div>
@@ -77,7 +77,7 @@
             <td class="cell--number">14</td>
             <td class="cell--number">11</td>
             <td class="cell--number">3</td>
-            <td class="cell--number">1.43</td>
+            <td class="cell--number">1.57</td>
             
           </tr>
         
@@ -94,12 +94,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#6bf46315a3b57bbdca2e53c553a342ab2cbe95e7" class="src_link" title="app/controllers/users_controller.rb">app/controllers/users_controller.rb</a></td>
-            <td class="red strong cell--number t-file__coverage">54.05 %</td>
-            <td class="cell--number">68</td>
-            <td class="cell--number">37</td>
-            <td class="cell--number">20</td>
+            <td class="red strong cell--number t-file__coverage">56.41 %</td>
+            <td class="cell--number">72</td>
+            <td class="cell--number">39</td>
+            <td class="cell--number">22</td>
             <td class="cell--number">17</td>
-            <td class="cell--number">0.86</td>
+            <td class="cell--number">0.87</td>
             
           </tr>
         
@@ -220,7 +220,7 @@
             <td class="cell--number">12</td>
             <td class="cell--number">12</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">4.25</td>
+            <td class="cell--number">6.83</td>
             
           </tr>
         
@@ -818,8 +818,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="7" data-linenumber="26">
-            <span class="hits">7</span>
+          <li class="covered" data-hits="9" data-linenumber="26">
+            <span class="hits">9</span>
             
 
             
@@ -1089,7 +1089,7 @@
     <h3>app/controllers/users_controller.rb</h3>
     <h4>
       <span class="red">
-  54.05%
+  56.41%
 </span>
 
       lines covered
@@ -1098,8 +1098,8 @@
     
 
     <div class="t-line-summary">
-      <b>37</b> relevant lines.
-      <span class="green"><b>20</b> lines covered</span> and
+      <b>39</b> relevant lines.
+      <span class="green"><b>22</b> lines covered</span> and
       <span class="red"><b>17</b> lines missed.</span>
     </div>
 
@@ -1381,7 +1381,7 @@
 
             
 
-            <code class="ruby">      render &#39;patients/new&#39;</code>
+            <code class="ruby">      redirect_to &#39;patients/new&#39;</code>
           </li>
         </div>
       
@@ -1502,7 +1502,7 @@
 
             
 
-            <code class="ruby">     @user.update!(user_params)</code>
+            <code class="ruby">     if @user.update(user_params)</code>
           </li>
         </div>
       
@@ -1535,40 +1535,40 @@
 
             
 
-            <code class="ruby">   end</code>
+            <code class="ruby">     else</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="40">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="41">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="42">
+          <li class="covered" data-hits="1" data-linenumber="40">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  private</code>
+            <code class="ruby">      flash[:error] </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="41">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      render &#39;physicians/edit&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="42">
+            
+            
+
+            
+
+            <code class="ruby">     end</code>
           </li>
         </div>
       
@@ -1579,40 +1579,40 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">   end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="44">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  def set_user</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="45">
-            
-            
-
-            
-
-            <code class="ruby">    @user = User.find(params[:user_id])</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="46">
+          <li class="never" data-hits="" data-linenumber="44">
             
             
 
             
 
             <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="45">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="46">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  private</code>
           </li>
         </div>
       
@@ -1628,24 +1628,24 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="48">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="48">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  #def user_type switch statement</code>
+            
+
+            <code class="ruby">  def set_user</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="49">
+          <li class="missed" data-hits="0" data-linenumber="49">
             
             
 
             
 
-            <code class="ruby">  #  case params[:type]</code>
+            <code class="ruby">    @user = User.find(params[:user_id])</code>
           </li>
         </div>
       
@@ -1656,7 +1656,7 @@
 
             
 
-            <code class="ruby">  #  when &#39;Physician&#39;</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -1667,7 +1667,7 @@
 
             
 
-            <code class="ruby">  #    &#39;physician&#39;</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -1678,7 +1678,7 @@
 
             
 
-            <code class="ruby">  #  when &#39;Patient&#39;</code>
+            <code class="ruby">  #def user_type switch statement</code>
           </li>
         </div>
       
@@ -1689,7 +1689,7 @@
 
             
 
-            <code class="ruby">  #    &#39;patient&#39;</code>
+            <code class="ruby">  #  case params[:type]</code>
           </li>
         </div>
       
@@ -1700,7 +1700,7 @@
 
             
 
-            <code class="ruby">  #  end</code>
+            <code class="ruby">  #  when &#39;Physician&#39;</code>
           </li>
         </div>
       
@@ -1711,7 +1711,7 @@
 
             
 
-            <code class="ruby">  #end</code>
+            <code class="ruby">  #    &#39;physician&#39;</code>
           </li>
         </div>
       
@@ -1722,29 +1722,29 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  #  when &#39;Patient&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="57">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="57">
+            
             
 
             
 
-            <code class="ruby">  def user_params</code>
+            <code class="ruby">  #    &#39;patient&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="58">
-            <span class="hits">2</span>
+          <li class="never" data-hits="" data-linenumber="58">
+            
             
 
             
 
-            <code class="ruby">    params.require(:user).permit(:email, :npi, :specialty, :type, :name, :uid, :password)</code>
+            <code class="ruby">  #  end</code>
           </li>
         </div>
       
@@ -1755,7 +1755,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">  #end</code>
           </li>
         </div>
       
@@ -1777,18 +1777,18 @@
 
             
 
-            <code class="ruby">  def patient_params</code>
+            <code class="ruby">  def user_params</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="62">
-            
-            
-
+          <li class="covered" data-hits="2" data-linenumber="62">
+            <span class="hits">2</span>
             
 
-            <code class="ruby">    params.require(:patient).permit(:email, :name, :uid, :password)</code>
+            
+
+            <code class="ruby">    params.require(:user).permit(:email, :npi, :specialty, :type, :name, :uid, :password)</code>
           </li>
         </div>
       
@@ -1821,7 +1821,7 @@
 
             
 
-            <code class="ruby">  def physician_params</code>
+            <code class="ruby">  def patient_params</code>
           </li>
         </div>
       
@@ -1832,7 +1832,7 @@
 
             
 
-            <code class="ruby">    params.require(:physician).permit(:email, :npi, :specialty, :type, :name, :uid, :password)</code>
+            <code class="ruby">    params.require(:patient).permit(:email, :name, :uid, :password)</code>
           </li>
         </div>
       
@@ -1849,6 +1849,50 @@
       
         <div>
           <li class="never" data-hits="" data-linenumber="68">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="69">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def physician_params</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="70">
+            
+            
+
+            
+
+            <code class="ruby">    params.require(:physician).permit(:email, :npi, :specialty, :type, :name, :uid, :password)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="71">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="72">
             
             
 
@@ -3025,8 +3069,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="40" data-linenumber="15">
-            <span class="hits">40</span>
+          <li class="covered" data-hits="71" data-linenumber="15">
+            <span class="hits">71</span>
             
 
             

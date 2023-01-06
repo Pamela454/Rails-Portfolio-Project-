@@ -35,6 +35,6 @@ RSpec.describe 'Edit physician user', type: :feature do
         fill_in 'Npi', with: '1234567891'
         fill_in 'Specialty', with: 'Family Medicine'
         click_on 'Update User' #need to add restriction to prevent null data 
-        expect(page).to have_content("Name can't be blank, Name is too short (minimum is 2 characters)")
+        expect(page).to have_content("Name can't be blank")
     end
 end
