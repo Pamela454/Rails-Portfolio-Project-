@@ -28,19 +28,25 @@ class UsersController < ApplicationController
 
   def update  #edit user info
     @user = User.find(session[:user_id])
-    if user_type == "Patient"
-     @user.update!(patient_params)
-     flash[:notice] = "Profile successfully edited"
-     redirect_to user_path(@user)
-    else
-     if @user.update(user_params)
-     flash[:notice] = "Profile successfully edited"
-     redirect_to user_path(@user)
+    if @user.type == "Patient"
+      params[:patient] = params[:user]
+     if @user.update(patient_params)
+      flash[:notice] = "Profile successfully edited"
+      redirect_to user_path(@user)
      else
       flash[:error] 
       render 'physicians/edit'
      end
-   end
+    elsif @user.type == "Physician"
+      params[:physician] = params[:user]
+      if @user.update(physician_params)
+        flash[:notice] = "Profile successfully edited"
+        redirect_to user_path(@user)
+       else
+        flash[:error] 
+        render 'physicians/edit'
+       end
+    end
   end
 
   private

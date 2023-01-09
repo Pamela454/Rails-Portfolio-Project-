@@ -29,6 +29,20 @@
 
 </style>
 
+<div class="container">
+  <div class="page-header">
+    <% if @user.errors.any? %>
+    <div id="error_explanation">
+     <h2>There were some errors:</h2>
+     <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+     </ul>
+    </div>
+    <% end %>
+   </div>
+
 <div class="text-center center font-weight-bold">
 <nav class="navbar navbar-custom sticky-top center font-weight-bold">
   <div class="page-header">
