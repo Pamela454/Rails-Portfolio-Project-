@@ -30,7 +30,8 @@ RSpec.describe 'Edit patient user', type: :feature do
         fill_in 'Name', with: ''
         fill_in 'Email', with: 'dsmith@gmail.com'
         fill_in 'Password', with: 'HotSummer'
-        click_on 'Update User' #need to add restriction to prevent null data
+        click_on 'Update User' 
+        binding.pry
         expect(page).to have_content("Name can't be blank")
     end
 end

@@ -53,9 +53,13 @@ class MessagesController < ApplicationController
   def update
     if user_type == "Patient"
       @message = Message.find(params[:id])
-      @message.update(message_params)
-      flash[:notice] = "Message successfully updated"
-      render :show
+      if @message.update(message_params)
+        flash[:notice] = "Message successfully updated"
+        render :show
+      else
+        flash[:error]
+        render 'messages/edit'
+      end
     else
       redirect_to :controller => 'users', :action => 'show', :id => current_user.id
     end

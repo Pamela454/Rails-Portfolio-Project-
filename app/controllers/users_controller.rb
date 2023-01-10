@@ -40,7 +40,7 @@ class UsersController < ApplicationController
       redirect_to user_path(@user)
      else
       flash[:error] 
-      render 'physicians/edit'
+      render 'patients/edit'
      end
     elsif @user.type == "Physician"
       params[:physician] = params[:user]

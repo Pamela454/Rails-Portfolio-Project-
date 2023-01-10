@@ -29,14 +29,27 @@
 
 </style>
 <div class="container">
- <% if flash[:notice] %>
- <div class="notice"><h2><%= flash[:notice] %></h2>
- </div>
-  <% end %>
-
-<div class="container">
  <div class="container-fluid mx-auto text-nowrap text-dark" style="width: 500px;">
   <div class="col sign-in card-title card-body">
+
+ <% if flash[:notice]%>
+ <div class="notice"><h2><%= flash[:notice] %></h2>
+ </div>
+
+ <div class="page-header">
+    <% if @message.errors.any? %>
+    <div id="error_explanation">
+     <h2>There were some errors:</h2>
+     <ul>
+      <% @message.errors.full_messages.each do |m| %>
+        <li><%= m %></li>
+      <% end %>
+     </ul>
+    </div>
+    <% end %>
+   </div>
+  <% end %>
+
 
 
   <h3>Title: <%= @message.title %></h3>

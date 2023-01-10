@@ -35,6 +35,7 @@
     <thead>
       <tr>
 <%= form_for @user, :url => url_for(:controller => 'sessions', :action => 'create') do |f| %>  <!--form for authorization -->
+
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2>There were some errors:</h2>
