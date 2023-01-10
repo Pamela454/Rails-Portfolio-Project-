@@ -22,10 +22,11 @@
   <% if @user.type == "Physician" %>
     <h2>Specialty: <%= @user.specialty %></h2>
     <h2>NPI: <%= @user.npi %></h2><br><br>
+    <br>
     <h2>Your Responses: <% @responses.each do |r| unless @responses.nil? %></h2>
       <h3>Response ID: <%= r.id %></h3>
       <h3>Response: <%= r.response %></h3>
-      <%= link_to "Edit Response", edit_user_response_path(current_user, r.id) %><br><br>
+      <h4><%= link_to "Edit Response", edit_user_response_path(current_user, r.id) %></h4>
       <%= form_with url: user_response_path(current_user, r.id), method: :delete do |f| %>
        <%= f.submit "Delete Response" %><br>
        <% end %>

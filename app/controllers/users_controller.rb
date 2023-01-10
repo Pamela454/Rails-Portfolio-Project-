@@ -6,9 +6,14 @@ class UsersController < ApplicationController
 
   def show  #directs to users show page. Can view messages sent and respond
     @user = User.find(session[:user_id])
-    @messages = Message.where(patient_id: session[:user_id]) || "None"
-    @responses = Response.where(physician_id: session[:user_id]) || "None"
-    render :layout => false
+    if @user.type == "Patient"
+      @messages = Message.where(patient_id: session[:user_id]) || "None"
+      render :layout => false
+    elsif @user.type = "Physician"
+      @responses = Response.where(physician_id: session[:user_id]) || "None"
+      @messages = Message.all
+      render :layout => false
+    end
   end
 
   def create  #creates a new user
@@ -54,15 +59,6 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:user_id])
   end
-
-  #def user_type switch statement
-  #  case params[:type]
-  #  when 'Physician'
-  #    'physician'
-  #  when 'Patient'
-  #    'patient'
-  #  end
-  #end
 
   def user_params
     params.require(:user).permit(:email, :npi, :specialty, :type, :name, :uid, :password)
