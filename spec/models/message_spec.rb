@@ -17,7 +17,6 @@ RSpec.describe Message, type: :model do
         let!(:message3) { create(:message, patient_id: patient1.id, title: "cough", question: "I have a new cough.", category_ids: category1.id)}
 
         it 'new_condition scope returns messages with new_condition category' do
-            binding.pry 
             expect(Message.new_condition).to include(message1, message3)
         end
 
