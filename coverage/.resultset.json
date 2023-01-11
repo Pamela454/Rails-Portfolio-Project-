@@ -358,6 +358,7 @@
           1,
           1,
           1,
+          1,
           null,
           null
         ]
@@ -376,9 +377,9 @@
         "lines": [
           1,
           1,
-          1,
-          1,
-          1,
+          6,
+          6,
+          6,
           null,
           null
         ]
@@ -506,8 +507,8 @@
           1,
           1,
           1,
-          1,
-          1,
+          4,
+          3,
           1,
           null,
           1,
@@ -525,8 +526,61 @@
           1,
           null
         ]
+      },
+      "/Users/pamela/Rails-Portfolio-Project-/app/models/patient.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/pamela/Rails-Portfolio-Project-/app/models/user.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/pamela/Rails-Portfolio-Project-/app/models/category.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          4,
+          3,
+          null,
+          null
+        ]
+      },
+      "/Users/pamela/Rails-Portfolio-Project-/app/models/message_category.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
       }
     },
-    "timestamp": 1673451977
+    "timestamp": 1673462086
   }
 }

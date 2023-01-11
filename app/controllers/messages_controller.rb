@@ -25,6 +25,7 @@ class MessagesController < ApplicationController
   end
 
   def create
+    binding.pry 
     @message = Message.new(message_params)
     if @message.save
       flash[:notice] = "Message successfully created"
