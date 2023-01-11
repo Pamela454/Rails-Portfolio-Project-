@@ -31,6 +31,10 @@ RSpec.describe Message, type: :model do
         it 'existing_condition returns messages with an existing_condition category' do
            expect(Message.existing_condition).to include(message2)
         end
+
+        it 'allows patient to send multiple messages' do
+          expect(patient1.messages.count).to be > 0
+        end
     end
 
   end
