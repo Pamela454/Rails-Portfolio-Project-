@@ -4,8 +4,6 @@ class User < ApplicationRecord
   scope :physicians, -> { where(type: 'Physician') }
   has_many :physicians
   has_many :patients
-
-
 end
 
   #written as a class method
