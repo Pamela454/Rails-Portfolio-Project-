@@ -14,7 +14,7 @@ RSpec.describe 'Edit a Response', type: :feature do
     @response = create(:response, message_id: 1, physician_id: 1)
     login_as(@physician)
     page.set_rack_session(:user_id => @physician.id)
-    page.set_rack_session(:patient_id => @physician.id)
+    page.set_rack_session(:physician_id => @physician.id)
     visit user_path(id: @physician.id)
     click_on 'Edit Response'
     fill_in 'Response', with: 'Looks like a large rash'
@@ -29,7 +29,7 @@ RSpec.describe 'Edit a Response', type: :feature do
     @response = create(:response, message_id: 1, physician_id: 1)
     login_as(@physician)
     page.set_rack_session(:user_id => @physician.id)
-    page.set_rack_session(:patient_id => @physician.id)
+    page.set_rack_session(:physician_id => @physician.id)
     visit user_path(id: @physician.id)
     click_on 'Edit Response'
     fill_in 'Response', with: ''

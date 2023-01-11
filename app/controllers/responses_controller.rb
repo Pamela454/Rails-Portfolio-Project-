@@ -42,7 +42,6 @@ class ResponsesController < ApplicationController
   def update  #edit user info
     if user_type == "Physician"
      @response = Response.find(params[:id])
-     binding.pry 
      if @response.update(response_params)
       flash[:notice] = "Response successfully edited"
       redirect_to :controller => 'users', :action => 'show', :id => current_user.id

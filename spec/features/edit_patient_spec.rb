@@ -31,7 +31,6 @@ RSpec.describe 'Edit patient user', type: :feature do
         fill_in 'Email', with: 'dsmith@gmail.com'
         fill_in 'Password', with: 'HotSummer'
         click_on 'Update User' 
-        binding.pry
         expect(page).to have_content("Name can't be blank")
     end
 end
