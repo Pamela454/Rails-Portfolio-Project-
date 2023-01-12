@@ -33,7 +33,7 @@ RSpec.describe Message, type: :model do
         end
 
         it 'allows patient to send multiple messages' do
-          expect(patient1.messages.count).to be > 0
+          expect(Message.where(patient_id: patient1.id).count()).to be == 3
         end
     end
 
