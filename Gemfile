@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.1'
 
-gem 'bootstrap-sass'
+gem 'bootstrap', '~> 5.1', '>= 5.1.3'
 
 gem 'jquery-rails'
 
@@ -53,7 +53,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'popper_js', '~> 1.14.5'
+gem 'popper_js', '>= 2.9.3'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
@@ -90,3 +90,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem "cssbundling-rails", "~> 1.1"
+
+gem "jsbundling-rails", "~> 1.1"
