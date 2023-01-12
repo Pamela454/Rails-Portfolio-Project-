@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
   end
 
   def create #creates a new session, authenticates user
+    auth = request.env["omniauth.auth"]
     @auth = auth
     if @auth != nil #any edge cases created with two different user types?, will only be able to login through facebook
       @user = User.find_by(uid: auth['uid'])
@@ -45,5 +46,9 @@ class SessionsController < ApplicationController
 
   def auth
     request.env['omniauth.auth']
+  end
+
+  def user_params
+    params.require(:user).permit(:email, :npi, :specialty, :type, :name, :uid, :password)
   end
 end

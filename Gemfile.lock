@@ -202,6 +202,9 @@ GEM
     omniauth-oauth2 (1.8.0)
       oauth2 (>= 1.4, < 3)
       omniauth (~> 2.0)
+    omniauth-rails_csrf_protection (1.0.1)
+      actionpack (>= 4.2)
+      omniauth (~> 2.0)
     orm_adapter (0.5.0)
     popper_js (2.11.6)
     pry (0.14.2)
@@ -380,8 +383,8 @@ DEPENDENCIES
   jquery-rails
   jsbundling-rails (~> 1.1)
   listen (>= 3.0.5, < 3.2)
-  omniauth
   omniauth-facebook
+  omniauth-rails_csrf_protection (~> 1.0)
   popper_js (>= 2.9.3)
   pry
   pry-rails

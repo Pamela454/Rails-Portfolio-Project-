@@ -11,7 +11,7 @@ gem 'thin', '~> 1.8', '>= 1.8.1'
 
 gem 'dotenv-rails'
 
-gem 'omniauth'
+gem 'omniauth-rails_csrf_protection', '~> 1.0'
 
 gem 'omniauth-facebook' #provider allowed to authenticate user
 
