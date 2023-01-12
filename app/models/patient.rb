@@ -3,7 +3,7 @@ class Patient < User
   belongs_to :user, optional: true
   has_many :messages, dependent: :destroy
   validates :name, :email, :password_digest, presence: true
-  validates :email, uniqueness: true
+  validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create 
   validates :name, length: { minimum: 2 }
 
 #validations specific to this model

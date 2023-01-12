@@ -1,8 +1,10 @@
 class Physician < User
+  include ActiveModel::Validations
   has_secure_password
   belongs_to :user, optional: true   #association macro
   has_many :responses, dependent: :destroy
   has_many :messages, through: :responses
+  validates :email, format: {with: /@/}  
   validates :name, :email, :npi, :specialty, :password_digest, presence: true
   validates :email, uniqueness: true
   validates :name, length: { minimum: 2 }
