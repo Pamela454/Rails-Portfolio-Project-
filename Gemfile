@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.1'
+ruby '3.1.1'
 
 gem 'bootstrap-sass'
 
 gem 'jquery-rails'
 
-gem 'thin'
+gem 'thin', '~> 1.8', '>= 1.8.1'
 
 gem 'dotenv-rails'
 
@@ -75,7 +75,7 @@ group :development do
 end
 
 group :test do
-  gem 'simplecov', require: false, group: :test
+  gem 'simplecov'
   gem 'rack_session_access'
   gem 'devise'  
   gem 'rspec-rails'
