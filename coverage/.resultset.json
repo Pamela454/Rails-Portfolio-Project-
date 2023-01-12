@@ -377,9 +377,9 @@
         "lines": [
           1,
           1,
+          2,
           1,
-          1,
-          1,
+          2,
           null,
           null
         ]
@@ -388,11 +388,11 @@
         "lines": [
           1,
           1,
-          2,
           1,
-          2,
-          2,
-          2,
+          1,
+          1,
+          1,
+          1,
           null,
           null
         ]
@@ -496,12 +496,8 @@
           null
         ]
       },
-      "/Users/pamela/Rails-Portfolio-Project-/app/models/physician.rb": {
+      "/Users/pamela/Rails-Portfolio-Project-/app/models/patient.rb": {
         "lines": [
-          1,
-          1,
-          1,
-          1,
           1,
           1,
           1,
@@ -543,6 +539,6 @@
         ]
       }
     },
-    "timestamp": 1673491662
+    "timestamp": 1673491803
   }
 }
