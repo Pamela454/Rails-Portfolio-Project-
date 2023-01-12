@@ -24,7 +24,7 @@ RSpec.describe 'Deleting a Message', type: :feature do
     page.set_rack_session(:user_id => physician.id)
     page.set_rack_session(:patient_id => physician.id)
     visit user_path(id: physician.id)
-    expect(page).to have_no_content("Delete A Question")
+    expect(page).to have_no_content("Delete Question")
    end
 
   end

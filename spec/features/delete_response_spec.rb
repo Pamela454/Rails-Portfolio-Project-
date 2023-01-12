@@ -14,4 +14,16 @@ RSpec.describe 'Deleting a Response', type: :feature do
     expect(page).to have_content('Response successfully deleted')
     expect(page).to have_no_content("Response: #{@response.response}")
    end
+
+   scenario 'delete response as a patient' do
+    physician = create(:physician)
+    patient = create(:patient, id: 2)
+    messages = create_list(:message, 11, patient_id: 2)
+    response = create(:response, physician_id: physician.id, message_id: messages[0].id)
+    login_as(patient)
+    page.set_rack_session(:user_id => patient.id)
+    page.set_rack_session(:patient_id => patient.id)
+    visit user_path(id: patient.id)
+    expect(page).to have_no_content("Delete Response")
+   end
   end
