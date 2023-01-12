@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Creating a session', type: :feature do
+RSpec.describe 'Creating a Session', type: :feature do
     scenario 'using facebook logon' do
         visit root_path
         find_button("Login With Facebook").click

@@ -2,14 +2,6 @@ require 'rails_helper'
 
 RSpec.describe 'Creating a Message', type: :feature do
   scenario 'valid inputs' do
-    #create a patient
-    #visit patient show page
-    #click on ask a question
-    #fill in message data
-    #click create message
-    #visit patient show page
-    #expect page to have Message successfully created
-
     @patient = create(:patient)
     @categories = create_list(:category, 11)
     login_as(@patient)
@@ -52,5 +44,15 @@ RSpec.describe 'Creating a Message', type: :feature do
     fill_in 'message_question', with: ''
     click_on 'Create Message'
     expect(page).to have_content("Question can't be blank")
+  end
+
+  scenario 'create message as a physician' do
+    physician = create(:physician)
+    categories = create_list(:category, 11)
+    login_as(physician)
+    page.set_rack_session(:user_id => physician.id)
+    page.set_rack_session(:patient_id => physician.id)
+    visit user_path(id: physician.id)
+    expect(page).to have_no_content("Ask A Question")
   end
 end

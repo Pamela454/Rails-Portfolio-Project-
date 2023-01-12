@@ -3,7 +3,6 @@ class SessionsController < ApplicationController
 
   def new #creates a new session, login
     @user = User.new
-    #@users = User.all
   end
 
   def create #creates a new session, authenticates user
