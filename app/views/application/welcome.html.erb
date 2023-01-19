@@ -5,9 +5,9 @@
       body {
       background-image: url('<%= asset_path 'camilo-jimenez-vGu08RYjO-s-unsplash.jpg' %>');
       background-size: cover;
-      }
-      .center {
-        justify-content: center;
+      margin:0;
+      padding:0;
+      background-repeat: no-repeat;
       }
       .navbar-custom {
         background-color: #D8DEEE;
@@ -27,22 +27,23 @@
       .card-signin .card-body {
         padding: 2rem;
       }
+      .container-fluid {
+        padding: 0;
+      }
 
 </style>
 </head>
 <body>
-  <div class="text-center center font-weight-bold">
+<div class="container-fluid">
   <nav class="navbar navbar-custom bg-dark text-white sticky-top center">
-  <div class="col">
+  <div class="text-center center font-weight-bold">
   <h1>Welcome to Ask A Health Question</h1>
     <% if flash[:notice] %>
     <div class="notice"><h2><%= flash[:notice] %></h2></div>
     <% end %>
+  </div>
   </nav>
- </div>
-  </div>
-  </div>
-</div>
+
 
 <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -86,3 +87,4 @@
         </div>
       </div>
     </div>
+  </div>

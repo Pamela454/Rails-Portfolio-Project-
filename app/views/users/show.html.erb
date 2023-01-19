@@ -1,11 +1,14 @@
 <head>
  <style>
       body {
-      background-image: url('<%= asset_path 'blue-snow.png' %>');
+      background-color: #F0F8FF;
+      }
+      .page-header {
+        text-align: center;
       }
  </style>
 </head>
-<div class="container">
+<div class="container-fluid">
   <div class="page-header">
 
    <% if flash[:notice] %>
@@ -18,6 +21,11 @@
     <h2>ID: <%= @user.id %></h2>
     <h2>Type: <%= @user.type %></h2>
   <% end %>
+</div>
+
+<div class="container py-5 h-100">
+ <div class="row justify-content">
+  <div class="col-12 col-md-8 col-lg-6 col-xl-5">
 
   <% if @user.type == "Physician" %>
     <h2>Specialty: <%= @user.specialty %></h2>
@@ -36,10 +44,6 @@
     <br>
  </div>
 </div>
-<div class="container">
-  <table class="table table-striped">
-    <thead>
-      <tr>
       <br>
       <% if @user.type == "Patient" %>
         <h3>Questions Asked: <% @messages.each do |m| unless @messages.nil? %></h3>
@@ -127,6 +131,6 @@
   <% end %>
   <br>
   <%= link_to 'Log Out', '/logout', :method => :delete  %><br><br>
-
- </table>
+</div>
+</div>
 </div>
