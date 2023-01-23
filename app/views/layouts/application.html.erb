@@ -5,6 +5,9 @@
       body {
       background-image: url('<%= asset_path 'camilo-jimenez-vGu08RYjO-s-unsplash.jpg' %>');
       background-size: cover;
+      margin:0;
+      padding:0;
+      background-repeat: no-repeat;
       }
       .center {
         justify-content: center;
@@ -28,25 +31,24 @@
       }
 
   </style>
-    <title>Welcome to Ask Your Health Question</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">  
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>   </head>
-  <%= yield %>
-  <br>
-  <br>
- <div class="container-fluid mx-auto text-nowrap text-dark" style="width: 300px;">
-  <div class="col sign-in card-title card-body">
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>  
+  </head>
   <body>
+     <%= render "layouts/navbar" %>
+     <%= yield %>
       <% if current_user %>
-      <%= link_to "Go Back to User Show Page", user_path(current_user) %><br><br>
-      <%= link_to 'Log Out', '/logout', :method => :delete  %><br><br>
+      <div class="container-fluid mx-auto text-nowrap text-dark" style="width: 300px;">
+      <div class="col sign-in card-title card-body">
+      <%= link_to "Go Back to User Show Page", user_path(current_user) %><br>
+      <%= link_to 'Log Out', '/logout', :method => :delete  %>
+      </div>
+      </div>
       <% end %>
   </body>
-</div>
-</div>
 </html>
