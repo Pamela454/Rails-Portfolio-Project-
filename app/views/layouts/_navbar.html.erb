@@ -9,7 +9,30 @@
     <% if flash[:notice] %>
     <div class="notice"><h2><%= flash[:notice] %></h2></div>
     <% end %>
+    <% if current_user == "Physician" %>
+      <% if @response.errors.any? %>
+    <div id="error_explanation">
+      <h2>There were some errors:</h2>
+      <ul>
+        <% @response.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+   <% end %>
   </div>
-  </nav>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2>There were some errors:</h2>
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
+   <% end %>
+
+</nav>
 </div>
 </header>

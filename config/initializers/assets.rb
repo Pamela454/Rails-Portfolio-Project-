@@ -13,3 +13,5 @@ Rails.application.config.assets.paths << Rails.root.join("node_modules/bootstrap
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 Rails.application.config.assets.precompile += %w( _navbar.sass.scss )
 Rails.application.config.assets.precompile += %w( application.sass.scss )
+Rails.application.config.assets.precompile += %w( users.sass.scss )
+Rails.application.config.assets.precompile += %w( responses.sass.scss )

@@ -2,4 +2,4 @@
 import "@hotwired/stimulus";
 //import "./controllers"
 //import { application } from "./application";
-import * as bootstrap from "bootstrap"
+import * as bootstrap from "bootstrap";

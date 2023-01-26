@@ -16,9 +16,18 @@ $background-color_1: rgba(255, 204, 153, 0.5);
 
 //@import "bootstrap";
 
+html, body {
+	margin:0;
+	height:100%;
+	overflow:hidden;
+	flex-grow: 1;
+  }
 .bg-container {
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: 100% 100%;
+	background-position:center center;
+	height:100%;
+	width:100%;
 }
 .center {
 	justify-content: center;
@@ -33,4 +42,6 @@ $background-color_1: rgba(255, 204, 153, 0.5);
 .card-title {
 	font-weight: 300;
 	font-size: 1.5rem;
+	margin-bottom: 2rem;
+	padding: 2rem;
 }
