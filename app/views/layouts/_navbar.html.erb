@@ -1,25 +1,7 @@
-<style>
-      .navbar-custom {
-        background-color: #D8DEEE;
-        justify-content: center;
-      }
-      .card-signin .card-title {
-        margin-bottom: 2rem;
-        font-weight: 300;
-        font-size: 1.5rem;
-      }
-      .card-signin .card-body {
-        padding: 2rem;
-      }
-      .container-fluid {
-        padding: 0;
-      }
-
-</style>
-
+<%= stylesheet_link_tag "_navbar", "data-turbo-track": "reload" %>
 <header>
-<div class="container-fluid">
-  <nav class="navbar navbar-custom bg-dark text-white sticky-top center">
+<div class="container-fluid nav">
+  <nav class="navbar navbar-custom bg-dark text-white fixed-top center">
   <div class="text-center center font-weight-bold">
   <% if !current_user %>
   <h1>Welcome to Ask A Health Question</h1>

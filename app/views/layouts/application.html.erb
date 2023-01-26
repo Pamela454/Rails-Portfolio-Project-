@@ -1,45 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-   <style>
-      body {
-      background-image: url('<%= asset_path 'camilo-jimenez-vGu08RYjO-s-unsplash.jpg' %>');
-      background-size: cover;
-      margin:0;
-      padding:0;
-      background-repeat: no-repeat;
-      }
-      .center {
-        justify-content: center;
-      }
-      .navbar-custom {
-        background-color: #D8DEEE;
-      }
-      .sign-in {
-        border: 0;
-        border-radius: 1rem;
-        box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
-        background-color: #D8DEEE;
-      }
-      .card-signin .card-title {
-        margin-bottom: 2rem;
-        font-weight: 300;
-        font-size: 1.5rem;
-      }
-      .card-signin .card-body {
-        padding: 2rem;
-      }
-
+  <style>
   </style>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">  
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>  
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= stylesheet_link_tag "application" %>
   </head>
   <body>
+    <div class="bg-container" style="background-image: url('<%= asset_path 'camilo-jimenez-vGu08RYjO-s-unsplash.jpg' %>')">
      <%= render "layouts/navbar" %>
      <%= yield %>
       <% if current_user %>
@@ -50,5 +23,6 @@
       </div>
       </div>
       <% end %>
+      </div>
   </body>
 </html>

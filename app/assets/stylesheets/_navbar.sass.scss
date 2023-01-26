@@ -1,0 +1,16 @@
+$background-color_1: rgba(255, 204, 153, 0.5);
+
+.navbar-custom {
+    background-color: grey;
+	background-color: $background-color_1;
+	justify-content: center;
+}
+.card-signin {
+	.card-title {
+		font-weight: 300;
+		font-size: 1.5rem;
+	}
+}
+.nav {
+	padding-bottom: 10%;
+}
