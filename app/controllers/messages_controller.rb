@@ -56,7 +56,7 @@ class MessagesController < ApplicationController
       @message = Message.find(params[:id])
       if @message.update(message_params)
         flash[:notice] = "Message successfully updated"
-        render :show
+        redirect_to :controller => 'users', :action => 'show', :id => current_user.id
       else
         flash[:error]
         render 'messages/edit'

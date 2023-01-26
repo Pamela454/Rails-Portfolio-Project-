@@ -77,6 +77,7 @@ end
 
 group :test do
   gem 'simplecov'
+  gem 'rexml', '~> 3.2', '>= 3.2.4'
   gem 'rack_session_access'
   gem 'devise'  
   gem 'rspec-rails'
