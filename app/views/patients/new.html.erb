@@ -1,47 +1,50 @@
-
-  <nav class="navbar center font-weight-bold">
-    <h2>Please Enter the  Following Info to Create a New Patient Account
-    </h2>
-  </nav>
-
-  <div class="container-fluid">
+ <style>
+  body {
+	    background-image: url(<%=asset_path('camilo-jimenez-vGu08RYjO-s-unsplash.jpg')%>)!important;
+      background-repeat: no-repeat;
+  } 
+</style>
+  <div class="container-fluid welcome">
     <div class="row d-flex justify-content-center align-items-center">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
         <div class="card bg-dark text-white" style="border-radius: 1rem;">
           <div class="card-body p-5 text-center">
 
             <div class="mb-md-5 mt-md-4 pb-5">
+
         <%= form_for @user, :url => {:controller => 'users', :action => 'create'} do |f| %> 
+        <h4 class="fw-bold mb-2 text">Please Enter the Following Info to Create a New Patient Account</h4>
+
           <div class="card bg-dark text-white" style="border-radius: 1rem;">
               <div class="field<%= ' field_with_errors' if @user.errors[:email].any? %>">
                 <%= f.label :email %>
                 <br>
-                <%= f.text_field :email, value: @user.email, :class => "span5" %>
+                <%= f.text_field :email, value: @user.email, :class => "form-control form-control-lg" %>
               </div>
               <br>
 
               <div class="field<%= ' field_with_errors' if @user.errors[:password].any? %>">
                 <%= f.label :password %>
                 <br>
-                <%= f.password_field :password, value: @user.password_digest, :class => "span5" %>
+                <%= f.password_field :password, value: @user.password_digest, :class => "form-control form-control-lg" %>
               </div>
                 <br>
 
               <div class="field<%= ' field_with_errors' if @user.errors[:name].any? %>">
                 <%= f.label :name %>
                 <br>
-                <%= f.text_field :name, value: @user.name, :class => "span5" %>
+                <%= f.text_field :name, value: @user.name, :class => "form-control form-control-lg" %>
               </div>
               <br>
 
               <div class="form-group">
               <br>
-                <%= f.hidden_field :type, value: "Patient", class: "form-control" %>
+                <%= f.hidden_field :type, value: "Patient", class: "form-control form-control-lg" %>
               </div>
               <br>
 
               <div class="actions"> 
-                <%= f.submit class: "btn btn-primary" %>
+                <%= f.submit class: "btn btn-outline-light btn-lg px-5" %>
               </div>
               <br>
             </div>

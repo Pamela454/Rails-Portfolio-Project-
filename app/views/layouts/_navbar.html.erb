@@ -1,6 +1,5 @@
-<%= stylesheet_link_tag "_navbar", "data-turbo-track": "reload" %>
 <header>
-<div class="container-fluid nav">
+<div class="container nav">
   <nav class="navbar navbar-custom bg-dark text-white fixed-top center">
   <div class="text-center center font-weight-bold">
   <% if !current_user %>
@@ -31,9 +30,23 @@
         </ul>
       </div>
       <% end %>
-
-   <% end %>
-
+    <% end %>
+    <% if current_user %>
+      <% if current_user.type == "Physician" %>
+          <h1>Name: <%= current_user.name %></h1>
+          <h2>Email: <%= current_user.email %></h2>
+          <h2>ID: <%= current_user.id %></h2>
+          <h2>Type: <%= current_user.type %></h2>
+          <h2>Specialty: <%= current_user.specialty %></h2>
+          <h2>NPI: <%= current_user.npi %></h2>
+       <% end %>
+       <% if current_user.type == "Patient" %>
+          <h1>Name: <%= current_user.name %></h1>
+          <h2>Email: <%= current_user.email %></h2>
+          <h2>ID: <%= current_user.id %></h2>
+          <h2>Type: <%= current_user.type %></h2>
+       <% end %>
+      <% end %>
 </nav>
 </div>
 </header>

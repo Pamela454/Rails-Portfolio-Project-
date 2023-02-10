@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-</head>
+<style>
+  body {
+	    background-image: url(<%=asset_path('camilo-jimenez-vGu08RYjO-s-unsplash.jpg')%>)!important;
+      background-repeat: no-repeat;
+  } 
+</style>
 <body>
-<div class="container-fluid">
+<div class="container-fluid welcome">
     <div class="row d-flex justify-content-center align-items-center">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
         <div class="card bg-dark text-white" style="border-radius: 1rem;">
@@ -11,7 +15,7 @@
 
             <div class="mb-md-5 mt-md-4 pb-5">
             <%= form_for(:session, url: "users/signin", html: { autocomplete: "new-password" })   do |f| %>
-              <h2 class="fw-bold mb-2 text-uppercase">Sign in if you are a Member</h2>
+              <h2 class="fw-bold mb-2 text">Sign in if You Are a Member</h2>
 
               <div class="form-outline form-white mb-4">
                 <div class="form-label"><%= label :email, "Enter your email"%>

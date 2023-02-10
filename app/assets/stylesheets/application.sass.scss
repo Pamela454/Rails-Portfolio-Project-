@@ -11,23 +11,14 @@
  * It is generally better to create a new file per style scope.
  *
 */
-
-$background-color_1: rgba(255, 204, 153, 0.5);
+$background-color_3: rgba(0, 0, 0, 0.1);
+$background-color_4: rgb(151, 149, 149);
 
 //@import "bootstrap";
 
 html, body {
-	margin:0;
-	height:100%;
-	overflow:hidden;
-	flex-grow: 1;
-  }
-.bg-container {
 	background-repeat: no-repeat;
-	background-size: 100% 100%;
-	background-position:center center;
-	height:100%;
-	width:100%;
+	background-size: cover;
 }
 .center {
 	justify-content: center;
@@ -35,13 +26,16 @@ html, body {
 .sign-in {
 	border: 0;
 	border-radius: 1rem;
-	box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
-    background-color: grey;
-	background-color: $background-color_1;
+	box-shadow: 0 0.5rem 1rem 0 $background-color_3;
+    background-color: $background-color_4;
 }
-.card-title {
-	font-weight: 300;
-	font-size: 1.5rem;
+.card {
 	margin-bottom: 2rem;
-	padding: 2rem;
+}
+.card-body {
+	font-weight: 200;
+	font-size: 1.0rem;
+	margin-bottom: 2rem;
+	padding-bottom: 2rem;
+	margin-top: 2rem;
 }

@@ -9,11 +9,9 @@ class UsersController < ApplicationController
     @user = User.find(session[:user_id])
     if @user.type == "Patient"
       @messages = Message.where(patient_id: session[:user_id]) || "None"
-      render :layout => false
     elsif @user.type = "Physician"
       @responses = Response.where(physician_id: session[:user_id]) || "None"
       @messages = Message.all
-      render :layout => false
     end
   end
 
