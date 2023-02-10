@@ -15,7 +15,9 @@ $background-color_3: rgba(0, 0, 0, 0.1);
 $background-color_4: rgb(151, 149, 149);
 
 //@import "bootstrap";
-
+body {
+	padding-top: 150px;
+}
 html, body {
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -33,9 +35,9 @@ html, body {
 	margin-bottom: 2rem;
 }
 .card-body {
-	font-weight: 200;
+	font-weight: 400;
 	font-size: 1.0rem;
-	margin-bottom: 2rem;
 	padding-bottom: 2rem;
+	padding-left: 2rem;
 	margin-top: 2rem;
 }

@@ -1,53 +1,37 @@
-<div class="text-center center font-weight-bold">
-<nav class="navbar center font-weight-bold">
-  <div class="page-header">
-    <% if @message.errors.any? %>
-    <div id="error_explanation">
-     <h2>There were some errors:</h2>
-     <ul>
-      <% @message.errors.full_messages.each do |m| %>
-        <li><%= m %></li>
-      <% end %>
-     </ul>
-    </div>
-    <% end %>
-   </div>
+<style>
+body {
+	    background-color: rgb(204, 229, 255) !important;
+      background-repeat: no-repeat;
+  } 
+</style>
 
-<%= form_for @message, :url => {:controller => 'messages', :action => 'update'} do |f| %>
-<h2>Edit Question</h2>
- </div>
-</nav>
-</div>
-<br>
-<br>
+<div class="container-fluid welcome">
+  <div class="card-body p-5 text-center" style="border-radius: 1rem;">
+  <%= form_for @message, :url => {:controller => 'messages', :action => 'update'} do |f| %>
 
- <div class="container-fluid mx-auto text-nowrap text-dark" style="width: 500px;">
+<div class="container-fluid mx-auto text-nowrap text-dark" style="width: 500px;">
 <div class="container">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-<div class="col sign-in card-title card-body">
+<div class="col sign-in card-title card-body text-alignment">
+  <h2 class="fw-bold mb-2 text">Edit Question</h2>
+
 <div class="form-group">
    <%= f.label :title %><br>
-   <%= f.text_field :title, :class => "span5" %></div>
-   <br>
-   <br>
+   <%= f.text_field :title, :class => "form-control form-control-lg"  %></div>
 
 <div class="form-group">
    <%= f.label :question %><br>
-   <%= f.text_field :question, :class => "span5" %></div>
-   <br>
-   <br>
+   <%= f.text_field :question, :class => "form-control form-control-lg"  %></div>
 
 <div class="actions">
-   <%= f.submit class: "btn btn-primary" %>
+   <%= f.submit class: "btn btn-outline-light btn-lg px-5" %>
  </div>
-  <br>
-  <br>
 
 <% end %>
 </div>
 
- </table>
 </div>
 </div>
+
+</div>
+</div>
+

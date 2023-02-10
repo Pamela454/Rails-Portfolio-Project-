@@ -1,26 +1,31 @@
-<div class="text-center center font-weight-bold">
-<nav class="navbar center font-weight-bold">
-  <h2>Questions Asked</h2>
- </div>
-</nav>
-</div>
-  <br>
-  <br>
-<div class="container">
- <div class="container-fluid mx-auto text-nowrap text-dark" style="width: 500px;">
-  <div class="col sign-in card-title card-body">
+<style>
+body {
+	    background-color: rgb(204, 229, 255) !important;
+      background-repeat: no-repeat;
+  } 
+</style>
+
+
+<div class="container-fluid welcome">
+    <div class="row d-flex justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+<div class="col sign-in card-title card-body text-center">
+  <h2 class="fw-bold mb-2 text">Questions Asked</h2>
+
    <% @messages.each do |m| %>
+   <div class="row mt-3 justify-content-center">
     <h3>Title: <%= m.title %></h3>
     <h3>Body: <%= m.question %></h3>
-    <h3>Categories: <% m.categories.each do |c| %></h3>
+
+    <h3>Categories: <% m.categories.each do |c| %>
    <%= c.category %>
-    <br>
     <% end %>
-    <br>
-    <br>
+    </div>
+    </h3>
+
    <%end%>
- </div>
 </div>
-<br>
-<br>
+
+</div>
+</div>
 </div>

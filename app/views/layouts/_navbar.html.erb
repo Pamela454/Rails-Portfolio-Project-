@@ -1,7 +1,7 @@
 <header>
 <div class="container nav">
   <nav class="navbar navbar-custom bg-dark text-white fixed-top center">
-  <div class="text-center center font-weight-bold">
+  <div class="text-center font-weight-bold">
   <% if !current_user %>
   <h1>Welcome to Ask A Health Question</h1>
   <%end%>
@@ -31,20 +31,33 @@
       </div>
       <% end %>
     <% end %>
+    <% if current_user == "Patient" %>
+     <% if @message.errors.any? %>
+     <div id="error_explanation">
+      <h2>There were some errors:</h2>
+      <ul>
+      <% @message.errors.full_messages.each do |m| %>
+        <li><%= m %></li>
+      <% end %>
+      </ul>
+     </div>
+     <% end %>
+    <% end %>
+    
     <% if current_user %>
       <% if current_user.type == "Physician" %>
-          <h1>Name: <%= current_user.name %></h1>
-          <h2>Email: <%= current_user.email %></h2>
-          <h2>ID: <%= current_user.id %></h2>
-          <h2>Type: <%= current_user.type %></h2>
-          <h2>Specialty: <%= current_user.specialty %></h2>
-          <h2>NPI: <%= current_user.npi %></h2>
+          <h3>Name: <%= current_user.name %></h3>
+          <h4>Email: <%= current_user.email %></h4>
+          <h4>ID: <%= current_user.id %></h4>
+          <h4>Type: <%= current_user.type %></h4>
+          <h4>Specialty: <%= current_user.specialty %></h4>
+          <h4>NPI: <%= current_user.npi %></h4>
        <% end %>
        <% if current_user.type == "Patient" %>
-          <h1>Name: <%= current_user.name %></h1>
-          <h2>Email: <%= current_user.email %></h2>
-          <h2>ID: <%= current_user.id %></h2>
-          <h2>Type: <%= current_user.type %></h2>
+          <h3>Name: <%= current_user.name %></h3>
+          <h4>Email: <%= current_user.email %></h4>
+          <h4>ID: <%= current_user.id %></h4>
+          <h4>Type: <%= current_user.type %></h4>
        <% end %>
       <% end %>
 </nav>
