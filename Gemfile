@@ -90,6 +90,7 @@ group :test do
 end
 
 group :production do 
+  gem 'better_errors'
   gem 'pg'
 end
 
