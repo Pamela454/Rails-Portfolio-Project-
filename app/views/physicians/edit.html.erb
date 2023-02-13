@@ -1,77 +1,57 @@
+<style>
+body {
+	    background-color: rgb(204, 229, 255) !important;
+      background-repeat: no-repeat;
+  } 
+</style>
 
 <div class="container-fluid">
-  <div class="page-header">
-    <% if @user.errors.any? %>
-    <div id="error_explanation">
-     <h2>There were some errors:</h2>
-     <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-     </ul>
-    </div>
-    <% end %>
-   </div>
+<div class="card-body p-5 text-center" style="border-radius: 1rem;">
+<%= form_for @user, :url => {:controller => 'users', :action => 'update'} do |f| %>  
 
-<div class="text-center center font-weight-bold">
-<nav class="navbar center font-weight-bold">
-  <div class="page-header">
-<%= form_for @user, :url => {:controller => 'users', :action => 'update'} do |f| %>  <!--form for authorization -->
-<h2>Edit Your Profile</h2>
- </div>
-</nav>
-</div>
-<br>
-<br>
+<div class="container-fluid mx-auto text-nowrap text-dark" style="width: 500px;">
+<div class="col sign-in card-title card-body text-alignment">
 
- <div class="container-fluid mx-auto text-nowrap text-dark" style="width: 500px;">
-<div class="container">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-<div class="col sign-in card-title card-body">
+<h4 class="fw-bold mb-2 text">Edit Your Profile</h4>
+
 <div class="form-group">
   <%= f.label :email %>
   <br>
-  <%= f.text_field :email, value: @user.email, :class => "span5" %>
-</div><br>
+  <%= f.text_field :email, value: @user.email, :class => "form-control form-control-lg" %>
+</div>
+
 <div class="form-group">
   <%= f.label :password %>
-  <br>
-  <%= f.password_field :password, value: @user.password_digest, :class => "span5" %>
-</div><br>
+  <%= f.password_field :password, value: @user.password_digest, :class => "form-control form-control-lg" %>
+</div>
+
 <div class="form-group">
   <%= f.label :name %>
-  <br>
-  <%= f.text_field :name, value: @user.name, :class => "span5" %>
-</div><br>
+  <%= f.text_field :name, value: @user.name, :class => "form-control form-control-lg" %>
+</div>
 
 <div class="form-group">
   <%= f.label :npi %>
-  <br>
-  <%= f.number_field :npi, :class => "span5" %>
-</div><br>
+  <%= f.number_field :npi, :class => "form-control form-control-lg" %>
+</div>
 
 <div class="form-group">
   <%= f.label :specialty %>
-  <br>
-  <%= f.text_field :specialty, :class => "span5" %>
-</div><br>
+  <%= f.text_field :specialty, :class => "form-control form-control-lg" %>
+</div>
 
 <div class="form-group">
-  <br>
-  <%= f.hidden_field :user_type, value: "Physician", class: "form-control" %>
-</div><br>
+  <%= f.hidden_field :user_type, value: "Physician", :class => "form-control form-control-lg" %>
+</div>
 
-<div class="actions"> <!-- uses update post -->
-  <%= f.submit class: "btn btn-primary" %><br><br>
-</div><br>
+<div class="actions"> 
+  <%= f.submit class: "btn btn-outline-light btn-lg px-5" %>
+</div>
 
+</div>
+</div>
 
 <% end %>
 
- </table>
- </div>
-</div>
 </div>
 </div>

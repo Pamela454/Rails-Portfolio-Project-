@@ -1,58 +1,41 @@
 <style>
-      body {
-      background-image: url('<%= asset_path 'camilo-jimenez-vGu08RYjO-s-unsplash.jpg' %>');
-      background-size: cover;
-      }
-      .center {
-        justify-content: center;
-      }
-      .navbar-custom {
-        background-color: #D8DEEE;
-        border: 0;
-        padding: 0;
-        margin: 0;
-      }
-      .sign-in {
-        border: 0;
-        border-radius: 1rem;
-        box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
-        background-color: #D8DEEE;
-      }
-      .card-signin .card-title {
-        margin-bottom: 2rem;
-        font-weight: 300;
-        font-size: 1.5rem;
-      }
-      .card-signin .card-body {
-        padding: 2rem;
-      }
-
+body {
+	    background-color: rgb(204, 229, 255) !important;
+      background-repeat: no-repeat;
+  } 
 </style>
 
-<div class="text-center center font-weight-bold">
-<nav class="navbar navbar-custom sticky-top center font-weight-bold">
-<% if flash[:notice] %>
-<div class="notice"><h2><%= flash[:notice] %></h2></div>
-  <% end %>
-  <h2>Categories</h2>
-</nav>
-</div>
-<br>
-<br>
 
- <div class="container-fluid mx-auto text-nowrap text-dark" style="width: 500px;">
-  <div class="col sign-in card-title card-body">
+<div class="container-fluid welcome">
+<div class="row d-flex justify-content-center">
+<div class="col-12 col-md-8 col-lg-6 col-xl-5">
+<div class="col sign-in card-title card-body text-center">
+  <h2 class="fw-bold mb-2 text">Category Questions</h2>
+
 <h3><%=@category.category %></h3>
 <% @category.messages.each do |m| %>
-<div>
-<%= m.id %><br>
-<%= m.title %>
-<%= m.question %></div>
+<div class="row">
+<h3>Id: <%= m.id %></h3>
+</div>
+<div class="row">
+<h3>Title: <%= m.title %></h3>
+</div>
+<div class="row">
+<h3>Question: <%= m.question %> </h3>
+</div>
+<div class="row mt-2">
+  <%= link_to "Respond to Question", new_user_response_path(current_user, :message => m.id) %>
+</div>
+<div class="row">
 <% m.responses.each do |r| %>
-  <%= r.response %>
+  <h3>Response: <%= r.response %> </h3>
   <% end %>
+  </div>
 <% end %>
+
 </div>
 </div>
-<br>
-<br>
+</div>
+</div>
+
+
