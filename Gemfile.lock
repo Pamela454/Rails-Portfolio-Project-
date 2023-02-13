@@ -212,6 +212,7 @@ GEM
       actionpack (>= 4.2)
       omniauth (~> 2.0)
     orm_adapter (0.5.0)
+    pg (1.4.5)
     popper_js (2.11.6)
     prettier_print (1.2.0)
     pry (0.14.2)
@@ -395,6 +396,7 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   omniauth-facebook
   omniauth-rails_csrf_protection (~> 1.0)
+  pg
   popper_js (>= 2.9.3)
   pry
   pry-rails
