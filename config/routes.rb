@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root "application#welcome" 
 
-  get '/auth/facebook/callback' => 'sessions#create'
+  get 'auth/facebook/callback' => 'sessions#create'
 
-  get 'login', to: 'sessions#new'
-  post 'login', to: 'sessions#create', as: 'log_in'
+  get 'users/signin', to: 'sessions#new'
+  post 'users/signin', to: 'sessions#create'
 
   get 'users/new_patient' => 'patients#new'
   post 'users/new_patient' => 'users#create'
@@ -32,5 +31,5 @@ Rails.application.routes.draw do
   resources :categories do
     resources :message_categories
   end
-  
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

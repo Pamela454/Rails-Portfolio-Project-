@@ -2,17 +2,18 @@
 
 # class containing messages CRUD methods
 class MessagesController < ApplicationController
-  before_action :logged_in? 
-  before_action :patient_user, only: [:new, :edit, :update]
-
-  def new
-      if params[:user_id] && Patient.exists?(params[:user_id])
-      @message = Message.new(patient_id: params[:user_id])
-      @categories = Category.all 
-      else
-      flash[:notice] = 'You do not have access to this feature.'
-      redirect_to controller: 'users', action: 'show', id: current_user.id
-      end
+  before_action :login_required
+  
+#before action to restric access?? would apply to other controllers
+  def new  #creates a new message    @message = Message.new(patient_id: current_user.id)
+   if user_type == "Patient" #changed for nested route
+     if params[:user_id] && Patient.exists?(params[:user_id])
+     @message = Message.new(patient_id: params[:user_id])
+   else
+     flash[:notice] = "You do not have access to this feature."
+     redirect_to :controller => 'users', :action => 'show', :id => current_user.id
+    end
+   end
   end
 
   def show
@@ -55,9 +56,16 @@ class MessagesController < ApplicationController
   def update
     binding.pry 
       @message = Message.find(params[:id])
-      @message.update(message_params)
-      flash[:notice] = 'Message successfully updated'
-      render :show
+      if @message.update(message_params)
+        flash[:notice] = "Message successfully updated"
+        redirect_to :controller => 'users', :action => 'show', :id => current_user.id
+      else
+        flash[:error]
+        render 'messages/edit'
+      end
+    else
+      redirect_to :controller => 'users', :action => 'show', :id => current_user.id
+    end
   end
 
   def destroy

@@ -1,5 +1,9 @@
 current directory: /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/3.1.0/gems/ffi-1.15.5/ext/ffi_c
+<<<<<<< HEAD
 /Users/pamela/.rbenv/versions/3.1.1/bin/ruby -I /Users/pamela/.rbenv/versions/3.1.1/lib/ruby/3.1.0 -r ./siteconf20221220-44491-qu0i8o.rb extconf.rb
+=======
+/Users/pamela/.rbenv/versions/3.1.1/bin/ruby -I /Users/pamela/.rbenv/versions/3.1.1/lib/ruby/3.1.0 -r ./siteconf20230111-23244-d3eb1.rb extconf.rb
+>>>>>>> old-2020-project
 checking for ffi_prep_closure_loc() in -lffi... no
 checking for ffi_prep_closure_loc() in -llibffi... no
 checking for ffi_prep_closure_loc() in -llibffi-8... no
@@ -124,4 +128,8 @@ compiling Types.c
 compiling Variadic.c
 compiling ffi.c
 linking shared-object ffi_c.bundle
+<<<<<<< HEAD
 /usr/bin/install -c -m 0755 ffi_c.bundle ./.gem.20221220-44491-bg0ntu
+=======
+/usr/bin/install -c -m 0755 ffi_c.bundle ./.gem.20230111-23244-zwzfn2
+>>>>>>> old-2020-project

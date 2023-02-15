@@ -1,5 +1,9 @@
 current directory: /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/3.1.0/gems/debug_inspector-1.1.0/ext/debug_inspector
+<<<<<<< HEAD
 /Users/pamela/.rbenv/versions/3.1.1/bin/ruby -I /Users/pamela/.rbenv/versions/3.1.1/lib/ruby/3.1.0 -r ./siteconf20221220-44491-kagvax.rb extconf.rb
+=======
+/Users/pamela/.rbenv/versions/3.1.1/bin/ruby -I /Users/pamela/.rbenv/versions/3.1.1/lib/ruby/3.1.0 -r ./siteconf20230111-23244-vp3elf.rb extconf.rb
+>>>>>>> old-2020-project
 creating Makefile
 
 current directory: /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/3.1.0/gems/debug_inspector-1.1.0/ext/debug_inspector
@@ -12,4 +16,8 @@ linking shared-object debug_inspector.bundle
 
 current directory: /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/3.1.0/gems/debug_inspector-1.1.0/ext/debug_inspector
 make DESTDIR\= install
+<<<<<<< HEAD
 /usr/bin/install -c -m 0755 debug_inspector.bundle ./.gem.20221220-44491-moompa
+=======
+/usr/bin/install -c -m 0755 debug_inspector.bundle ./.gem.20230111-23244-fgjrwl
+>>>>>>> old-2020-project

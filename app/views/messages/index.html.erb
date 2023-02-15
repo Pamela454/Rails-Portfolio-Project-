@@ -1,55 +1,31 @@
 <style>
-  body {
-  background-image: url('<%= asset_path 'camilo-jimenez-vGu08RYjO-s-unsplash.jpg' %>');
-  background-size: cover;
-  }
-  .center {
-    justify-content: center;
-  }
-  .navbar-custom {
-    background-color: #D8DEEE;
-    border: 0;
-    padding: 0;
-    margin: 0;
-  }
-  .sign-in {
-    border: 0;
-    border-radius: 1rem;
-    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
-    background-color: #D8DEEE;
-  }
-  .card-signin .card-title {
-    margin-bottom: 2rem;
-    font-weight: 300;
-    font-size: 1.5rem;
-  }
-  .card-signin .card-body {
-    padding: 2rem;
-  }
+body {
+	    background-color: rgb(204, 229, 255) !important;
+      background-repeat: no-repeat;
+  } 
 </style>
-<div class="text-center center font-weight-bold">
-  <nav class="navbar navbar-custom sticky-top center font-weight-bold">
-    <h2>Questions Asked</h2>
-  </div>
-</nav>
-</div>
-<br>
-<br>
-<div class="container">
-  <div class="container-fluid mx-auto text-nowrap text-dark" style="width: 500px;">
-    <div class="col sign-in card-title card-body">
-      <% @messages.each do |m| %>
-        <h3>Title: <%= m.title %></h3>
-        <h3>Body: <%= m.question %></h3>
-        <h3>Categories: <% m.categories.each do |c| %></h3>
-          <%= c.category %>
-          <br>
-        <% end %>
-        <br>
-        <br>
-      <%end%>
+
+
+<div class="container-fluid welcome">
+    <div class="row d-flex justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+<div class="col sign-in card-title card-body text-center">
+  <h2 class="fw-bold mb-2 text">Questions Asked</h2>
+
+   <% @messages.each do |m| %>
+   <div class="row mt-3 justify-content-center">
+    <h3>Title: <%= m.title %></h3>
+    <h3>Body: <%= m.question %></h3>
+
+    <h3>Categories: <% m.categories.each do |c| %>
+   <%= c.category %>
+    <% end %>
     </div>
-  </div>
-  <br>
-  <br>
+    </h3>
+
+   <%end%>
+</div>
+
+</div>
+</div>
 </div>

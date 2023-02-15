@@ -4,10 +4,11 @@
 class SessionsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create]
 
-  def new 
+  def new #creates a new session, login
+    @user = User.new
   end
 
-  def create  
+  def create #creates a new session, authenticates user
     auth = request.env["omniauth.auth"]
     @auth = auth
     if !@auth.nil? 

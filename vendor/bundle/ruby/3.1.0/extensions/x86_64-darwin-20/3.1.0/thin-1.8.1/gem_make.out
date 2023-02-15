@@ -1,5 +1,9 @@
 current directory: /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/3.1.0/gems/thin-1.8.1/ext/thin_parser
+<<<<<<< HEAD
 /Users/pamela/.rbenv/versions/3.1.1/bin/ruby -I /Users/pamela/.rbenv/versions/3.1.1/lib/ruby/3.1.0 -r ./siteconf20221220-44491-q63too.rb extconf.rb
+=======
+/Users/pamela/.rbenv/versions/3.1.1/bin/ruby -I /Users/pamela/.rbenv/versions/3.1.1/lib/ruby/3.1.0 -r ./siteconf20230112-6388-wvoe50.rb extconf.rb --with-cflags\=-Wno-error\=implicit-function-declaration
+>>>>>>> old-2020-project
 checking for main() in -lc... yes
 creating Makefile
 
@@ -9,6 +13,7 @@ make DESTDIR\= clean
 current directory: /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/3.1.0/gems/thin-1.8.1/ext/thin_parser
 make DESTDIR\=
 compiling parser.c
+<<<<<<< HEAD
 parser.c:31:18: warning: unused variable 'http_parser_en_main' [-Wunused-const-variable]
 static const int http_parser_en_main = 1;
                  ^
@@ -19,3 +24,12 @@ linking shared-object thin_parser.bundle
 current directory: /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/3.1.0/gems/thin-1.8.1/ext/thin_parser
 make DESTDIR\= install
 /usr/bin/install -c -m 0755 thin_parser.bundle ./.gem.20221220-44491-7dxza3
+=======
+compiling thin.c
+linking shared-object thin_parser.bundle
+ld: warning: -undefined dynamic_lookup may not work with chained fixups
+
+current directory: /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/3.1.0/gems/thin-1.8.1/ext/thin_parser
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 thin_parser.bundle ./.gem.20230112-6388-7ha6iq
+>>>>>>> old-2020-project

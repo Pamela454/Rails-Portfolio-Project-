@@ -1,5 +1,9 @@
 current directory: /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/3.1.0/gems/sassc-2.4.0/ext
+<<<<<<< HEAD
 /Users/pamela/.rbenv/versions/3.1.1/bin/ruby -I /Users/pamela/.rbenv/versions/3.1.1/lib/ruby/3.1.0 -r ./siteconf20221220-44491-kuusn.rb extconf.rb
+=======
+/Users/pamela/.rbenv/versions/3.1.1/bin/ruby -I /Users/pamela/.rbenv/versions/3.1.1/lib/ruby/3.1.0 -r ./siteconf20230111-23244-stf6ob.rb extconf.rb
+>>>>>>> old-2020-project
 creating Makefile
 
 current directory: /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/3.1.0/gems/sassc-2.4.0/ext
@@ -77,4 +81,8 @@ linking shared-object sassc/libsass.bundle
 
 current directory: /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/3.1.0/gems/sassc-2.4.0/ext
 make DESTDIR\= install
+<<<<<<< HEAD
 /usr/bin/install -c -m 0755 libsass.bundle ./.gem.20221220-44491-qhbdpx/sassc
+=======
+/usr/bin/install -c -m 0755 libsass.bundle ./.gem.20230111-23244-fuhxo4/sassc
+>>>>>>> old-2020-project

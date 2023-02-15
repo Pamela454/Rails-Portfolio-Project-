@@ -1,5 +1,9 @@
 current directory: /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/3.1.0/gems/msgpack-1.6.0/ext/msgpack
+<<<<<<< HEAD
 /Users/pamela/.rbenv/versions/3.1.1/bin/ruby -I /Users/pamela/.rbenv/versions/3.1.1/lib/ruby/3.1.0 -r ./siteconf20221220-44491-ofzj96.rb extconf.rb
+=======
+/Users/pamela/.rbenv/versions/3.1.1/bin/ruby -I /Users/pamela/.rbenv/versions/3.1.1/lib/ruby/3.1.0 -r ./siteconf20230111-23244-e9usfa.rb extconf.rb
+>>>>>>> old-2020-project
 checking for ruby/st.h... yes
 checking for st.h... no
 checking for rb_enc_interned_str() in ruby.h... yes
@@ -27,4 +31,8 @@ linking shared-object msgpack/msgpack.bundle
 
 current directory: /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/3.1.0/gems/msgpack-1.6.0/ext/msgpack
 make DESTDIR\= install
+<<<<<<< HEAD
 /usr/bin/install -c -m 0755 msgpack.bundle ./.gem.20221220-44491-vik8bu/msgpack
+=======
+/usr/bin/install -c -m 0755 msgpack.bundle ./.gem.20230111-23244-9xan1a/msgpack
+>>>>>>> old-2020-project

@@ -1,25 +1,20 @@
 {
   "name": "patientquestionwebsite",
   "private": true,
-  "devDependencies": {
+  "dependencies": {
+    "@hotwired/stimulus": "^3.2.1",
+    "@hotwired/turbo-rails": "^7.2.4",
     "@popperjs/core": "^2.11.6",
-    "autoprefixer": "^10.4.12",
-    "bootstrap": "^5.2.2",
-    "css-loader": "^6.7.1",
-    "postcss-loader": "^7.0.1",
-    "prettier": "2.3.2",
-    "sass": "^1.55.0",
-    "sass-loader": "^13.1.0",
-    "style-loader": "^3.3.1",
-    "webpack": "^5.74.0",
-    "webpack-cli": "^4.10.0",
-    "webpack-dev-server": "^4.11.1"
+    "bootstrap": "^5.2.3",
+    "bootstrap-icons": "^1.10.3",
+    "esbuild": "^0.16.17",
+    "sass": "^1.57.1",
+    "stimulus": "^3.2.1",
+    "stimulus_reflex": "3.4.1",
+    "yarn": "^1.22.19"
   },
   "scripts": {
-    "format": "prettier --write '**/*.{js,css,md}'"
-  },
-  "dependencies": {
-    "jquery": "^3.6.1",
-    "popper.js": "^1.16.1"
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets",
+    "build:css": "./bin/build-css"
   }
 }

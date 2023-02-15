@@ -1,5 +1,9 @@
 current directory: /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/3.1.0/gems/bcrypt-3.1.18/ext/mri
+<<<<<<< HEAD
 /Users/pamela/.rbenv/versions/3.1.1/bin/ruby -I /Users/pamela/.rbenv/versions/3.1.1/lib/ruby/3.1.0 -r ./siteconf20221220-44491-pu9cy6.rb extconf.rb
+=======
+/Users/pamela/.rbenv/versions/3.1.1/bin/ruby -I /Users/pamela/.rbenv/versions/3.1.1/lib/ruby/3.1.0 -r ./siteconf20230111-23244-32j24w.rb extconf.rb
+>>>>>>> old-2020-project
 creating Makefile
 
 current directory: /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/3.1.0/gems/bcrypt-3.1.18/ext/mri
@@ -27,4 +31,8 @@ linking shared-object bcrypt_ext.bundle
 
 current directory: /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/3.1.0/gems/bcrypt-3.1.18/ext/mri
 make DESTDIR\= install
+<<<<<<< HEAD
 /usr/bin/install -c -m 0755 bcrypt_ext.bundle ./.gem.20221220-44491-cnj18r
+=======
+/usr/bin/install -c -m 0755 bcrypt_ext.bundle ./.gem.20230111-23244-hbj3w9
+>>>>>>> old-2020-project

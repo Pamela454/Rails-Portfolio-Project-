@@ -1,134 +1,194 @@
-<head>
-  <style>
-    body {
-    background-image: url('<%= asset_path 'blue-snow.png' %>');
-    }
-  </style>
-</head>
-<div class="container">
+<style>
+body {
+	    background-color: rgb(204, 229, 255) !important;
+      background-repeat: no-repeat;
+  } 
+</style>
+
+<div class="container-fluid">
   <div class="page-header">
-    <% if flash[:notice] %>
-      <div class="notice">
-        <h2><%= flash[:notice] %></h2>
-      </div>
-    <% end %>
-    <% if session[:user_id] %>
-      <h1>Name: <%= @user.name %></h1>
-      <h2>Email: <%= @user.email %></h2>
-      <h2>ID: <%= @user.id %></h2>
-      <h2>Type: <%= @user.type %></h2>
-    <% end %>
-    <% if @user.type == "Physician" %>
-      <h2>Specialty: <%= @user.specialty %></h2>
-      <h2>NPI: <%= @user.npi %></h2>
-      <br>
-      <br>
-      <h2>Your Responses: <% @responses.each do |r| unless @responses.nil? %></h2>
+
+   <% if flash[:notice] %>
+  <div class="notice">
+  <h2><%= flash[:notice] %></h2>
+  </div>
+  <% end %>
+</div>
+
+
+<div class="container">
+
+  <% if @user.type == "Physician" %>
+  <div class="row mt-2 justify-content-center">
+    <h2>Your Responses: </h2>
+  </div>
+
+    <% @responses.each do |r| unless @responses.nil? %>
+      <div class="row mt-3 justify-content-center">
+      <div class="card text-alignment" style="width: 100%">
+      <div class="card-body">
+      <p class="card-text">
       <h3>Response ID: <%= r.id %></h3>
       <h3>Response: <%= r.response %></h3>
-      <%= link_to "Edit Response", edit_user_response_path(current_user, r.id) %><br>
-      <br>
+      </p>
+
+      <%= link_to "Edit Response", edit_user_response_path(current_user, r.id) %>
       <%= form_with url: user_response_path(current_user, r.id), method: :delete do |f| %>
-        <%= f.submit "Delete Response" %><br>
+       <%= f.submit "Delete Response" %>
+       <% end %>
       <% end %>
+      </div>
+      </div>
+      </div>
     <% end %>
-  <% end %>
-<% end %>
-<br>
-</div>
-</div>
-<div class="container">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <br>
-        <% if @user.type == "Patient" %>
-          <h3>Questions Asked: <% @messages.each do |m| unless @messages.nil? %></h3>
-          <br>
-          <br>
-          <br>
-          <h3>Question ID: <%= m.id %></h3>
-          <h3>Title: <%= m.title %></h3>
-          <h3>Body: <%= m.question %></h3>
-          <h3>Responses: <% m.responses.each do |r| %></h3>
-            <h3>Response ID: <%= r.id %></h3>
-            <h3>Response: <%= r.response %></h3>
-          <% end %>
-          <br>
-          <br>
-          <%= link_to "Edit Question", edit_user_message_path(current_user, m.id) %><br>
-          <br>
-          <br>
-          <%= form_with url: user_message_path(current_user, m.id), method: :delete do |f| %>
-            <%= f.submit "Delete Question" %><br>
-          <% end %>
-          <br>
+   <% end %>
+
+
+  <% if @user.type == "Patient" %>
+    <div class="row mt-2 justify-content-center">
+      <h3>Questions Asked: </h3>
+    </div>
+
+    <% @messages.each do |m| unless @messages.nil? %>
+    <div class="row mt-3 justify-content-center">
+     <div class="card text-alignment" style="width: 100%">
+      <div class="card-body">
+        <h3>Question ID: <%= m.id %></h3>
+        <h3>Title: <%= m.title %></h3>
+        <h3>Body: <%= m.question %></h3>
+
+         <h3>Responses: <% m.responses.each do |r| %></h3>
+         <h3>Response ID: <%= r.id %></h3>
+         <h3>Response: <%= r.response %>
+         </h3>
+         <% end %>
+
+         <%= link_to "Edit Question", edit_user_message_path(current_user, m.id) %>
+
+         <%= form_with url: user_message_path(current_user, m.id), method: :delete do |f| %>
+         <%= f.submit "Delete Question" %>
         <% end %>
-      <% end %>
-      <br>
-      <%= link_to "View All Questions",  user_messages_path(current_user) %>
-      <br>
-      <br>
-      <br>
-      <%= link_to "Ask A Question", new_user_message_path(current_user) %><br>
-      <br>
-      <br>
-      <br>
-      <%= link_to "Edit Your Profile", edit_user_patient_path(current_user) %>
-      <br>
     <% end %>
-    <br>
-    <% if @user.type == "Physician" %>
-      <h3>Unanswered Questions:<% Message.unanswered_questions.to_a.each do |m|%></h3>
-        <h3>Question ID: <%= m.id %></h3>
-        <h3>Title: <%= m.title %></h3>
-        <h3>Body: <%= m.question %></h3>
-        <br>
-        <%= link_to "Respond to Question", new_user_response_path(current_user, :message => m.id) %>
-        <br>
-      <%end%>
-      <h3>Questions Regarding New Conditions:<% Message.new_condition.to_a.each do |m|%></h3>
-        <h3>Question ID: <%= m.id %></h3>
-        <h3>Title: <%= m.title %></h3>
-        <h3>Body: <%= m.question %></h3>
-        <br>
-        <%= link_to "Respond to Question", new_user_response_path(current_user, :message => m.id) %>
-        <br>
-      <%end%>
-      <h3>Questions Regarding Existing Conditions:<% Message.existing_condition.to_a.each do |m|%></h3>
-        <h3>Question ID: <%= m.id %></h3>
-        <h3>Title: <%= m.title %></h3>
-        <h3>Body: <%= m.question %></h3>
-        <br>
-        <%= link_to "Respond to Question", new_user_response_path(current_user, :message => m.id) %>
-        <br>
-      <%end%>
-      <h3>All Questions Asked: <% Message.all.each do |m| unless Message.all.nil? %></h3>
-      <br>
-      <h3>Question ID: <%= m.id %></h3>
-      <h3>Title: <%= m.title %></h3>
-      <h3>Body: <%= m.question %></h3>
-      <h3>Responses: <% m.responses.each do |r| %></h3>
-        <h4>Response ID:<%= r.id %></h4>
-        <h4>Response:<%= r.response %></h4>
-      <% end %>
-      <br>
-      <%= link_to "Respond to Question", new_user_response_path(current_user, :message => m.id) %><br>
-      <br>
-    <% end %>
-    <h3>Categories: <% m.categories.each do |c| unless m.category_ids == [] %></h3>
-    <h3><%= c.category %></h3>
-    <%= link_to "Display Category Questions", categories_path(c.id) %><br>
-    <br>
+   </div>
+   </div>
+   </div>
   <% end %>
+
+ <div class="row justify-content-center"> 
+  <div class="col-sm-2">
+      <%= link_to "View All Questions",  user_messages_path(current_user) %>
+  </div>
+  <div class="col-sm-2">
+      <%= link_to "Ask A Question", new_user_message_path(current_user) %>
+  </div>
+  <div class="col-sm-2">
+      <%= link_to "Edit Your Profile", edit_user_patient_path(current_user) %>
+  </div>
 <% end %>
+</div>
+
+
+
+<div class="container">
+
+  <% if @user.type == "Physician" %>
+
+    <div class="row mt-2 justify-content-center">
+      <h3>Unanswered Questions:</h3>
+    </div>
+
+    <% Message.unanswered_questions.to_a.each do |m|%>
+     <div class="row mt-3 justify-content-center">
+      <div class="card text-alignment" style="width: 100%">
+       <div class="card-body">
+        <p class="card-text">
+        <h3>Question ID: <%= m.id %></h3>
+        <h3>Title: <%= m.title %></h3>
+        <h3>Body: <%= m.question %></h3>
+        </p>
+       <%= link_to "Respond to Question", new_user_response_path(current_user, :message => m.id) %>
+       </div>
+      </div>
+     </div>
+    <%end%>
+  
+    <div class="row mt-2 justify-content-center">
+      <h3>Questions Regarding New Conditions:</h3>
+    </div>
+
+    <% Message.new_condition.to_a.each do |m|%>
+     <div class="row mt-3 justify-content-center">
+      <div class="card text-alignment" style="width: 100%">
+       <div class="card-body">
+        <p class="card-text">
+        <h3>Question ID: <%= m.id %></h3>
+        <h3>Title: <%= m.title %></h3>
+        <h3>Body: <%= m.question %></h3>
+        </p>
+        <%= link_to "Respond to Question", new_user_response_path(current_user, :message => m.id) %>
+       </div>
+      </div>
+     </div>
+    <%end%>
+
+    <div class="row mt-2 justify-content-center">
+      <h3>Questions Regarding Existing Conditions:</h3>
+    </div>
+
+    <% Message.existing_condition.to_a.each do |m|%>
+     <div class="row mt-3 justify-content-center">
+      <div class="card text-alignment" style="width: 100%">
+        <div class="card-body">
+         <p class="card-text">
+         <h3>Question ID: <%= m.id %></h3>
+         <h3>Title: <%= m.title %></h3>
+         <h3>Body: <%= m.question %></h3>
+         </p>
+         <%= link_to "Respond to Question", new_user_response_path(current_user, :message => m.id) %>
+        </div>
+      </div>
+     </div>
+    <%end%>
+
+    <div class="row mt-2 justify-content-center">
+     <h3>All Questions Asked: </h3>
+    </div>
+
+    <% @messages.each do |m| %>
+    <div class="row mt-3 justify-content-center">
+     <div class="card text-alignment" style="width: 100%">
+      <div class="card-body">
+       <p class="card-text">
+       <h3>Question ID: <%= m.id %></h3>
+       <h3>Title: <%= m.title %></h3>
+       <h3>Body: <%= m.question %></h3>
+      <h3>Categories: <% m.categories.each do |c|  %></h3>
+       <h3><%= c.category %></h3>
+      <%= link_to "Display All Questions From this Category", category_path(c.id) %>
+      <% end %>
+
+
+      <p class="card-text">
+       <h3>Responses: <% m.responses.each do |r| %></h3>
+        <h3>Response ID:<%= r.id %></h3>
+        <h3>Response:<%= r.response %></h3>
+       <% end %>
+      </p>
+
+    <div class="row mt-2">
+      <%= link_to "Respond to Question", new_user_response_path(current_user, :message => m.id) %>
+    </div>
+
+      </div>
+     </div>
+    </div>
+    <% end %>
+
+
+ <div class="row mt-2 center"> 
+   <%= link_to "Edit Your Profile", edit_user_physician_path(current_user) %>
+ </div>
+
 <% end %>
-<br>
-<%= link_to "Edit Your Profile", user_path(current_user) %>
-<br>
-<% end %>
-<br>
-<%= link_to 'Log Out', '/logout', :method => :delete  %><br>
-<br>
-</table>
+
 </div>

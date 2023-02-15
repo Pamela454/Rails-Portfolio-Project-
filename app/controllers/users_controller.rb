@@ -2,14 +2,20 @@
 
 # class containing users CRUD methods
 class UsersController < ApplicationController
+#need helper method?  #need skinny controllers
+  
+  def signin  #displays option to log in
 
   def signin; end
 
   def show
     @user = User.find(session[:user_id])
-    @messages = Message.where(patient_id: session[:user_id]) || 'None'
-    @responses = Response.where(physician_id: session[:user_id]) || 'None'
-    render layout: false
+    if @user.type == "Patient"
+      @messages = Message.where(patient_id: session[:user_id]) || "None"
+    elsif @user.type = "Physician"
+      @responses = Response.where(physician_id: session[:user_id]) || "None"
+      @messages = Message.all
+    end
   end
 
   def create
@@ -23,19 +29,31 @@ class UsersController < ApplicationController
       render 'physicians/new'
     elsif params[:user][:type] == 'Patient'
       flash[:error]
-      render 'physicians/new'
+      render 'patients/new'
     end
   end
 
   def update
     @user = User.find(session[:user_id])
-    if user_type == 'Patient'
-      @user.update(patient_params)
-    else
-      @user.update(user_params)
+    if @user.type == "Patient"
+      params[:patient] = params[:user]
+     if @user.update(patient_params)
+      flash[:notice] = "Profile successfully edited"
+      redirect_to user_path(@user)
+     else
+      flash[:error] 
+      render 'patients/edit'
+     end
+    elsif @user.type == "Physician"
+      params[:physician] = params[:user]
+      if @user.update(physician_params)
+        flash[:notice] = "Profile successfully edited"
+        redirect_to user_path(@user)
+       else
+        flash[:error] 
+        render 'physicians/edit'
+       end
     end
-    flash[:notice] = 'Profile successfully edited'
-    redirect_to user_path(@user)
   end
 
   private

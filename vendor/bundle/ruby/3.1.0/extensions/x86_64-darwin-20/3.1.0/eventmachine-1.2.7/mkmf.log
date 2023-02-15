@@ -166,7 +166,11 @@ checked program was:
 DYLD_FALLBACK_LIBRARY_PATH=.:/Users/pamela/.rbenv/versions/3.1.1/lib "clang -o conftest -I/Users/pamela/.rbenv/versions/3.1.1/include/ruby-3.1.0/x86_64-darwin20 -I/Users/pamela/.rbenv/versions/3.1.1/include/ruby-3.1.0/ruby/backward -I/Users/pamela/.rbenv/versions/3.1.1/include/ruby-3.1.0 -I. -I/Users/pamela/.rbenv/versions/3.1.1/openssl/include -I/Users/pamela/.rbenv/versions/3.1.1/openssl/include -I/Users/pamela/.rbenv/versions/3.1.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe  conftest.c  -L. -L/Users/pamela/.rbenv/versions/3.1.1/lib -L/Users/pamela/.rbenv/versions/3.1.1/openssl/lib -L. -L/Users/pamela/.rbenv/versions/3.1.1/lib  -fstack-protector-strong -L/usr/local/lib -L/Users/pamela/.rbenv/versions/3.1.1/openssl/lib     -lssl -lcrypto -lcrypto -lssl -lruby.3.1  -lssl -lcrypto -lcrypto -lssl  "
 Undefined symbols for architecture x86_64:
   "_rb_thread_blocking_region", referenced from:
+<<<<<<< HEAD
       _t in conftest-daefc7.o
+=======
+      _t in conftest-32fb41.o
+>>>>>>> old-2020-project
 ld: symbol(s) not found for architecture x86_64
 clang: error: linker command failed with exit code 1 (use -v to see invocation)
 checked program was:
@@ -329,7 +333,11 @@ checked program was:
 DYLD_FALLBACK_LIBRARY_PATH=.:/Users/pamela/.rbenv/versions/3.1.1/lib "clang -o conftest -I/Users/pamela/.rbenv/versions/3.1.1/include/ruby-3.1.0/x86_64-darwin20 -I/Users/pamela/.rbenv/versions/3.1.1/include/ruby-3.1.0/ruby/backward -I/Users/pamela/.rbenv/versions/3.1.1/include/ruby-3.1.0 -I. -I/Users/pamela/.rbenv/versions/3.1.1/openssl/include -I/Users/pamela/.rbenv/versions/3.1.1/openssl/include -I/Users/pamela/.rbenv/versions/3.1.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe  conftest.c  -L. -L/Users/pamela/.rbenv/versions/3.1.1/lib -L/Users/pamela/.rbenv/versions/3.1.1/openssl/lib -L. -L/Users/pamela/.rbenv/versions/3.1.1/lib  -fstack-protector-strong -L/usr/local/lib -L/Users/pamela/.rbenv/versions/3.1.1/openssl/lib     -lssl -lcrypto -lcrypto -lssl -lruby.3.1  -lssl -lcrypto -lcrypto -lssl  "
 Undefined symbols for architecture x86_64:
   "_rb_enable_interrupt", referenced from:
+<<<<<<< HEAD
       _t in conftest-86bbc4.o
+=======
+      _t in conftest-7ec908.o
+>>>>>>> old-2020-project
 ld: symbol(s) not found for architecture x86_64
 clang: error: linker command failed with exit code 1 (use -v to see invocation)
 checked program was:
@@ -510,7 +518,11 @@ checked program was:
 DYLD_FALLBACK_LIBRARY_PATH=.:/Users/pamela/.rbenv/versions/3.1.1/lib "clang -o conftest -I/Users/pamela/.rbenv/versions/3.1.1/include/ruby-3.1.0/x86_64-darwin20 -I/Users/pamela/.rbenv/versions/3.1.1/include/ruby-3.1.0/ruby/backward -I/Users/pamela/.rbenv/versions/3.1.1/include/ruby-3.1.0 -I. -I/Users/pamela/.rbenv/versions/3.1.1/openssl/include -I/Users/pamela/.rbenv/versions/3.1.1/openssl/include -I/Users/pamela/.rbenv/versions/3.1.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe  conftest.c  -L. -L/Users/pamela/.rbenv/versions/3.1.1/lib -L/Users/pamela/.rbenv/versions/3.1.1/openssl/lib -L. -L/Users/pamela/.rbenv/versions/3.1.1/lib  -fstack-protector-strong -L/usr/local/lib -L/Users/pamela/.rbenv/versions/3.1.1/openssl/lib     -lssl -lcrypto -lcrypto -lssl -lruby.3.1  -lssl -lcrypto -lcrypto -lssl  "
 Undefined symbols for architecture x86_64:
   "_pipe2", referenced from:
+<<<<<<< HEAD
       _t in conftest-2c7521.o
+=======
+      _t in conftest-8a1949.o
+>>>>>>> old-2020-project
 ld: symbol(s) not found for architecture x86_64
 clang: error: linker command failed with exit code 1 (use -v to see invocation)
 checked program was:
@@ -566,7 +578,11 @@ checked program was:
 DYLD_FALLBACK_LIBRARY_PATH=.:/Users/pamela/.rbenv/versions/3.1.1/lib "clang -o conftest -I/Users/pamela/.rbenv/versions/3.1.1/include/ruby-3.1.0/x86_64-darwin20 -I/Users/pamela/.rbenv/versions/3.1.1/include/ruby-3.1.0/ruby/backward -I/Users/pamela/.rbenv/versions/3.1.1/include/ruby-3.1.0 -I. -I/Users/pamela/.rbenv/versions/3.1.1/openssl/include -I/Users/pamela/.rbenv/versions/3.1.1/openssl/include -I/Users/pamela/.rbenv/versions/3.1.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens -Wundef  -fno-common -pipe  conftest.c  -L. -L/Users/pamela/.rbenv/versions/3.1.1/lib -L/Users/pamela/.rbenv/versions/3.1.1/openssl/lib -L. -L/Users/pamela/.rbenv/versions/3.1.1/lib  -fstack-protector-strong -L/usr/local/lib -L/Users/pamela/.rbenv/versions/3.1.1/openssl/lib     -lssl -lcrypto -lcrypto -lssl -lruby.3.1  -lssl -lcrypto -lcrypto -lssl  "
 Undefined symbols for architecture x86_64:
   "_accept4", referenced from:
+<<<<<<< HEAD
       _t in conftest-fa7887.o
+=======
+      _t in conftest-bcff0d.o
+>>>>>>> old-2020-project
 ld: symbol(s) not found for architecture x86_64
 clang: error: linker command failed with exit code 1 (use -v to see invocation)
 checked program was:

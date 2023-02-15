@@ -1,5 +1,9 @@
 current directory: /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/3.1.0/gems/nio4r-2.5.8/ext/nio4r
+<<<<<<< HEAD
 /Users/pamela/.rbenv/versions/3.1.1/bin/ruby -I /Users/pamela/.rbenv/versions/3.1.1/lib/ruby/3.1.0 -r ./siteconf20221220-44491-zhizvw.rb extconf.rb
+=======
+/Users/pamela/.rbenv/versions/3.1.1/bin/ruby -I /Users/pamela/.rbenv/versions/3.1.1/lib/ruby/3.1.0 -r ./siteconf20230111-23244-o8p89c.rb extconf.rb
+>>>>>>> old-2020-project
 checking for unistd.h... yes
 checking for linux/aio_abi.h... no
 checking for linux/io_uring.h... no
@@ -296,4 +300,8 @@ linking shared-object nio4r_ext.bundle
 
 current directory: /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/3.1.0/gems/nio4r-2.5.8/ext/nio4r
 make DESTDIR\= install
+<<<<<<< HEAD
 /usr/bin/install -c -m 0755 nio4r_ext.bundle ./.gem.20221220-44491-cefavl
+=======
+/usr/bin/install -c -m 0755 nio4r_ext.bundle ./.gem.20230111-23244-9em7cr
+>>>>>>> old-2020-project

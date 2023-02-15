@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+./node_modules/sass/sass.js \
+  ./app/assets/stylesheets/application.sass.scss:./app/assets/builds/application.css \
+  ./app/assets/stylesheets/_navbar.sass.scss:./app/assets/builds/_navbar.css \
+  ./app/assets/stylesheets/categories.sass.scss:./app/assets/builds/categories.css \
+  ./app/assets/stylesheets/patients.sass.scss:./app/assets/builds/patients.css \
+  ./app/assets/stylesheets/physicians.sass.scss:./app/assets/builds/physicians.css \
+  ./app/assets/stylesheets/responses.sass.scss:./app/assets/builds/responses.css \
+  ./app/assets/stylesheets/scaffolds.sass.scss:./app/assets/builds/scaffolds.css \
+  ./app/assets/stylesheets/users.sass.scss:./app/assets/builds/users.css \
+  --no-source-map \
+  --load-path=node_modules \
+  $@

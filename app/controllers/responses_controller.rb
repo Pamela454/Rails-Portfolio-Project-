@@ -25,32 +25,17 @@ class ResponsesController < ApplicationController
     end
   end
 
-  def edit
-    if user_type == 'Physician'
-      if params[:user_id]
-        physician = Physician.find_by(id: params[:user_id])
-        if physician = nil
-          redirect_to controller: 'users', action: 'show', id: current_user.id
-        elsif @response = Response.find_by(id: params[:id])
-          @user = User.find(session[:user_id])
-        end
-      else
-        flash[:notice] = 'You do not have access to this feature.'
-        redirect_to controller: 'users', action: 'show', id: current_user.id
-      end
-    end
-  end
-
-  # edit user info
-  def update
-    if user_type == 'Physician'
-      @response = Response.find(params[:id])
-      @response.update(response_params)
-      flash[:notice] = 'Response successfully edited'
-      redirect_to controller: 'users', action: 'show', id: current_user.id
+  def update  #edit user info
+    if user_type == "Physician"
+     @response = Response.find(params[:id])
+     if @response.update(response_params)
+      flash[:notice] = "Response successfully edited"
+      redirect_to :controller => 'users', :action => 'show', :id => current_user.id
     else
+      flash[:error]
       render :edit
     end
+   end
   end
 
   def destroy
