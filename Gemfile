@@ -12,7 +12,6 @@ gem 'thin', '~> 1.8', '>= 1.8.1'
 gem 'dotenv-rails'
 
 gem 'omniauth-facebook' 
-gem 'omniauth-rails_csrf_protection', '~> 1.0'
 
 gem 'omniauth-rails_csrf_protection'
 
@@ -90,7 +89,6 @@ group :test do
   gem 'rexml', '~> 3.2', '>= 3.2.4'
   gem 'rack_session_access'
   gem 'devise'  
-  gem 'rspec-rails'
   gem 'factory_bot_rails'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
