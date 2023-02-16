@@ -1,5 +1,4 @@
-Pry
-===
+# Pry
 
 [![Circle Build Status](https://circleci.com/gh/pry/pry.svg?style=shield)](https://circleci.com/gh/pry/pry)
 [![Code Climate](https://codeclimate.com/github/pry/pry.svg)](https://codeclimate.com/github/pry/pry)
@@ -15,69 +14,65 @@ Pry
 
 **Alumni:**
 
-* Conrad Irwin
-* Ryan Fitzgerald
-* Robert Gleeson
+- Conrad Irwin
+- Ryan Fitzgerald
+- Robert Gleeson
 
 **Links:**
 
-* https://pry.github.com/
-* [YARD API documentation](https://www.rubydoc.info/gems/pry)
-* [Wiki](https://github.com/pry/pry/wiki)
+- https://pry.github.com/
+- [YARD API documentation](https://www.rubydoc.info/gems/pry)
+- [Wiki](https://github.com/pry/pry/wiki)
 
-Table of Contents
-=================
+# Table of Contents
 
-* [Introduction](#introduction)
-* [Key features](#key-features)
-* [Installation](#installation)
-* [Overview](#overview)
-   * [Commands](#commands)
-   * [Navigating around state](#navigating-around-state)
-   * [Runtime invocation](#runtime-invocation)
-   * [Command Shell Integration](#command-shell-integration)
-   * [Code Browsing](#code-browsing)
-   * [Documentation Browsing](#documentation-browsing)
-   * [Gist integration](#gist-integration)
-   * [Edit methods](#edit-methods)
-   * [Live Help System](#live-help-system)
-   * [Use Pry as your Rails Console](#use-pry-as-your-rails-console)
-   * [Syntax Highlighting](#syntax-highlighting)
-* [Supported Rubies](#supported-rubies)
-* [Contact](#contact)
-* [License](#license)
-* [Contributors](#contributors)
+- [Introduction](#introduction)
+- [Key features](#key-features)
+- [Installation](#installation)
+- [Overview](#overview)
+  - [Commands](#commands)
+  - [Navigating around state](#navigating-around-state)
+  - [Runtime invocation](#runtime-invocation)
+  - [Command Shell Integration](#command-shell-integration)
+  - [Code Browsing](#code-browsing)
+  - [Documentation Browsing](#documentation-browsing)
+  - [Gist integration](#gist-integration)
+  - [Edit methods](#edit-methods)
+  - [Live Help System](#live-help-system)
+  - [Use Pry as your Rails Console](#use-pry-as-your-rails-console)
+  - [Syntax Highlighting](#syntax-highlighting)
+- [Supported Rubies](#supported-rubies)
+- [Contact](#contact)
+- [License](#license)
+- [Contributors](#contributors)
 
-Introduction
-------------
+## Introduction
 
 Pry is a runtime developer console and IRB alternative with powerful
 introspection capabilities. Pry aims to be more than an IRB replacement. It is
 an attempt to bring REPL driven programming to the Ruby language.
 
-Key features
-------------
+## Key features
 
-* Source code browsing (including core C source with the pry-doc gem)
-* Documentation browsing
-* Live help system
-* Open methods in editors (`edit Class#method`)
-* Syntax highlighting
-* Command shell integration (start editors, run git, and rake from within Pry)
-* Gist integration
-* Navigation around state (`cd`, `ls` and friends)
-* Runtime invocation (use Pry as a developer console or debugger)
-* Exotic object support (BasicObject instances, IClasses, ...)
-* A powerful and flexible command system
-* Ability to view and replay history
-* Many convenience commands inspired by IPython, Smalltalk and other advanced
+- Source code browsing (including core C source with the pry-doc gem)
+- Documentation browsing
+- Live help system
+- Open methods in editors (`edit Class#method`)
+- Syntax highlighting
+- Command shell integration (start editors, run git, and rake from within Pry)
+- Gist integration
+- Navigation around state (`cd`, `ls` and friends)
+- Runtime invocation (use Pry as a developer console or debugger)
+- Exotic object support (BasicObject instances, IClasses, ...)
+- A powerful and flexible command system
+- Ability to view and replay history
+- Many convenience commands inspired by IPython, Smalltalk and other advanced
   REPLs
-* A wide-range number of
+- A wide-range number of
   [plugins](https://github.com/pry/pry/wiki/Available-plugins) that provide
   remote sessions, full debugging functionality, and more.
 
-Installation
-------------
+## Installation
 
 ### Bundler
 
@@ -91,8 +86,7 @@ gem 'pry', '~> 0.13.1'
 gem install pry
 ```
 
-Overview
---------
+## Overview
 
 Pry is fairly flexible and allows significant user
 [customization](https://github.com/pry/pry/wiki/Customization-and-configuration).
@@ -193,7 +187,6 @@ end
 a = A.new
 
 # start a REPL session
-binding.pry
 
 # program resumes here (after pry session)
 puts "program resumes here."
@@ -225,7 +218,7 @@ and rake directly from within Pry.
 
 Further, we can use the `shell-mode` command to incorporate the present working
 directory into the Pry prompt and bring in (limited at this stage, sorry) file
-name completion.  We can also interpolate Ruby code directly into the shell by
+name completion. We can also interpolate Ruby code directly into the shell by
 using the normal `#{}` string interpolation syntax.
 
 In the code below we're going to switch to `shell-mode` and edit the `pryrc`
@@ -424,28 +417,24 @@ You can toggle the syntax highlighting on and off in a session by using the
 `toggle-color` command. Alternatively, you can turn it off permanently by
 putting the line `Pry.color = false` in your `pryrc` file.
 
-Supported Rubies
-----------------
+## Supported Rubies
 
-* CRuby >= 1.9.3
-* JRuby >= 1.7
+- CRuby >= 1.9.3
+- JRuby >= 1.7
 
-Contact
--------
+## Contact
 
 In case you have a problem, question or a bug report, feel free to:
 
-* ask a question on IRC (#pry on Freenode)
-* [file an issue](https://github.com/pry/pry/issues)
-* [tweet at us](https://twitter.com/pryruby)
+- ask a question on IRC (#pry on Freenode)
+- [file an issue](https://github.com/pry/pry/issues)
+- [tweet at us](https://twitter.com/pryruby)
 
-License
--------
+## License
 
 The project uses the MIT License. See LICENSE.md for details.
 
-Contributors
-------------
+## Contributors
 
 Pry is primarily the work of [John Mair (banisterfiend)](https://github.com/banister), for full list
 of contributors see the
