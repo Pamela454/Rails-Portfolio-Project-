@@ -42,7 +42,7 @@ class MessagesController < ApplicationController
   def edit
       if params[:user_id]
         patient = Patient.find_by(id: params[:patient_id])
-        if patient = nil
+        if patient == nil
           redirect_to controller: 'users', action: 'show', id: current_user.id
         else
           @message = Message.find_by(id: params[:id])
@@ -54,8 +54,7 @@ class MessagesController < ApplicationController
   end
 
   def update
-    binding.pry 
-      @message = Message.find(params[:id])
+    if @message = Message.find(params[:id])
       if @message.update(message_params)
         flash[:notice] = "Message successfully updated"
         redirect_to :controller => 'users', :action => 'show', :id => current_user.id
