@@ -4,8 +4,6 @@
 class UsersController < ApplicationController
 #need helper method?  #need skinny controllers
   
-  def signin  #displays option to log in
-
   def signin; end
 
   def show
