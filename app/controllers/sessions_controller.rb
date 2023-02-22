@@ -10,16 +10,10 @@ class SessionsController < ApplicationController
   end
 
   def create #creates a new session, authenticates user
-    auth = request.env["omniauth.auth"]
+    #auth = request.env["omniauth.auth"]
     @auth = auth
-    if !@auth.nil? 
+    if @auth.nil? 
       binding.pry 
-      if User.find_by(email: auth['info']['email'])
-        @user = User.find_by(email: auth['info']['email'])
-        session[:user_id] = @user.id
-        redirect_to user_path(@user)
-      end
-    else
       @user = User.find_by(email: params[:user][:email])
       if @user&.authenticate(params[:user][:password])
         session[:user_id] = @user.id
@@ -28,6 +22,20 @@ class SessionsController < ApplicationController
         flash[:notice] = 'Incorrect name and/or password'
         redirect_to root_path
       end
+    end
+  end
+
+  def facebook
+    if !@auth.nil? 
+      binding.pry 
+      if User.find_by(email: auth['info']['email'])
+        @user = User.find_by(email: auth['info']['email'])
+        session[:user_id] = @user.id
+        redirect_to user_path(@user)
+      end
+    else
+        flash[:notice] = 'Incorrect name and/or password'
+        redirect_to root_path
     end
   end
 

@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :npi
       t.string :specialty
-      t.bigint :uid
+      t.integer :uid
 
       t.timestamps
     end
