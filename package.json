@@ -8,6 +8,7 @@
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.3",
     "esbuild": "^0.16.17",
+    "pg": "^8.9.0",
     "sass": "^1.57.1",
     "stimulus": "^3.2.1",
     "stimulus_reflex": "3.4.1",
@@ -15,6 +16,7 @@
   },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets",
-    "build:css": "./bin/build-css"
+    "build:css": "./bin/build-css",
+    "start": "node app.js"
   }
 }
