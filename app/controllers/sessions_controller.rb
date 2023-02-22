@@ -13,7 +13,6 @@ class SessionsController < ApplicationController
     #auth = request.env["omniauth.auth"]
     @auth = auth
     if @auth.nil? 
-      binding.pry 
       @user = User.find_by(email: params[:user][:email])
       if @user&.authenticate(params[:user][:password])
         session[:user_id] = @user.id
@@ -27,7 +26,6 @@ class SessionsController < ApplicationController
 
   def facebook
     if !@auth.nil? 
-      binding.pry 
       if User.find_by(email: auth['info']['email'])
         @user = User.find_by(email: auth['info']['email'])
         session[:user_id] = @user.id
