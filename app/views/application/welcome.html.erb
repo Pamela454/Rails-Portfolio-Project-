@@ -14,10 +14,20 @@
         <div class="card bg-dark text-white" style="border-radius: 1rem;">
           <div class="card-body p-5 text-center">
             <div class="mb-md-5 mt-md-4 pb-5">
-            <%= form_for(:session, url: "users/signin", html: { autocomplete: "new-password" })   do |f| %>
+            <%= form_for @user, :url => {:controller => 'sessions', :action => 'create'} do |f| %>
               <h2 class="fw-bold mb-2 text">Sign in if You Are a Member</h2>
+            <div class="form-outline form-white mb-4">
 
-            
+                <div class="form-label"><%= label :email, "Enter your email"%>
+                  <%= f.text_field :email, value: @user.email, :class => "form-control form-control-lg" %>
+                </div>
+              </div>
+
+            <div class="form-outline form-white mb-4">
+              <div class="form-label"><%= label :password, "Enter your password" %>
+                <%= f.password_field :password, value: @user.password, :class => "form-control form-control-lg"  %>
+              </div> 
+            </div>
 
               <%= f.submit "Sign In" , :class => "btn btn-outline-light btn-lg px-5" %>
             <% end %>

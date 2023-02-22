@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "application#welcome" 
+  root 'sessions#new'
 
   get 'auth/facebook/callback' => 'sessions#create'
 

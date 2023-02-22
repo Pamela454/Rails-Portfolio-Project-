@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def signin; end
 
   def show
+    binding.pry
     @user = User.find(session[:user_id])
     if @user.type == "Patient"
       @messages = Message.where(patient_id: session[:user_id]) || "None"

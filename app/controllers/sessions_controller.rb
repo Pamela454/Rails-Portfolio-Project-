@@ -6,25 +6,19 @@ class SessionsController < ApplicationController
 
   def new #creates a new session, login
     @user = User.new
+    render 'application/welcome'
   end
 
   def create #creates a new session, authenticates user
     auth = request.env["omniauth.auth"]
     @auth = auth
     if !@auth.nil? 
-      @user = User.find_by(uid: auth['uid'])
-      session[:user_id] = @user.id
-      redirect_to user_path(@user)
-    elsif !@auth.nil?
-      @user = User.create_by(uid: auth['uid']) do |u|
-        u.name = auth['info']['name'] 
-        u.email = auth['info']['email'] 
-        u.password = SecureRandom.urlsafe_base64.to_s 
+      binding.pry 
+      if User.find_by(email: auth['info']['email'])
+        @user = User.find_by(email: auth['info']['email'])
         session[:user_id] = @user.id
-
-        render 'sessions/new'
+        redirect_to user_path(@user)
       end
-
     else
       @user = User.find_by(email: params[:user][:email])
       if @user&.authenticate(params[:user][:password])

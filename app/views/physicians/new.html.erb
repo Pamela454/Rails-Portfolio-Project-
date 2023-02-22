@@ -18,7 +18,7 @@
       <div class="field<%= ' field_with_errors' if @user.errors[:password].any? %>">
        <%= f.label :email %>
        <%= f.text_field :email, value: @user.email, :class => "form-control form-control-lg" %>
-       </div>
+       </div> 
       </div>
       <br>
 
@@ -39,14 +39,14 @@
      <div class="form-outline form-white mb-4">
       <div class="field<%= ' field_with_errors' if @user.errors[:npi].any? %>">
        <%= f.label :npi %>
-       <%= f.number_field :npi, :class => "form-control form-control-lg" %>
+       <%= f.number_field :npi, value: @user.npi, :class => "form-control form-control-lg" %>
       </div>
       <div>
 
       <div class="form-outline form-white mb-4">
       <div class="field<%= ' field_with_errors' if @user.errors[:specialty].any? %>">
         <%= f.label :specialty %>
-        <%= f.text_field :specialty, :class => "form-control form-control-lg" %>
+        <%= f.text_field :specialty, value: @user.specialty, :class => "form-control form-control-lg" %>
       </div>
       </div>
 
