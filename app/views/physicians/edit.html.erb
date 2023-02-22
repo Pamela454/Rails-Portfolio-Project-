@@ -32,12 +32,12 @@ body {
 
 <div class="form-group">
   <%= f.label :npi %>
-  <%= f.number_field :npi, :class => "form-control form-control-lg" %>
+  <%= f.number_field :npi, value: @user.npi, :class => "form-control form-control-lg" %>
 </div>
 
 <div class="form-group">
   <%= f.label :specialty %>
-  <%= f.text_field :specialty, :class => "form-control form-control-lg" %>
+  <%= f.text_field :specialty, value: @user.specialty, :class => "form-control form-control-lg" %>
 </div>
 
 <div class="form-group">

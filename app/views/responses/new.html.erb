@@ -18,7 +18,7 @@ body {
 
 <div class="field<%= ' field_with_errors' if @response.errors[:response].any? %>">    
     <%= f.label :response %>
-    <%= f.text_field :response, :class => "form-control form-control-lg" %></div>
+    <%= f.text_field :response, value: @response.response,:class => "form-control form-control-lg" %></div>
 
 <div class="form-group">
     <%= f.hidden_field :message_id, value: @message.id, :class => "form-control form-control-lg" %></div>
