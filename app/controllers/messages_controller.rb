@@ -9,6 +9,7 @@ class MessagesController < ApplicationController
     if user_type == "Patient" #changed for nested route
      if params[:user_id] && Patient.exists?(params[:user_id])
      @message = Message.new(patient_id: params[:user_id])
+     @categories = Category.all
    else
      flash[:notice] = "You do not have access to this feature."
      redirect_to :controller => 'users', :action => 'show', :id => current_user.id

@@ -10,7 +10,7 @@ body {
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
           <div class="card-body p-5 text-center">
 
-<%= form_with model: @message, url: new_user_message_path(current_user) do |f| %>
+<%= form_with model: @message, url: new_user_message_path(current_user.id) do |f| %>
  <div class="container-fluid mx-auto text-nowrap text-dark" style="width: 500px;">
 
      <div class="col sign-in card-title card-body">
@@ -31,32 +31,12 @@ body {
         <%= f.hidden_field :patient_id, value: current_user.id, :class => "form-control form-control-lg" %>
       </div>
 
-     <div class="form-group">
-       <div class="row mt-2 justify-content-center"> 
-        <%= f.label :new_or_preexisting_condition%>
-        </div>
-       <div class="row mt-2 justify-content-center"> 
-        <%= f.collection_check_boxes :category_ids, Category.all[0..1], :id, :category do |b| %>
-        <%= b.label %>
-        <%= b.check_box %>
-        <% end %>
-        </div>
-      </div> 
-
-      <div class="form-group">
-      <div class="row mt-2 justify-content-center"> 
-        <%= f.label :affected_system%>
-      </div>
-      <div class="row mt-2 justify-content-center"> 
-        <%= f.collection_check_boxes :category_ids, Category.all[2..3], :id, :category %>
-      </div>      
-      <div class="row mt-2 justify-content-center"> 
-        <%= f.collection_check_boxes :category_ids, Category.all[4..7], :id, :category %>
-        </div>
-      <div class="row mt-2 justify-content-center"> 
-        <%= f.collection_check_boxes :category_ids, Category.all[8..11], :id, :category %>
-        </div>
-      </div>
+    <div class="form-group">
+    <% Category.all.each do |category| %>
+    <%= check_box_tag "message[category_ids][]", category.id %>
+    <%= category.category %><br/>
+    <% end %>
+    </div>
 
     <div class="actions">
       <%= f.submit class: "btn btn-outline-light btn-lg px-5" %>
