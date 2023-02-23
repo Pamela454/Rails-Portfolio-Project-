@@ -1,0 +1,26 @@
+name: Main
+on:
+- push
+- pull_request_target
+jobs:
+  ci:
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby:
+        - '2.7'
+        - '3.0'
+        - '3.1'
+        - head
+    name: CI
+    runs-on: ubuntu-latest
+    env:
+      CI: true
+    steps:
+    - uses: actions/checkout@master
+    - uses: ruby/setup-ruby@v1
+      with:
+        bundler-cache: true
+        ruby-version: ${{ matrix.ruby }}
+    - name: Test
+      run: bundle exec rake test

@@ -11,7 +11,7 @@ class Message < ApplicationRecord
   scope :new_condition, -> {joins(:categories).merge(Category.new_condition)}
   scope :existing_condition, -> {joins(:categories).merge(Category.existing_condition)}
   scope :unanswered_questions, -> {left_outer_joins(:responses).where(responses: {message_id: nil})}
-
+  
   def responses_attributes=(responses_attributes)
     responses_attributes.values.each do |response_attribute|
       response = Response.find_or_create_by(response_attribute)

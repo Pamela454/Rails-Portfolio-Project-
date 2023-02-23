@@ -1,0 +1,50 @@
+module RBS
+  class Parser
+    # Parse a method type and return it
+    #
+    # When `pos` keyword is specified, skips the first `pos` characters from the input.
+    # If no token is left in the input, it returns `nil`.
+    #
+    # ```ruby
+    # RBS::Parser.parse_method_type("() -> void")                                # => `() -> void`
+    # RBS::Parser.parse_method_type("() -> void", range: 0...)                   # => `() -> void`
+    # RBS::Parser.parse_method_type("() -> void () -> String", range: 11...)     # => `() -> String`
+    # RBS::Parser.parse_method_type("() -> void () -> String", range: 23...)     # => nil
+    # ```
+    #
+    def self.parse_method_type: (Buffer | String, ?range: Range[Integer?], ?variables: Array[Symbol]) -> MethodType?
+
+    # Parse a type and return it
+    #
+    # When `pos` keyword is specified, skips the first `pos` characters from the input.
+    # If no token is left in the input, it returns `nil`.
+    #
+    # ```ruby
+    # RBS::Parser.parse_type("String")                          # => `String`
+    # RBS::Parser.parse_type("String", range: 0...)             # => `String`
+    # RBS::Parser.parse_type("String Integer", pos: 7...)       # => `Integer`
+    # RBS::Parser.parse_type("String Integer", pos: 14...)      # => nil
+    # ```
+    #
+    def self.parse_type: (Buffer | String, ?range: Range[Integer?], ?variables: Array[Symbol]) -> Types::t?
+
+    # Parse whole RBS file and return an array of declarations
+    #
+    def self.parse_signature: (Buffer | String) -> [Buffer, Array[AST::Directives::t], Array[AST::Declarations::t]]
+
+    KEYWORDS: Hash[String, bot]
+
+    private
+
+    def self.buffer: (String | Buffer source) -> Buffer
+
+    def self._parse_type: (Buffer, Integer start_pos, Integer end_pos, Array[Symbol] variables) -> Types::t?
+
+    def self._parse_method_type: (Buffer, Integer start_pos, Integer end_pos, Array[Symbol] variables) -> MethodType?
+
+    def self._parse_signature: (Buffer, Integer end_pos) -> [Array[AST::Directives::t], Array[AST::Declarations::t]]
+
+    class LocatedValue
+    end
+  end
+end

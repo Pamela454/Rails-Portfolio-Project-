@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
   
 #before action to restric access?? would apply to other controllers
   def new  #creates a new message    @message = Message.new(patient_id: current_user.id)
-   if user_type == "Patient" #changed for nested route
+    if user_type == "Patient" #changed for nested route
      if params[:user_id] && Patient.exists?(params[:user_id])
      @message = Message.new(patient_id: params[:user_id])
    else
@@ -21,6 +21,7 @@ class MessagesController < ApplicationController
   end
 
   def index
+    @message = Message.new 
     @messages = if params[:user_id]
                   Message.where(patient_id: params[:user_id])
                 else
@@ -40,7 +41,7 @@ class MessagesController < ApplicationController
 
   def edit
       if params[:user_id]
-        patient = Patient.find_by(id: params[:patient_id])
+        patient = Patient.find_by(id: params[:user_id])
         if patient == nil
           redirect_to controller: 'users', action: 'show', id: current_user.id
         else

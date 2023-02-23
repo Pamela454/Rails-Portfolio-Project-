@@ -1,0 +1,25 @@
+current directory: /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/3.1.0/gems/rbs-3.0.0/ext/rbs_extension
+/Users/pamela/.rbenv/versions/3.1.1/bin/ruby -I /Users/pamela/.rbenv/versions/3.1.1/lib/ruby/3.1.0 -r ./siteconf20230222-39921-he6x0i.rb extconf.rb
+checking for whether -std=gnu99 is accepted as CFLAGS... yes
+creating Makefile
+
+current directory: /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/3.1.0/gems/rbs-3.0.0/ext/rbs_extension
+make DESTDIR\= clean
+
+current directory: /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/3.1.0/gems/rbs-3.0.0/ext/rbs_extension
+make DESTDIR\=
+compiling constants.c
+compiling lexer.c
+compiling lexstate.c
+compiling location.c
+compiling main.c
+compiling parser.c
+compiling parserstate.c
+compiling ruby_objs.c
+compiling unescape.c
+linking shared-object rbs_extension.bundle
+ld: warning: -undefined dynamic_lookup may not work with chained fixups
+
+current directory: /Users/pamela/Rails-Portfolio-Project-/vendor/bundle/ruby/3.1.0/gems/rbs-3.0.0/ext/rbs_extension
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 rbs_extension.bundle ./.gem.20230222-39921-9xzrk1
