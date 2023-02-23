@@ -1,2 +1,2 @@
-/spec
-/vendor/bundle
+./spec
+./vendor/bundle
