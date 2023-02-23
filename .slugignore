@@ -1,2 +1,5 @@
 spec
-vendor/bundle
+/vendor/bundle
+/.bundle
+/log/*
+/tmp/*
