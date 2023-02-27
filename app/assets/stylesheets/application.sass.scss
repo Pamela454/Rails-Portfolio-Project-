@@ -18,22 +18,28 @@ $background-color_4: rgb(151, 149, 149);
 body {
 	padding-top: 150px;
 }
-html, body {
+
+html,
+body {
 	background-repeat: no-repeat;
 	background-size: cover;
 }
+
 .center {
 	justify-content: center;
 }
+
 .sign-in {
 	border: 0;
 	border-radius: 1rem;
 	box-shadow: 0 0.5rem 1rem 0 $background-color_3;
-    background-color: $background-color_4;
+	background-color: $background-color_4;
 }
+
 .card {
 	margin-bottom: 2rem;
 }
+
 .card-body {
 	font-weight: 400;
 	font-size: 1.0rem;
