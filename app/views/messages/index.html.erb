@@ -1,31 +1,25 @@
 <style>
-body {
-	    background-color: rgb(204, 229, 255) !important;
-      background-repeat: no-repeat;
-  } 
+  body {
+  	    background-color: rgb(204, 229, 255) !important;
+        background-repeat: no-repeat;
+    }
 </style>
-
-
 <div class="container-fluid welcome">
-    <div class="row d-flex justify-content-center">
-      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-<div class="col sign-in card-title card-body text-center">
-  <h2 class="fw-bold mb-2 text">Questions Asked</h2>
-
-   <% @messages.each do |m| %>
-   <div class="row mt-3 justify-content-center">
-    <h3>Title: <%= m.title %></h3>
-    <h3>Body: <%= m.question %></h3>
-
-    <h3>Categories: <% m.categories.each do |c| %>
-   <%= c.category %>
-    <% end %>
+  <div class="row d-flex justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+      <div class="col sign-in card-title card-body text-center">
+        <h2 class="fw-bold mb-2 text">Questions Asked</h2>
+        <% @messages.each do |m| %>
+          <div class="row mt-3 justify-content-center">
+            <h3>Title: <%= m.title %></h3>
+            <h3>Body: <%= m.question %></h3>
+            <h3>Categories: <% m.categories.each do |c| %>
+                <%= c.category %>
+              <% end %>
+            </div>
+          </h3>
+        <%end%>
+      </div>
     </div>
-    </h3>
-
-   <%end%>
-</div>
-
-</div>
-</div>
+  </div>
 </div>

@@ -1,41 +1,35 @@
 <style>
-body {
-	    background-color: rgb(204, 229, 255) !important;
-      background-repeat: no-repeat;
-  } 
+  body {
+  	    background-color: rgb(204, 229, 255) !important;
+        background-repeat: no-repeat;
+    }
 </style>
-
-
 <div class="container-fluid welcome">
-<div class="row d-flex justify-content-center">
-<div class="col-12 col-md-8 col-lg-6 col-xl-5">
-<div class="col sign-in card-title card-body text-center">
-  <h2 class="fw-bold mb-2 text">Category Questions</h2>
-
-<h3><%=@category.category %></h3>
-<% @category.messages.each do |m| %>
-<div class="row">
-<h3>Id: <%= m.id %></h3>
-</div>
-<div class="row">
-<h3>Title: <%= m.title %></h3>
-</div>
-<div class="row">
-<h3>Question: <%= m.question %> </h3>
-</div>
-<div class="row mt-2">
-  <%= link_to "Respond to Question", new_user_response_path(current_user, :message => m.id) %>
-</div>
-<div class="row">
-<% m.responses.each do |r| %>
-  <h3>Response: <%= r.response %> </h3>
-  <% end %>
+  <div class="row d-flex justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+      <div class="col sign-in card-title card-body text-center">
+        <h2 class="fw-bold mb-2 text">Category Questions</h2>
+        <h3><%=@category.category %></h3>
+        <% @category.messages.each do |m| %>
+          <div class="row">
+            <h3>Id: <%= m.id %></h3>
+          </div>
+          <div class="row">
+            <h3>Title: <%= m.title %></h3>
+          </div>
+          <div class="row">
+            <h3>Question: <%= m.question %> </h3>
+          </div>
+          <div class="row mt-2">
+            <%= link_to "Respond to Question", new_user_response_path(current_user, :message => m.id) %>
+          </div>
+          <div class="row">
+            <% m.responses.each do |r| %>
+              <h3>Response: <%= r.response %> </h3>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-<% end %>
-
 </div>
-</div>
-</div>
-</div>
-
-
