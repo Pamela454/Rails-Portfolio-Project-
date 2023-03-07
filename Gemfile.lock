@@ -241,7 +241,8 @@ GEM
     pry-rails (0.3.9)
       pry (>= 0.10.4)
     public_suffix (5.0.1)
-    puma (3.12.6)
+    puma (4.3.12)
+      nio4r (~> 2.0)
     racc (1.6.2)
     rack (2.2.6.3)
     rack-protection (3.0.5)
@@ -450,7 +451,7 @@ DEPENDENCIES
   prettier
   pry
   pry-rails
-  puma (~> 3.12)
+  puma (~> 4.3)
   rack_session_access
   rails (~> 7.0.4)
   rails_layout
