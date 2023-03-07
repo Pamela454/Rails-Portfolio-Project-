@@ -86,6 +86,7 @@ end
 
 group :test do
   gem 'simplecov'
+  gem 'better_errors'
   gem 'rexml', '~> 3.2', '>= 3.2.4'
   gem 'rack_session_access'
   gem 'devise'  
@@ -98,7 +99,6 @@ group :test do
 end
 
 group :production do 
-  gem 'better_errors'
   gem 'pg'
 end
 

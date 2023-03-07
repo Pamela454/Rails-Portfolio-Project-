@@ -25,6 +25,7 @@ class SessionsController < ApplicationController
   end
 
   def facebook
+    binding.pry 
     if !@auth.nil? 
       if User.find_by(email: auth['info']['email'])
         @user = User.find_by(email: auth['info']['email'])

@@ -13,19 +13,19 @@
             <%= form_for @user, :url => {:controller => 'users', :action => 'create'} do |f| %>
               <h4 class="fw-bold mb-2 text">Please Enter the Following Info to Create a New Patient Account</h4>
               <div class="card bg-dark text-white" style="border-radius: 1rem;">
-                <div class="field<%= ' field_with_errors' if @user.errors[:email].any? %>">
+                <div class="field">
                   <%= f.label :email %>
                   <br>
                   <%= f.text_field :email, value: @user.email, :class => "form-control form-control-lg" %>
                 </div>
                 <br>
-                <div class="field<%= ' field_with_errors' if @user.errors[:password].any? %>">
+                <div class="field">
                   <%= f.label :password %>
                   <br>
                   <%= f.password_field :password, value: @user.password_digest, :class => "form-control form-control-lg" %>
                 </div>
                 <br>
-                <div class="field<%= ' field_with_errors' if @user.errors[:name].any? %>">
+                <div class="field">
                   <%= f.label :name %>
                   <br>
                   <%= f.text_field :name, value: @user.name, :class => "form-control form-control-lg" %>

@@ -17,7 +17,7 @@ RSpec.describe 'Edit a Response', type: :feature do
     page.set_rack_session(:physician_id => @physician.id)
     visit user_path(id: @physician.id)
     click_on 'Edit Response'
-    fill_in 'Response', with: 'Looks like a large rash'
+    fill_in 'response[response]', with: 'Looks like a large rash'
     click_on 'Update Response'
     expect(page).to have_content('Response successfully edited')
   end
@@ -32,7 +32,7 @@ RSpec.describe 'Edit a Response', type: :feature do
     page.set_rack_session(:physician_id => @physician.id)
     visit user_path(id: @physician.id)
     click_on 'Edit Response'
-    fill_in 'Response', with: ''
+    fill_in 'response[response]', with: ''
     click_on 'Update Response'
     expect(page).to have_content("Response can't be blank")
   end

@@ -10,8 +10,8 @@ RSpec.describe 'Creating a Message', type: :feature do
     visit user_path(id: @patient.id)
     click_on 'Ask A Question'
     visit new_user_message_path(:user_id => @patient.id)
-    fill_in 'message_title', with: 'Sore Throat'
-    fill_in 'message_question', with: 'I have a sore throat with white patches.'
+    fill_in 'message[title]', with: 'Sore Throat'
+    fill_in 'message[question]', with: 'I have a sore throat with white patches.'
     click_on 'Create Message'
     expect(page).to have_content("Sore Throat")
   end
@@ -25,8 +25,8 @@ RSpec.describe 'Creating a Message', type: :feature do
     visit user_path(id: @patient.id)
     click_on 'Ask A Question'
     visit new_user_message_path(:user_id => @patient.id)
-    fill_in 'message_title', with: ''
-    fill_in 'message_question', with: 'I have a sore throat with white patches.'
+    fill_in 'message[title]', with: ''
+    fill_in 'message[question]', with: 'I have a sore throat with white patches.'
     click_on 'Create Message'
     expect(page).to have_content("Title can't be blank")
   end
@@ -40,8 +40,8 @@ RSpec.describe 'Creating a Message', type: :feature do
     visit user_path(id: @patient.id)
     click_on 'Ask A Question'
     visit new_user_message_path(:user_id => @patient.id)
-    fill_in 'message_title', with: 'Sore Throat'
-    fill_in 'message_question', with: ''
+    fill_in 'message[title]', with: 'Sore Throat'
+    fill_in 'message[question]', with: ''
     click_on 'Create Message'
     expect(page).to have_content("Question can't be blank")
   end

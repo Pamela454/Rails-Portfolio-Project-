@@ -2,7 +2,6 @@
 
 # class containing users CRUD methods
 class UsersController < ApplicationController
-#need helper method?  #need skinny controllers
   
   def signin; end
 

@@ -16,7 +16,7 @@ class ResponsesController < ApplicationController
 
   def create
     @message = Message.find_by(id: params[:response][:message_id])
-    @response = Response.create(response_params)
+    @response = Response.new(response_params)
     if @response.save
       flash[:notice] = 'Response successfully created'
       redirect_to controller: 'users', action: 'show', id: 'current_user'
@@ -24,6 +24,20 @@ class ResponsesController < ApplicationController
       render 'new'
     end
   end
+
+  def edit
+    if params[:user_id]
+      physician = Physician.find_by(id: params[:user_id])
+      if physician == nil
+        redirect_to controller: 'users', action: 'show', id: current_user.id
+      else
+        @response = Response.find_by(id: params[:id])
+      end
+    else
+      flash[:notice] = 'You do not have access to this feature.'
+      redirect_to controller: 'users', action: 'show', id: current_user.id
+    end
+end
 
   def update  #edit user info
     if user_type == "Physician"

@@ -1,5 +1,5 @@
 <header>
-  <div class="container nav">
+  <div class="container nav fluid">
     <nav class="navbar navbar-custom bg-dark text-white fixed-top center">
       <div class="text-center font-weight-bold">
         <% if !current_user %>
@@ -8,59 +8,75 @@
         <% if flash[:notice] %>
           <div class="notice">
             <h2><%= flash[:notice] %></h2>
-          </div>
-        <% end %>
-        <% if current_user == "Physician" %>
-          <% if @response.errors.any? %>
-            <div id="error_explanation">
-              <h2>There were some errors:</h2>
-              <ul>
-                <% @response.errors.full_messages.each do |message| %>
-                  <li><%= message %></li>
-                <% end %>
-              </ul>
-            </div>
           <% end %>
-        </div>
-        <% if @user.errors.any? %>
-          <div id="error_explanation">
-            <h2>There were some errors:</h2>
-            <ul>
-              <% @user.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
+          <% if current_user %>
+            <% if current_user.type == "Physician" %>
+              <div class="text-center font-weight-bold">
+                <h3>Name: <%= current_user.name %></h3>
+                <h4>Email: <%= current_user.email %></h4>
+                <h4>ID: <%= current_user.id %></h4>
+                <h4>Type: <%= current_user.type %></h4>
+                <h4>Specialty: <%= current_user.specialty %></h4>
+                <h4>NPI: <%= current_user.npi %></h4>
+              </div>
+            <% end %>
+            <% if @response %>
+              <% if @response.errors.any? %>
+                <div id="error_explanation">
+                  <h2>There were some errors:</h2>
+                  <ul>
+                    <% @response.errors.objects.map do |message| %>
+                      <li><%= message.full_message %></li>
+                    <% end %>
+                  </ul>
+                </div>
               <% end %>
-            </ul>
-          </div>
-        <% end %>
-      <% end %>
-      <% if current_user == "Patient" %>
-        <% if @message.errors.any? %>
-          <div id="error_explanation">
-            <h2>There were some errors:</h2>
-            <ul>
-              <% @message.errors.full_messages.each do |m| %>
-                <li><%= m %></li>
+            <%end%>
+            <% if @user %>
+              <% if @user.errors.any? %>
+                <div id="error_explanation">
+                  <h2>There were some errors:</h2>
+                  <ul>
+                    <% @user.errors.objects.map do |message| %>
+                      <li><%= message.full_message %></li>
+                    <% end %>
+                  </ul>
+                </div>
               <% end %>
-            </ul>
+            <% end %>
+          <% end %>
+          <% if current_user %>
+            <% if current_user.type == "Patient" %>
+              <div class="text-center font-weight-bold">
+                <h3>Name: <%= current_user.name %></h3>
+                <h4>Email: <%= current_user.email %></h4>
+                <h4>ID: <%= current_user.id %></h4>
+                <h4>Type: <%= current_user.type %></h4>
+                <% if @message %>
+                  <% if @message.errors.any? %>
+                    <div id="error_explanation">
+                      <h2>There were some errors:</h2>
+                      <ul>
+                        <% @message.errors.objects.map do |m| %>
+                          <li><%= m.full_message %></li>
+                        <% end %>
+                      </ul>
+                    </div>
+                  <% end %>
+                <% end %>
+              <% end %>
+            <% end %>
+            <% if @user %>
+              <% if @user.errors.any? %>
+                <ul>
+                  <h2>There were some errors:</h2>
+                  <% @user.errors.objects.map do |message| %>
+                    <li><%= message.full_message %></li>
+                  <% end %>
+                </ul>
+              <% end %>
+            <% end %>
           </div>
-        <% end %>
-      <% end %>
-      <% if current_user %>
-        <% if current_user.type == "Physician" %>
-          <h3>Name: <%= current_user.name %></h3>
-          <h4>Email: <%= current_user.email %></h4>
-          <h4>ID: <%= current_user.id %></h4>
-          <h4>Type: <%= current_user.type %></h4>
-          <h4>Specialty: <%= current_user.specialty %></h4>
-          <h4>NPI: <%= current_user.npi %></h4>
-        <% end %>
-        <% if current_user.type == "Patient" %>
-          <h3>Name: <%= current_user.name %></h3>
-          <h4>Email: <%= current_user.email %></h4>
-          <h4>ID: <%= current_user.id %></h4>
-          <h4>Type: <%= current_user.type %></h4>
-        <% end %>
-      <% end %>
-    </nav>
-  </div>
-</header>
+        </nav>
+      </div>
+    </header>

@@ -10,7 +10,7 @@ RSpec.describe 'Creating a Response', type: :feature do
     page.set_rack_session(:patient_id => @physician.id)
     visit user_path(id: @physician.id)
     first(:link, 'Respond to Question').click
-    fill_in 'Response', with: 'Looks like a rash'
+    fill_in 'response[response]', with: 'Looks like a rash'
     click_on 'Create Response'
     expect(page).to have_content('Looks like a rash')
   end
@@ -24,7 +24,7 @@ RSpec.describe 'Creating a Response', type: :feature do
     page.set_rack_session(:patient_id => @physician.id)
     visit user_path(id: @physician.id)
     first(:link, 'Respond to Question').click
-    fill_in 'Response', with: ''
+    fill_in 'response[response]', with: ''
     click_on 'Create Response'
     expect(page).to have_content("Response can't be blank")
   end

@@ -36,6 +36,7 @@ class MessagesController < ApplicationController
       flash[:notice] = 'Message successfully created'
       redirect_to controller: 'users', action: 'show', id: current_user.id
     else
+      flash[:errors]
       render :new
     end
   end

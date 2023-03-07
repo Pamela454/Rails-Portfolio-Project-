@@ -8,7 +8,7 @@
   <div class="row d-flex justify-content-center align-items-center">
     <div class="col-12 col-md-8 col-lg-6 col-xl-5">
       <div class="card-body p-5 text-center">
-        <%= form_with model: @message, url: new_user_message_path(current_user.id) do |f| %>
+        <%= form_with model: @message, url: user_messages_path(current_user.id), data: { turbo: false } do |f| %>
           <div class="container-fluid mx-auto text-nowrap text-dark" style="width: 500px;">
             <div class="col sign-in card-title card-body">
               <h4 class="fw-bold mb-2 text">New Question</h4>
@@ -18,8 +18,6 @@
               <div class="field<%= ' field_with_errors' if @message.errors[:question].any? %>">
                 <%= f.label :question %>
                 <%= f.text_field :question, value: @message.question, :class => "form-control form-control-lg" %></div>
-              <div class="form-group">
-                <%= f.hidden_field :user_id, value: current_user.id, :class => "form-control form-control-lg" %></div>
               <div class="form-group">
                 <%= f.hidden_field :patient_id, value: current_user.id, :class => "form-control form-control-lg" %>
               </div>
