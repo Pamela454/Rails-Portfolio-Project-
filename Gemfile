@@ -85,7 +85,7 @@ end
 
 group :test do
   gem 'simplecov'
-  gem 'better_errors'
+  gem 'better_errors', require: false
   gem 'rexml', '~> 3.2', '>= 3.2.4'
   gem 'rack_session_access'
   gem 'devise'  
