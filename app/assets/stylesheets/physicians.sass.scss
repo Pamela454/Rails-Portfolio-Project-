@@ -1,3 +1,15 @@
 // Place all the styles related to the Physicians controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.card {
+    margin-bottom: 2rem;
+}
+
+.card-body {
+    font-weight: 400;
+    font-size: 1.0rem;
+    padding-bottom: 2rem;
+    padding-left: 2rem;
+    margin-top: 2rem;
+}
