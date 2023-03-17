@@ -8,14 +8,16 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "_navbar", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag "physicians", "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag "patients", "data-turbo-track": "reload", defer: true %>
   </head>
   <body>
-    <div class="bg-container">
+    <div class="container-fluid welcome">
       <%= render "layouts/navbar" %>
       <%= yield %>
       <% if current_user %>
         <div class="container-fluid mx-auto text-light" style="width: 500px;">
-          <div class="col sign-in card-title card-body">
+          <div class="sign-in card-title card-body">
             <div class="row mt-3 justify-content-center">
               <% if !current_page?(user_path(current_user.id)) %>
                 <%= link_to "Go Back to User Show Page", user_path(current_user) %>

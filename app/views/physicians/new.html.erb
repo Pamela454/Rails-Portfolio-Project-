@@ -1,62 +1,68 @@
 <style>
   body {
-    	  background-image: url(<%=asset_path('camilo-jimenez-vGu08RYjO-s-unsplash.jpg')%>)!important;
-        background-repeat: no-repeat;
-        height: 100%;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        background-size: cover;
-        overflow:auto;
-    }
+     	  background-image: url(<%=asset_path('camilo-jimenez-vGu08RYjO-s-unsplash.jpg')%>)!important;
+         background-repeat: no-repeat;
+         height: 100%;
+         width: 100%;
+         background-size: cover;
+         overflow:auto;
+     }
 </style>
-<div class="container-fluid welcome">
-  <div class="row d-flex justify-content-center align-items-center">
-    <div class="card bg-dark text-white" style="border-radius: 1rem;">
-      <div class="card-body p-5 text-center">
-        <%= form_for @user, :url => {:controller => 'users', :action => 'create'} do |f| %>
-          <h4 class="fw-bold mb-2 text-wrap">Please Enter the Following Info to Create a New Physician Account</h4>
-          <div class="form-outline form-white mb-4">
-            <div class="field<%= ' field_with_errors' if @user.errors[:password].any? %>">
-              <%= f.label :email %>
-              <%= f.text_field :email, value: @user.email, :class => "form-control form-control-lg" %>
-            </div>
-          </div>
-          <br>
-          <div class="form-outline form-white mb-4">
-            <div class="field<%= ' field_with_errors' if @user.errors[:password].any? %>">
-              <%= f.label :password %>
-              <%= f.password_field :password, value: @user.password_digest, :class => "form-control form-control-lg" %>
-            </div>
-          </div>
-          <div class="form-outline form-white mb-4">
-            <div class="field<%= ' field_with_errors' if @user.errors[:name].any? %>">
-              <%= f.label :name %>
-              <%= f.text_field :name, value: @user.name, :class => "form-control form-control-lg" %>
-            </div>
-          </div>
-          <div class="form-outline form-white mb-4">
-            <div class="field<%= ' field_with_errors' if @user.errors[:npi].any? %>">
-              <%= f.label :npi %>
-              <%= f.number_field :npi, value: @user.npi, :class => "form-control form-control-lg" %>
-            </div>
-            <div>
-              <div class="form-outline form-white mb-4">
-                <div class="field<%= ' field_with_errors' if @user.errors[:specialty].any? %>">
-                  <%= f.label :specialty %>
-                  <%= f.text_field :specialty, value: @user.specialty, :class => "form-control form-control-lg" %>
-                </div>
+<div class="row d-flex justify-content-center">
+  <div class="card bg-dark text-white" style="max-width: 420px; max-height: 800px; border-radius: 1rem;">
+    <h4 class="card-header fw-bold text-center">Please Enter the Following Info to Create a New Physician Account</h4>
+    <%= form_for @user, :url => {:controller => 'users', :action => 'create'} do |f| %>
+      <div class="card-body p-3 text-center">
+        <div class="form-group">
+          <div class="input-form-lg mb-4">
+            <div class="form-outline form-white mb-4">
+              <div class="field<%= ' field_with_errors' if @user.errors[:password].any? %>">
+                <%= f.label :email %>
+                <%= f.text_field :email, value: @user.email, :class => "form-control form-control-lg flex-wrap" %>
               </div>
-              <div class="form-outline form-white mb-4">
-                <div class="field<%= ' field_with_errors' if @user.errors[:password].any? %>">
-                  <%= f.hidden_field :type, value: "Physician", class: "form-control form-control-lg" %>
-                </div>
-              </div>
-              <div class="actions">
-                <%= f.submit class: "btn btn-outline-light btn-lg px-5" %>
-              <% end %>
             </div>
           </div>
+          <div class="input-form-lg mb-4">
+            <div class="form-outline form-white mb-4">
+              <div class="field<%= ' field_with_errors' if @user.errors[:password].any? %>">
+                <%= f.label :password %>
+                <%= f.password_field :password, value: @user.password_digest, :class => "form-control form-control-lg flex-wrap" %>
+              </div>
+            </div>
+          </div>
+          <div class="input-form-lg mb-4">
+            <div class="form-outline form-white mb-4">
+              <div class="field<%= ' field_with_errors' if @user.errors[:name].any? %>">
+                <%= f.label :name %>
+                <%= f.text_field :name, value: @user.name, :class => "form-control form-control-lg flex-wrap" %>
+              </div>
+            </div>
+          </div>
+          <div class="input-form-lg mb-4">
+            <div class="form-outline form-white mb-4">
+              <div class="field<%= ' field_with_errors' if @user.errors[:npi].any? %>">
+                <%= f.label :npi %>
+                <%= f.number_field :npi, value: @user.npi, :class => "form-control form-control-lg flex-wrap" %>
+              </div>
+            </div>
+          </div>
+          <div class="input-form-lg mb-4">
+            <div class="form-outline form-white mb-4">
+              <div class="field<%= ' field_with_errors' if @user.errors[:specialty].any? %>">
+                <%= f.label :specialty %>
+                <%= f.text_field :specialty, value: @user.specialty, :class => "form-control form-control-lg flex-wrap" %>
+              </div>
+            </div>
+            <div class="form-outline form-white mb-4">
+              <div class="field<%= ' field_with_errors' if @user.errors[:password].any? %>">
+                <%= f.hidden_field :type, value: "Physician", class: "form-control form-control-lg flex-wrap" %>
+              </div>
+            </div>
+          </div>
+          <div class="actions">
+            <%= f.submit class: "btn btn-outline-light btn-lg px-5" %>
+          <% end %>
         </div>
       </div>
     </div>
+  </div>
