@@ -2,6 +2,7 @@
   body {
   	    background-color: rgb(204, 229, 255) !important;
         background-repeat: no-repeat;
+        margin-top: 275px;
     }
 </style>
 <div class="container-fluid">
@@ -91,7 +92,7 @@
               <h3>Title: <%= m.title %></h3>
               <h3>Body: <%= m.question %></h3>
             </p>
-            <%= link_to "Respond to Question", new_user_response_path(current_user, :message => m.id) %>
+            <%= link_to "Respond to Question", new_user_response_path(current_user.id, :message => m.id) %>
           </div>
         </div>
       </div>
@@ -158,8 +159,16 @@
           </div>
         </div>
       <% end %>
-      <div class="row mt-2 center">
-        <%= link_to "Edit Your Profile", edit_user_physician_path(current_user) %>
+      <div class="row mt-3 justify-content-center">
+        <div class="card text-alignment" style="width: 50%">
+          <div class="card-body">
+            <div class="row mt-2 justify-content-center">
+              <p class="card-text text-center">
+                <%= link_to "Edit Your Profile", edit_user_physician_path(current_user) %>
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     <% end %>
   </div>
