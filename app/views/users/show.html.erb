@@ -20,12 +20,12 @@
   <div class="row mt-6">
     <div class="container">
       <% if @user.type == "Physician" %>
-        <div class="row mt-2 justify-content-center">
+        <div class="row mt-2 mb-2 justify-content-left">
           <h2>Your Responses: </h2>
         </div>
         <% @responses.each do |r| unless @responses.nil? %>
-        <div class="row mt-3 justify-content-center">
-          <div class="card text-alignment" style="width: 100%">
+        <div class="row mb-5 justify-content-center">
+          <div class="card text-alignment" style="border-radius: 1rem; width: 100%">
             <div class="card-body">
               <p class="card-text">
                 <h3>Response ID: <%= r.id %></h3>
@@ -40,13 +40,23 @@
         </div>
       </div>
     <% end %>
+    <% @responses.nil? %>
+    <div class="row mb-5 justify-content-center">
+      <div class="card text-alignment" style="border-radius: 1rem; width: 100%">
+        <div class="card-body">
+          <p class="card-text">
+            <h3>None Available</h3>
+          </p>
+        </div>
+      </div>
+    </div>
   <% end %>
   <% if @user.type == "Patient" %>
-    <div class="row mt-2 justify-content-center">
-      <h3>Questions Asked: </h3>
+    <div class="row mt-2 mb-2 justify-content-center">
+      <h2>Questions Asked: </h2>
     </div>
     <% @messages.each do |m| unless @messages.nil? %>
-    <div class="row mt-3 justify-content-center">
+    <div class="row mb-5 justify-content-center">
       <div class="card text-alignment" style="width: 100%">
         <div class="card-body">
           <h3>Question ID: <%= m.id %></h3>
@@ -80,11 +90,11 @@
 </div>
 <div class="container">
   <% if @user.type == "Physician" %>
-    <div class="row mt-2 justify-content-center">
-      <h3>Unanswered Questions:</h3>
+    <div class="row mt-2 mb-2 justify-content-left">
+      <h2>Unanswered Questions:</h2>
     </div>
     <% Message.unanswered_questions.to_a.each do |m|%>
-      <div class="row mt-3 justify-content-center">
+      <div class="row mb-5 justify-content-center">
         <div class="card text-alignment" style="width: 100%">
           <div class="card-body">
             <p class="card-text">
@@ -97,11 +107,21 @@
         </div>
       </div>
     <%end%>
-    <div class="row mt-2 justify-content-center">
-      <h3>Questions Regarding New Conditions:</h3>
+    <% Message.unanswered_questions == [] %>
+    <div class="row mb-5 justify-content-center">
+      <div class="card text-alignment" style="border-radius: 1rem; width: 100%">
+        <div class="card-body">
+          <p class="card-text">
+            <h3>None Available</h3>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-2 mb-2 justify-content-left">
+      <h2>Questions Regarding New Conditions:</h2>
     </div>
     <% Message.new_condition.to_a.each do |m|%>
-      <div class="row mt-3 justify-content-center">
+      <div class="row mb-5 justify-content-center">
         <div class="card text-alignment" style="width: 100%">
           <div class="card-body">
             <p class="card-text">
@@ -114,11 +134,11 @@
         </div>
       </div>
     <%end%>
-    <div class="row mt-2 justify-content-center">
-      <h3>Questions Regarding Existing Conditions:</h3>
+    <div class="row mt-2 mb-2 justify-content-left">
+      <h2>Questions Regarding Existing Conditions:</h2>
     </div>
     <% Message.existing_condition.to_a.each do |m|%>
-      <div class="row mt-3 justify-content-center">
+      <div class="row mb-5 justify-content-center">
         <div class="card text-alignment" style="width: 100%">
           <div class="card-body">
             <p class="card-text">
@@ -131,11 +151,21 @@
         </div>
       </div>
     <%end%>
-    <div class="row mt-2 justify-content-center">
-      <h3>All Questions Asked: </h3>
+    <% Message.existing_condition == [] %>
+    <div class="row mb-5 justify-content-center">
+      <div class="card text-alignment" style="border-radius: 1rem; width: 100%">
+        <div class="card-body">
+          <p class="card-text">
+            <h3>None Available</h3>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-2 mb-2 justify-content-left">
+      <h2>All Questions Asked: </h2>
     </div>
     <% @messages.each do |m| %>
-      <div class="row mt-3 justify-content-center">
+      <div class="row mb-5 justify-content-center">
         <div class="card text-alignment" style="width: 100%">
           <div class="card-body">
             <p class="card-text">
