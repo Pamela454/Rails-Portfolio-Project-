@@ -5,31 +5,33 @@
         margin-top: 275px;
     }
 </style>
-<div class="container-fluid welcome">
+<div class="container-fluid">
   <div class="row d-flex justify-content-center">
-    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-      <div class="col sign-in card-title card-body text-center">
-        <h2 class="fw-bold mb-2 text">Category Questions</h2>
-        <h3><%=@category.category %></h3>
-        <% @category.messages.each do |m| %>
-          <div class="row">
-            <h3>Id: <%= m.id %></h3>
-          </div>
-          <div class="row">
-            <h3>Title: <%= m.title %></h3>
-          </div>
-          <div class="row">
-            <h3>Question: <%= m.question %> </h3>
-          </div>
-          <div class="row mt-2">
-            <%= link_to "Respond to Question", new_user_response_path(current_user, :message => m.id) %>
-          </div>
-          <div class="row">
-            <% m.responses.each do |r| %>
-              <h3>Response: <%= r.response %> </h3>
-            <% end %>
-          </div>
-        <% end %>
+    <div class="card bg-light text-black justify-content-left" style="max-width: 600px; border-radius: 1rem;">
+      <div class="card-body p-5 text-center" style="border-radius: 1rem;">
+        <div class="col sign-in card-title card-body">
+          <h2 class="fw-bold mb-2 text">Category Questions</h2>
+          <h3><%=@category.category %></h3>
+          <% @category.messages.each do |m| %>
+            <div class="row mb-5">
+              <h3>Id: <%= m.id %></h3>
+            </div>
+            <div class="row mb-5">
+              <h3>Title: <%= m.title %></h3>
+            </div>
+            <div class="row mb-5">
+              <h3>Question: <%= m.question %> </h3>
+            </div>
+            <div class="row mb-5">
+              <%= link_to "Respond to Question", new_user_response_path(current_user, :message => m.id) %>
+            </div>
+            <div class="row mb-5">
+              <% m.responses.each do |r| %>
+                <h3>Response: <%= r.response %> </h3>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

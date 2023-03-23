@@ -28,8 +28,8 @@
           <div class="card text-alignment" style="border-radius: 1rem; width: 100%">
             <div class="card-body">
               <p class="card-text">
-                <h3>Response ID: <%= r.id %></h3>
-                <h3>Response: <%= r.response %></h3>
+                <p>Response ID: <%= r.id %></p>
+                <p>Response: <%= r.response %></p>
               </p>
               <%= link_to "Edit Response", edit_user_response_path(current_user, r.id) %>
               <%= form_with url: user_response_path(current_user, r.id), method: :delete do |f| %>
@@ -59,13 +59,13 @@
     <div class="row mb-5 justify-content-center">
       <div class="card text-alignment" style="width: 100%">
         <div class="card-body">
-          <h3>Question ID: <%= m.id %></h3>
-          <h3>Title: <%= m.title %></h3>
-          <h3>Body: <%= m.question %></h3>
-          <h3>Responses: <% m.responses.each do |r| %></h3>
-            <h3>Response ID: <%= r.id %></h3>
-            <h3>Response: <%= r.response %>
-            </h3>
+          <p>Question ID: <%= m.id %></p>
+          <p>Title: <%= m.title %></p>
+          <p>Body: <%= m.question %></p>
+          <p>Responses: <% m.responses.each do |r| %></p>
+            <p>Response ID: <%= r.id %></p>
+            <p>Response: <%= r.response %>
+            </p>
           <% end %>
           <%= link_to "Edit Question", edit_user_message_path(current_user, m.id) %>
           <%= form_with url: user_message_path(current_user, m.id), method: :delete do |f| %>
@@ -98,9 +98,9 @@
         <div class="card text-alignment" style="width: 100%">
           <div class="card-body">
             <p class="card-text">
-              <h3>Question ID: <%= m.id %></h3>
-              <h3>Title: <%= m.title %></h3>
-              <h3>Body: <%= m.question %></h3>
+              <p>Question ID: <%= m.id %></p>
+              <p>Title: <%= m.title %></p>
+              <p>Body: <%= m.question %></p>
             </p>
             <%= link_to "Respond to Question", new_user_response_path(current_user.id, :message => m.id) %>
           </div>
@@ -125,9 +125,9 @@
         <div class="card text-alignment" style="width: 100%">
           <div class="card-body">
             <p class="card-text">
-              <h3>Question ID: <%= m.id %></h3>
-              <h3>Title: <%= m.title %></h3>
-              <h3>Body: <%= m.question %></h3>
+              <p>Question ID: <%= m.id %></p>
+              <p>Title: <%= m.title %></p>
+              <p>Body: <%= m.question %></p>
             </p>
             <%= link_to "Respond to Question", new_user_response_path(current_user, :message => m.id) %>
           </div>
@@ -142,9 +142,9 @@
         <div class="card text-alignment" style="width: 100%">
           <div class="card-body">
             <p class="card-text">
-              <h3>Question ID: <%= m.id %></h3>
-              <h3>Title: <%= m.title %></h3>
-              <h3>Body: <%= m.question %></h3>
+              <p>Question ID: <%= m.id %></p>
+              <p>Title: <%= m.title %></p>
+              <p>Body: <%= m.question %></p>
             </p>
             <%= link_to "Respond to Question", new_user_response_path(current_user, :message => m.id) %>
           </div>
@@ -169,37 +169,45 @@
         <div class="card text-alignment" style="width: 100%">
           <div class="card-body">
             <p class="card-text">
-              <h3>Question ID: <%= m.id %></h3>
-              <h3>Title: <%= m.title %></h3>
-              <h3>Body: <%= m.question %></h3>
-              <h3>Categories: <% m.categories.each do |c|  %></h3>
-                <h3><%= c.category %></h3>
-                <%= link_to "Display All Questions From this Category", category_path(c.id) %>
+              <p>Question ID: <%= m.id %></p>
+              <p>Title: <%= m.title %>
+              </p>
+              <p>Body: <%= m.question %></p>
+              <p>Categories: <% m.categories.each do |c|  %></p>
+                <p><%= c.category %></p>
+                <div class="col-md-4">
+                  <%= link_to "Display All Questions From this Category", category_path(c.id) %>
+                </div>
+                <div class="col-md-4">
+                  <%= link_to "Respond to Question", new_user_response_path(current_user, :message => m.id) %>
+                </div>
               <% end %>
-              <p class="card-text">
-                <h3>Responses: <% m.responses.each do |r| %></h3>
-                  <h3>Response ID:<%= r.id %></h3>
-                  <h3>Response:<%= r.response %></h3>
-                <% end %>
-              </p>
-              <div class="row mt-2">
-                <%= link_to "Respond to Question", new_user_response_path(current_user, :message => m.id) %>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
-      <div class="row mt-3 justify-content-center">
-        <div class="card text-alignment" style="width: 50%">
-          <div class="card-body">
-            <div class="row mt-2 justify-content-center">
-              <p class="card-text text-center">
-                <%= link_to "Edit Your Profile", edit_user_physician_path(current_user) %>
-              </p>
-            </div>
+            </p>
+            <p class="card-text mt-4">
+              <p>Responses: <% m.responses.each do |r| %></p>
+                <p>Response ID:<%= r.id %></p>
+                <p>Response:<%= r.response %></p>
+              <% end %>
+            </p>
           </div>
         </div>
       </div>
     <% end %>
-  </div>
+    <div class="row mb-5 justify-content-center">
+      <div class="card text-alignment" style="width: 50%">
+        <div class="card-body">
+          <p class="card-text justify-content-center">
+            <div class="row mt-3 justify-content-center">
+              <div class="col-sm text-center">
+                <%= link_to "Edit Your Profile", edit_user_physician_path(current_user) %>
+              </div>
+              <div class="col-sm text-center">
+                <%= link_to 'Log Out', '/logout', :method => :delete  %>
+              </div>
+            </div>
+          </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
