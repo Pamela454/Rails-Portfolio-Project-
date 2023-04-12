@@ -2,39 +2,47 @@
   body {
   	    background-color: rgb(204, 229, 255) !important;
         background-repeat: no-repeat;
+        margin-top: 275px;
     }
 </style>
 <div class="container-fluid welcome">
-  <div class="row d-flex justify-content-center align-items-center">
+  <div class="row d-flex justify-content-center">
     <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-      <div class="card-body p-5 text-center">
-        <%= form_with model: @message, url: user_messages_path(current_user.id), data: { turbo: false } do |f| %>
-          <div class="container-fluid mx-auto text-nowrap text-dark" style="width: 500px;">
-            <div class="col sign-in card-title card-body">
-              <h4 class="fw-bold mb-2 text">New Question</h4>
-              <div class="field<%= ' field_with_errors' if @message.errors[:title].any? %>">
-                <%= f.label :title %>
-                <%= f.text_field :title, value: @message.title, :class => "form-control form-control-lg" %></div>
-              <div class="field<%= ' field_with_errors' if @message.errors[:question].any? %>">
-                <%= f.label :question %>
-                <%= f.text_field :question, value: @message.question, :class => "form-control form-control-lg" %></div>
-              <div class="form-group">
-                <%= f.hidden_field :patient_id, value: current_user.id, :class => "form-control form-control-lg" %>
+      <div class="col sign-in card-title card-body text-center">
+        <div class="card-body p-5 text-center">
+          <%= form_with model: @message, url: user_messages_path(current_user.id), data: { turbo: false } do |f| %>
+            <div class="row mb-5 justify-content-center">
+              <div class="card text-alignment" style="border-radius: 1rem; width: 100%">
+                <div class="card-body">
+                  <p class="card-text">
+                    <div class="col sign-in card-title card-body">
+                      <h4 class="fw-bold mb-2 text">New Question</h4>
+                      <div class="field<%= ' field_with_errors' if @message.errors[:title].any? %>">
+                        <%= f.label :title %>
+                        <%= f.text_field :title, value: @message.title, :class => "form-control form-control-lg" %></div>
+                      <div class="field<%= ' field_with_errors' if @message.errors[:question].any? %>">
+                        <%= f.label :question %>
+                        <%= f.text_field :question, value: @message.question, :class => "form-control form-control-lg" %></div>
+                      <div class="form-group">
+                        <%= f.hidden_field :patient_id, value: current_user.id, :class => "form-control form-control-lg" %>
+                      </div>
+                      <div class="form-group">
+                        <% Category.all.each do |category| %>
+                          <%= check_box_tag "message[category_ids][]", category.id %>
+                          <%= category.category %><br/>
+                        <% end %>
+                      </div>
+                      <div class="actions">
+                        <%= f.submit class: "btn btn-outline-dark btn-lg px-5" %>
+                      </div>
+                    <% end %>
+                  </p>
+                </div>
               </div>
-              <div class="form-group">
-                <% Category.all.each do |category| %>
-                  <%= check_box_tag "message[category_ids][]", category.id %>
-                  <%= category.category %><br/>
-                <% end %>
-              </div>
-              <div class="actions">
-                <%= f.submit class: "btn btn-outline-light btn-lg px-5" %>
-              </div>
-            <% end %>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </div>

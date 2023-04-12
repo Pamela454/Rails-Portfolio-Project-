@@ -3,7 +3,7 @@
   	    background-color: rgb(204, 229, 255) !important;
         background-repeat: no-repeat;
         margin-top: 275px;
-    }
+      }
 </style>
 <div class="container-fluid">
   <div class="row">
@@ -21,7 +21,7 @@
     <div class="container">
       <% if @user.type == "Physician" %>
         <div class="row mt-2 mb-2 justify-content-left">
-          <h2>Your Responses: </h2>
+          <h2>Your Responses:</h2>
         </div>
         <% @responses.each do |r| unless @responses.nil? %>
         <div class="row mb-5 justify-content-center">
@@ -53,9 +53,9 @@
   <% end %>
   <% if @user.type == "Patient" %>
     <div class="row mt-2 mb-2 justify-content-center">
-      <h2>Questions Asked: </h2>
+      <h2>Questions Asked:</h2>
     </div>
-    <% @messages.each do |m| unless @messages.nil? %>
+    <% @messages.each do |m| unless @messages == [] %>
     <div class="row mb-5 justify-content-center">
       <div class="card text-alignment" style="width: 100%">
         <div class="card-body">
@@ -64,33 +64,44 @@
           <h3>Body: <%= m.question %></h3>
           <h3>Responses: <% m.responses.each do |r| %></h3>
             <h3>Response ID: <%= r.id %></h3>
-            <h3>Response: <%= r.response %>
-            </h3>
+            <h3>Response: <%= r.response %></h3>
+            <%= link_to "Edit Question", edit_user_message_path(current_user, m.id) %>
+            <%= form_with url: user_message_path(current_user, m.id), method: :delete do |f| %>
+              <%= f.submit "Delete Question" %>
+            <% end %>
           <% end %>
-          <%= link_to "Edit Question", edit_user_message_path(current_user, m.id) %>
-          <%= form_with url: user_message_path(current_user, m.id), method: :delete do |f| %>
-            <%= f.submit "Delete Question" %>
-          <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
 <% end %>
+<% @messages == [] %>
+<div class="row mb-5 justify-content-center">
+  <div class="card text-alignment" style="border-radius: 1rem; width: 100%">
+    <div class="card-body">
+      <p class="card-text">
+        <h3>None Available</h3>
+      </p>
+    </div>
+  </div>
+</div>
 <div class="row justify-content-center">
   <div class="col-sm-2">
-    <%= link_to "View All Questions",  user_messages_path(current_user) %>
+    <div class="row-mb-4 text-center">
+      <%= link_to "View All Questions",  user_messages_path(current_user) %>
+    </div>
+    <div class="row-mb-4 text-center">
+      <%= link_to "Ask A Question", new_user_message_path(current_user.id) %>
+    </div>
+    <div class="row-mb-4 text-center">
+      <%= link_to "Edit Your Profile", edit_user_patient_path(current_user) %>
+    </div>
+    <div class="row-mb-4 text-center">
+      <%= link_to 'Log Out', '/logout', :method => :delete  %>
+    </div>
   </div>
-  <div class="col-sm-2">
-    <%= link_to "Ask A Question", new_user_message_path(current_user) %>
-  </div>
-  <div class="col-sm-2">
-    <%= link_to "Edit Your Profile", edit_user_patient_path(current_user) %>
-  </div>
-  <div class="col-sm text-center">
-    <%= link_to 'Log Out', '/logout', :method => :delete  %>
-  </div>
-<% end %>
 </div>
+<% end %>
 <div class="container">
   <% if @user.type == "Physician" %>
     <div class="row mt-2 mb-2 justify-content-left">
@@ -165,7 +176,7 @@
       </div>
     </div>
     <div class="row mt-2 mb-2 justify-content-left">
-      <h2>All Questions Asked: </h2>
+      <h2>All Questions Asked:</h2>
     </div>
     <% @messages.each do |m| %>
       <div class="row mb-5 justify-content-center">
